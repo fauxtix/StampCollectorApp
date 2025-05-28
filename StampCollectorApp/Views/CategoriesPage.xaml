@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:StampCollectorApp.ViewModels"
+             x:Class="StampCollectorApp.Views.CategoriesPage"
+             x:Name="CategoriesPageRef"
+             Title="Categories">
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <Button Text="Add Category"
+                Command="{Binding AddCategoryCommand}"
+                BackgroundColor="#007AFF"
+                TextColor="White"
+                FontAttributes="Bold"
+                HeightRequest="44"
+                CornerRadius="8"
+                Margin="0,0,0,8"/>
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Categories}"
+                        VerticalScrollBarVisibility="Always">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="12"
+                           Padding="12"
+                           Margin="0,0,0,12"
+                           BackgroundColor="White"
+                           HasShadow="True"
+                           BorderColor="#e0e0e0">
+                        <Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto">
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"
+                                   VerticalOptions="Center"
+                                   TextColor="#222"/>
+                            <Button Grid.Column="1"
+                                    Text="Edit"
+                                    Command="{Binding BindingContext.EditCategoryCommand, Source={x:Reference CategoriesPageRef}}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#2196F3"
+                                    TextColor="White"
+                                    CornerRadius="6"
+                                    Padding="10,0"
+                                    Margin="0,0,8,0"
+                                    VerticalOptions="Center"/>
+                            <Button Grid.Column="2"
+                                    Text="Delete"
+                                    Command="{Binding BindingContext.DeleteCategoryCommand, Source={x:Reference CategoriesPageRef}}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#E53935"
+                                    TextColor="White"
+                                    CornerRadius="6"
+                                    Padding="10,0"
+                                    VerticalOptions="Center"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

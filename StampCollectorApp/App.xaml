@@ -1,0 +1,26 @@
+﻿<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StampCollectorApp"
+             xmlns:converters="clr-namespace:StampCollectorApp.Converters"
+             x:Class="StampCollectorApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Padding" Value="10,5"/>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="BackgroundColor" Value="#F0F0F0"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+            <Color x:Key="PageBackgroundColor">#f3f4f6</Color>
+            <converters:NullToBoolConverter x:Key="NullToBoolConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
