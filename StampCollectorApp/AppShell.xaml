@@ -5,6 +5,7 @@
     xmlns:views="clr-namespace:StampCollectorApp.Views"
     x:Class="StampCollectorApp.AppShell">
 
-    <ShellContent Title="Stamps" ContentTemplate="{DataTemplate views:MainPage}" />
-    <ShellContent Title="Categories" ContentTemplate="{DataTemplate views:CategoriesPage}" />
+    <ShellContent Title="Selos" ContentTemplate="{DataTemplate views:MainPage}" />
+    <ShellContent Title="Categorias" ContentTemplate="{DataTemplate views:CategoriesPage}" />
+    <ShellContent Title="Coleções" ContentTemplate="{DataTemplate views:CollectionsPage}" />
 </Shell>

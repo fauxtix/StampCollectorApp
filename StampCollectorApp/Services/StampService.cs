@@ -59,7 +59,11 @@ namespace StampCollectorApp.Services
         }
 
 
-        public Task<List<Stamp>> GetStampsAsync() => _db.Table<Stamp>().ToListAsync();
+        public async Task<List<Stamp>> GetStampsAsync()
+        {
+            var result = await _db.Table<Stamp>().ToListAsync();
+            return result;
+        }
 
         public Task InsertStampAsync(Stamp stamp) => _db.InsertAsync(stamp);
 
@@ -78,6 +82,11 @@ namespace StampCollectorApp.Services
         public async Task<List<Category>> GetCategoriesAsync()
         {
             var result = await _db.Table<Category>().ToListAsync();
+            return result;
+        }
+        public async Task<List<Collection>> GetCollectionsAsync()
+        {
+            var result = await _db.Table<Collection>().ToListAsync();
             return result;
         }
 

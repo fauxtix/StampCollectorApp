@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:StampCollectorApp.ViewModels"
-             x:Class="StampCollectorApp.Views.CategoriesPage"
-             x:Name="CategoriesPageRef"
-             Title="Categorias">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="StampCollectorApp.Views.CollectionsPage"
+    x:Name="CollectionsPageRef"
+    Title="Coleções">
+
     <Grid RowDefinitions="Auto,*" Padding="20">
-        <Button Text="Nova Categoria"
-                Command="{Binding AddCategoryCommand}"
+        <Button Text="Nova Coleção"
+                Command="{Binding AddCollectionCommand}"
                 BackgroundColor="#007AFF"
                 TextColor="White"
                 FontAttributes="Bold"
@@ -15,7 +16,7 @@
                 CornerRadius="8"
                 Margin="0,0,0,8"/>
         <CollectionView Grid.Row="1"
-                        ItemsSource="{Binding Categories}"
+                        ItemsSource="{Binding Collections}"
                         VerticalScrollBarVisibility="Always">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -32,7 +33,7 @@
                                    TextColor="#222"/>
                             <Button Grid.Column="1"
                                     Text="Editar"
-                                    Command="{Binding BindingContext.EditCategoryCommand, Source={x:Reference CategoriesPageRef}}"
+                                    Command="{Binding BindingContext.EditCollectionCommand, Source={x:Reference CollectionsPageRef}}"
                                     CommandParameter="{Binding .}"
                                     BackgroundColor="#2196F3"
                                     TextColor="White"
@@ -43,12 +44,12 @@
                                     VerticalOptions="Center"/>
                             <Button Grid.Column="2"
                                     Text="Apagar"
-                                    Command="{Binding BindingContext.DeleteCategoryCommand, Source={x:Reference CategoriesPageRef}}"
+                                    Command="{Binding BindingContext.DeleteCollectionCommand, Source={x:Reference CollectionsPageRef}}"
                                     CommandParameter="{Binding .}"
                                     BackgroundColor="#E53935"
                                     TextColor="White"
                                     CornerRadius="6"
-                                     FontSize="14"
+                                    FontSize="14"
                                     Padding="7"
                                     VerticalOptions="Center"/>
                         </Grid>

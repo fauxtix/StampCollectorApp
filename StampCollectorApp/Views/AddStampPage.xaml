@@ -47,6 +47,13 @@
             </Frame>
             <Frame BackgroundColor="White" CornerRadius="10" Padding="4" HasShadow="False">
                 <Picker
+                    Title="Coleção"
+                    ItemsSource="{Binding Collections}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedCollection, Mode=TwoWay}" />
+            </Frame>
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="4" HasShadow="False">
+                <Picker
                     Title="Categoria"
                     ItemsSource="{Binding Categories}"
                     ItemDisplayBinding="{Binding Name}"

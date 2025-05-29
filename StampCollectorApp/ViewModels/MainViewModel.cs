@@ -64,9 +64,11 @@ namespace StampCollectorApp.ViewModels
         public async Task AddStamp()
         {
             var categories = await _stampService.GetCategoriesAsync();
+            var collections = await _stampService.GetCollectionsAsync();
             var navParams = new Dictionary<string, object>
             {
-                { "Categories", categories }
+                { "Categories", categories },
+                { "Collections", collections }
             };
             await Shell.Current.GoToAsync(nameof(Views.AddStampPage), navParams);
         }
@@ -78,9 +80,12 @@ namespace StampCollectorApp.ViewModels
                 return;
 
             var categories = await _stampService.GetCategoriesAsync();
+            var collections = await _stampService.GetCollectionsAsync();
+
             var navParams = new Dictionary<string, object>
             {
                 { "Categories", categories },
+                { "Collections", collections },
                 { "SelectedStamp", stamp }
             };
 

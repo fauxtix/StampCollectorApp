@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="StampCollectorApp.Views.EditCollectionPage"
+    Title="Coleção">
+
+    <VerticalStackLayout Padding="20" Spacing="14">
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Entry Placeholder="Nome da Coleção" Text="{Binding Collection.Name}" FontSize="14" />
+        </Frame>
+        <Button
+            Text="Gravar"
+            Command="{Binding SaveCommand}"
+            BackgroundColor="#28a745"
+            TextColor="White"
+            FontAttributes="Bold"
+            HeightRequest="45"
+            Margin="0,10,0,0" />
+    </VerticalStackLayout>
+</ContentPage>

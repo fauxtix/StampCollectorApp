@@ -6,10 +6,13 @@ using StampCollectorApp.Services;
 namespace StampCollectorApp.ViewModels
 {
     [QueryProperty(nameof(Categories), "Categories")]
+    [QueryProperty(nameof(Collections), "Collections")]
     [QueryProperty(nameof(SelectedStamp), "SelectedStamp")]
     public partial class AddStampViewModel : ObservableObject
     {
         private readonly IStampService _stampService;
+
+        private int _currentPage = 1;
         public List<StampCondition> Conditions { get; } = Enum.GetValues(typeof(StampCondition)).Cast<StampCondition>().ToList();
         public bool CanFetchImageFromApi => SelectedCategory != null;
 
@@ -32,9 +35,14 @@ namespace StampCollectorApp.ViewModels
 
         [ObservableProperty]
         private List<Category> categories;
+        [ObservableProperty]
+        private List<Collection> collections;
 
         [ObservableProperty]
         private Category selectedCategory;
+
+        [ObservableProperty]
+        private Collection selectedCollection;
 
         [ObservableProperty]
         private Stamp selectedStamp;
@@ -57,13 +65,27 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty]
         private int categoryId;
 
+        [ObservableProperty]
+        private int collectionId;
+
         partial void OnSelectedCategoryChanged(Category value)
         {
             if (value != null)
                 CategoryId = value.Id;
 
+            _currentPage = 1;
+
             OnPropertyChanged(nameof(CanFetchImageFromApi));
         }
+
+        partial void OnSelectedCollectionChanged(Collection value)
+        {
+            if (value != null)
+                CollectionId = value.Id;
+
+            OnPropertyChanged(nameof(CanFetchImageFromApi));
+        }
+
 
         partial void OnSelectedStampChanged(Stamp? value)
         {
@@ -75,7 +97,9 @@ namespace StampCollectorApp.ViewModels
                 Condition = value.Condition;
                 ImagePath = value.ImagePath ?? string.Empty; // Ensure null-safe assignment
                 CategoryId = value.CategoryId;
+                CollectionId = value.CollectionId;
                 SelectedCategory = Categories?.FirstOrDefault(c => c.Id == value.CategoryId) ?? new Category();
+                SelectedCollection = Collections?.FirstOrDefault(c => c.Id == value.CollectionId) ?? new Collection();
             }
             else
             {
@@ -85,7 +109,9 @@ namespace StampCollectorApp.ViewModels
                 Condition = StampCondition.Novo;
                 ImagePath = string.Empty;
                 CategoryId = 0;
+                CollectionId = 0;
                 SelectedCategory = null;
+                SelectedCollection = null;
             }
         }
 
@@ -112,16 +138,21 @@ namespace StampCollectorApp.ViewModels
                 await Shell.Current.DisplayAlert("Validação", "Selecione Categoria.", "OK");
                 return;
             }
+            if (SelectedCollection == null)
+            {
+                await Shell.Current.DisplayAlert("Validação", "Selecione Coleção.", "OK");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(ImagePath))
             {
                 await Shell.Current.DisplayAlert("Validação", "Selecione uma imagem para o selo.", "OK");
                 return;
             }
-            if (!File.Exists(ImagePath) && !ImagePath.StartsWith("http"))
-            {
-                await Shell.Current.DisplayAlert("Validação", "A imagem não existe.", "OK");
-                return;
-            }
+            //if (!File.Exists(ImagePath) && !ImagePath.StartsWith("http"))
+            //{
+            //    await Shell.Current.DisplayAlert("Validação", "A imagem não existe.", "OK");
+            //    return;
+            //}
             if (ImagePath.StartsWith("http") && !Uri.IsWellFormedUriString(ImagePath, UriKind.Absolute))
             {
                 await Shell.Current.DisplayAlert("Validação", "URL inválido (imagem).", "OK");
@@ -135,7 +166,8 @@ namespace StampCollectorApp.ViewModels
                 Year = Year.Value,
                 Condition = Condition,
                 ImagePath = ImagePath,
-                CategoryId = CategoryId
+                CategoryId = CategoryId,
+                CollectionId = CollectionId
             };
 
             if (SelectedStamp != null && SelectedStamp.Id != 0)
@@ -154,10 +186,9 @@ namespace StampCollectorApp.ViewModels
         [RelayCommand]
         public async Task FetchImageFromApi()
         {
-            var query = Name; // Só o nome do selo
             var pixabayCategory = GetPixabayCategory(SelectedCategory?.Name);
 
-            var imageUrl = await GetStampImageUrlAsync(query, pixabayCategory);
+            var imageUrl = await GetStampImageUrlAsync(null, pixabayCategory, _currentPage);
             if (!string.IsNullOrEmpty(imageUrl))
                 ImagePath = imageUrl;
             else
@@ -197,11 +228,13 @@ namespace StampCollectorApp.ViewModels
             return null;
         }
 
-        // ALTERADO: agora aceita parâmetro de categoria
-        public async Task<string?> GetStampImageUrlAsync(string query, string? category = null)
+        public async Task<string?> GetStampImageUrlAsync(string? query, string? category = null, int page = 1)
         {
             using var httpClient = new HttpClient();
-            var url = $"{PixabayApiUrl}?key={PixabayApiKey}&q={Uri.EscapeDataString(query)}&image_type=photo&per_page=3";
+            var url = $"{PixabayApiUrl}?key={PixabayApiKey}&image_type=photo&per_page=30&page={page}";
+
+            if (!string.IsNullOrWhiteSpace(query))
+                url += $"&q={Uri.EscapeDataString(query)}";
 
             if (!string.IsNullOrWhiteSpace(category))
                 url += $"&category={Uri.EscapeDataString(category)}";
@@ -213,8 +246,13 @@ namespace StampCollectorApp.ViewModels
             var json = await response.Content.ReadAsStringAsync();
             var result = System.Text.Json.JsonDocument.Parse(json);
             var hits = result.RootElement.GetProperty("hits");
-            if (hits.GetArrayLength() > 0)
-                return hits[0].GetProperty("webformatURL").GetString();
+            int count = hits.GetArrayLength();
+            if (count > 0)
+            {
+                var random = new Random();
+                int index = random.Next(count);
+                return hits[index].GetProperty("webformatURL").GetString();
+            }
 
             return null;
         }

@@ -12,4 +12,5 @@ public interface IStampService
     Task SaveCategoryAsync(Category category);
     Task DeleteCategoryAsync(Category category);
     Task EnsurePixabayCategoriesAsync();
+    Task<List<Collection>> GetCollectionsAsync();
 }

@@ -12,12 +12,15 @@ public class CategoryService : ICategoryService
         _database = database;
     }
 
-    public Task<List<Category>> GetCategoriesAsync() =>
-        _database.Table<Category>().OrderBy(c => c.Name).ToListAsync();
+    public async Task<List<Category>> GetCategoriesAsync()
+    {
+        var result = await _database.Table<Category>().OrderBy(c => c.Name).ToListAsync();
+        return result;
+    }
 
-    public Task SaveCategoryAsync(Category category) => _database.InsertOrReplaceAsync(category);
+    public async Task SaveCategoryAsync(Category category) => await _database.InsertOrReplaceAsync(category);
 
-    public Task DeleteCategoryAsync(Category category) => _database.DeleteAsync(category);
+    public async Task DeleteCategoryAsync(Category category) => await _database.DeleteAsync(category);
 
     public async Task<bool> CategoryNameExistsAsync(string name, int excludeId = 0)
     {

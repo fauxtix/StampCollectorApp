@@ -1,12 +1,9 @@
-﻿using StampCollectorApp.Models;
+using StampCollectorApp.Models;
 
-namespace StampCollectorApp.Services
+public interface ICollectionService
 {
-    public interface ITagService
-    {
-        Task<List<Tag>> GetTagsAsync();
-        Task SaveTagAsync(Tag Tag);
-        Task DeleteTagAsync(Tag Tag);
-        Task<bool> TagNameExistsAsync(string name, int excludeId = 0);
-    }
+    Task<List<Collection>> GetCollectionsAsync();
+    Task SaveCollectionAsync(Collection collection);
+    Task DeleteCollectionAsync(Collection collection);
+    Task<bool> CollectionNameExistsAsync(string name, int excludeId = 0);
 }
