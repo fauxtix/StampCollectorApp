@@ -12,9 +12,20 @@ public class Stamp
     public int Year { get; set; } = DateTime.Now.Year;
     public StampCondition Condition { get; set; }
     public string? ImagePath { get; set; }
+    public decimal FaceValue { get; set; }
+    public string? StampLocation { get; set; }
+    public DateTime AcquisitionDate { get; set; }
+    public decimal PricePaid { get; set; }
+    public bool ForExchange { get; set; }
+    public string? Notes { get; set; }
     public int CategoryId { get; set; }
     public int CollectionId { get; set; }
     public int TagId { get; set; }
+
+    [Ignore]
+    public List<StampCollection> Collections { get; set; } = new();
+
+
 }
 
 public enum StampCondition

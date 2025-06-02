@@ -22,6 +22,24 @@ public partial class EditCollectionViewModel : ObservableObject, IQueryAttributa
             await Shell.Current.DisplayAlert("Validação", "O nome da coleção não pode estar vazio.", "OK");
             return;
         }
+
+        if (Collection.TotalExpected < 1)
+        {
+            await Shell.Current.DisplayAlert("Validação", "Total Esperado deve ser um valor positivo", "OK");
+            return;
+        }
+        if (Collection.TotalCollected < 0)
+        {
+            await Shell.Current.DisplayAlert("Validação", "Total Colecionado deve ser um valor positivo.", "OK");
+            return;
+        }
+
+        if (Collection.TotalCollected > Collection.TotalExpected)
+        {
+            await Shell.Current.DisplayAlert("Validação", "Total Colecionado deve ser <= Total Esperado.", "OK");
+            return;
+        }
+
         await _collectionService.SaveCollectionAsync(Collection);
         await Shell.Current.GoToAsync("..");
     }

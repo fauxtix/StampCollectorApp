@@ -8,8 +8,6 @@ namespace StampCollectorApp.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
-        private readonly IStampService _stampService;
-
         private const string PixabayApiKey = "50529772-442b5126c14cb25b021e56dff"; // Replace with your real key
         private const string PixabayApiUrl = "https://pixabay.com/api/";
 
@@ -22,10 +20,38 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty]
         private string searchQuery;
 
-        public MainViewModel(IStampService stampService)
+        private readonly IStampService _stampService;
+        private readonly IDatabaseInitializerService _initService;
+
+        public MainViewModel(IStampService stampService, IDatabaseInitializerService initService)
         {
             _stampService = stampService;
+            _initService = initService;
+            //_initService.RecreateTablesAsync().ConfigureAwait(false);
         }
+
+        [RelayCommand]
+        public async Task ResetDatabaseAsync()
+        {
+            bool confirm = await Shell.Current.DisplayAlert("Confirmar", "Deseja apagar e recriar todas as tabelas?", "Sim", "Não");
+            if (confirm)
+            {
+                await _initService.RecreateTablesAsync();
+                await Shell.Current.DisplayAlert("Feito", "Base de dados reiniciada.", "OK");
+            }
+        }
+        [RelayCommand]
+        public async Task ClearDataAsync()
+        {
+            bool confirm = await Shell.Current.DisplayAlert("Confirmar", "Deseja limpar os dadosem todas as tabelas?", "Sim", "Não");
+            if (confirm)
+            {
+                await _initService.ClearDataAsync();
+                await Shell.Current.DisplayAlert("Feito", "Base de dados limpa.", "OK");
+            }
+        }
+
+
 
         [RelayCommand]
         public async Task LoadStamps()

@@ -9,13 +9,28 @@
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
             <Entry Placeholder="Nome da Coleção" Text="{Binding Collection.Name}" FontSize="14" />
         </Frame>
-        <Button
-            Text="Gravar"
-            Command="{Binding SaveCommand}"
-            BackgroundColor="#28a745"
-            TextColor="White"
-            FontAttributes="Bold"
-            HeightRequest="45"
-            Margin="0,10,0,0" />
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Entry Placeholder="Descrição" Text="{Binding Collection.Description}" FontSize="14" />
+        </Frame>
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Entry Placeholder="Total Esperado" Text="{Binding Collection.TotalExpected}" FontSize="14" Keyboard="Numeric" />
+        </Frame>
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Entry Placeholder="Total Colecionado" Text="{Binding Collection.TotalCollected}" FontSize="14" Keyboard="Numeric" />
+        </Frame>
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <DatePicker Date="{Binding Collection.CreatedAt}" Format="dd/MM/yyyy" />
+        </Frame>
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Editor Placeholder="Notas" Text="{Binding Collection.Notes}" AutoSize="TextChanges" FontSize="14" />
+        </Frame>
+        <Button  
+           Text="Gravar"  
+           Command="{Binding SaveCommand}"  
+           BackgroundColor="#28a745"  
+           TextColor="White"  
+           FontAttributes="Bold"  
+           HeightRequest="45"  
+           Margin="0,10,0,0" />
     </VerticalStackLayout>
 </ContentPage>

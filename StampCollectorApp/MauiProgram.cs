@@ -44,7 +44,7 @@ public static class MauiProgram
         builder.Services.AddTransient<EditCollectionPage>();
 
 
-        builder.Services.AddSingleton<DatabaseInitializerService>();
+        builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
         return builder.Build();
 
 

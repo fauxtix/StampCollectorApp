@@ -6,6 +6,6 @@
     x:Class="StampCollectorApp.AppShell">
 
     <ShellContent Title="Selos" ContentTemplate="{DataTemplate views:MainPage}" />
-    <ShellContent Title="Categorias" ContentTemplate="{DataTemplate views:CategoriesPage}" />
     <ShellContent Title="Coleções" ContentTemplate="{DataTemplate views:CollectionsPage}" />
+    <ShellContent Title="Categorias" ContentTemplate="{DataTemplate views:CategoriesPage}" />
 </Shell>

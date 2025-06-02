@@ -17,8 +17,9 @@ namespace StampCollectorApp.Services
         public StampService(string dbPath)
         {
             _db = new SQLiteAsyncConnection(dbPath);
-            _db.CreateTableAsync<Stamp>().Wait();
-            _db.CreateTableAsync<Category>().Wait();
+            //_db.CreateTableAsync<Stamp>().Wait();
+            //_db.CreateTableAsync<Category>().Wait();
+            //_db.CreateTableAsync<Collection>().Wait();
         }
 
         public async Task MigrateConditionToEnumAsync()
@@ -110,5 +111,22 @@ namespace StampCollectorApp.Services
                     await _db.InsertAsync(new Category { Name = cat });
             }
         }
+
+
+        public async Task<bool> CanAddStampToCollectionAsync(int colecaoId)
+        {
+            // 1. Get the collection by id
+            var colecao = await _db.Table<Collection>().Where(c => c.Id == colecaoId).FirstOrDefaultAsync();
+            if (colecao == null) return false;
+
+            // 2. Get the count of original stamps for this collection
+            var selosOriginais = await _db.Table<StampCollection>()
+                .Where(sc => sc.CollectionId == colecaoId && sc.OriginalForTheCollection)
+                .CountAsync();
+
+            // 3. Compare with TotalExpected
+            return selosOriginais < colecao.TotalExpected;
+        }
+
     }
 }

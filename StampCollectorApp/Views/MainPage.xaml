@@ -15,7 +15,6 @@
                 PlaceholderColor="#999"
                 FontSize="14" />
         </Frame>
-
         <Button
             Text="Novo"
             Command="{Binding AddStampCommand}"
@@ -23,6 +22,22 @@
             TextColor="White"
             FontAttributes="Bold"
             HeightRequest="44" />
+
+        <!--<Button
+            Text="Re-criar base de dados"
+            Command="{Binding ResetDatabaseCommand}"
+            BackgroundColor="#007AFF"
+            TextColor="White"
+            FontAttributes="Bold"
+            HeightRequest="44" />
+            <Button
+            Text="Limpar dados"
+            Command="{Binding ClearDataCommand}"
+            BackgroundColor="#007AFF"
+            TextColor="White"
+            FontAttributes="Bold"
+            HeightRequest="44" />-->
+
 
         <CollectionView Grid.Row="1" ItemsSource="{Binding FilteredStamps}">
             <CollectionView.ItemTemplate>

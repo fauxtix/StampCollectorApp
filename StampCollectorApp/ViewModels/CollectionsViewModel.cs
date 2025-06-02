@@ -9,12 +9,9 @@ public partial class CollectionsViewModel : ObservableObject
     private readonly ICollectionService _collectionService;
 
     [ObservableProperty] private ObservableCollection<Collection> collections = new();
-    [ObservableProperty] private string newCollectionName;
+    [ObservableProperty] private string newCollectionName = string.Empty; // Fix for CS8618
 
-    public CollectionsViewModel(ICollectionService collectionService)
-    {
-        _collectionService = collectionService;
-    }
+    public CollectionsViewModel(ICollectionService collectionService) => _collectionService = collectionService; // Fix for IDE0290
 
     [RelayCommand]
     public async Task LoadCollections()

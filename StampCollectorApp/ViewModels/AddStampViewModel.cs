@@ -11,6 +11,7 @@ namespace StampCollectorApp.ViewModels
     public partial class AddStampViewModel : ObservableObject
     {
         private readonly IStampService _stampService;
+        //private readonly ICollectionService _collectionService;
 
         private int _currentPage = 1;
         public List<StampCondition> Conditions { get; } = Enum.GetValues(typeof(StampCondition)).Cast<StampCondition>().ToList();
@@ -28,9 +29,10 @@ namespace StampCollectorApp.ViewModels
             "travel", "buildings", "business", "music"
         };
 
-        public AddStampViewModel(IStampService stampService)
+        public AddStampViewModel(IStampService stampService)//, ICollectionService collectionService)
         {
             _stampService = stampService;
+            //_collectionService = collectionService;
         }
 
         [ObservableProperty]
@@ -68,10 +70,20 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty]
         private int collectionId;
 
+        [ObservableProperty] private decimal faceValue;
+        [ObservableProperty] private string stampLocation;
+        [ObservableProperty] private DateTime acquisitionDate = DateTime.Now;
+        [ObservableProperty] private decimal pricePaid;
+        [ObservableProperty] private bool forExchange;
+        [ObservableProperty] private string notes;
+        [ObservableProperty] private int tagId;
+
         partial void OnSelectedCategoryChanged(Category value)
         {
             if (value != null)
+            {
                 CategoryId = value.Id;
+            }
 
             _currentPage = 1;
 
@@ -98,6 +110,13 @@ namespace StampCollectorApp.ViewModels
                 ImagePath = value.ImagePath ?? string.Empty; // Ensure null-safe assignment
                 CategoryId = value.CategoryId;
                 CollectionId = value.CollectionId;
+                FaceValue = value.FaceValue;
+                StampLocation = value.StampLocation ?? string.Empty;
+                AcquisitionDate = value.AcquisitionDate;
+                PricePaid = value.PricePaid;
+                ForExchange = value.ForExchange;
+                Notes = value.Notes ?? string.Empty;
+                TagId = value.TagId;
                 SelectedCategory = Categories?.FirstOrDefault(c => c.Id == value.CategoryId) ?? new Category();
                 SelectedCollection = Collections?.FirstOrDefault(c => c.Id == value.CollectionId) ?? new Collection();
             }
@@ -110,6 +129,13 @@ namespace StampCollectorApp.ViewModels
                 ImagePath = string.Empty;
                 CategoryId = 0;
                 CollectionId = 0;
+                FaceValue = 0;
+                StampLocation = string.Empty;
+                AcquisitionDate = DateTime.Now;
+                PricePaid = 0;
+                ForExchange = false;
+                Notes = string.Empty;
+                TagId = 0;
                 SelectedCategory = null;
                 SelectedCollection = null;
             }
@@ -148,6 +174,18 @@ namespace StampCollectorApp.ViewModels
                 await Shell.Current.DisplayAlert("Validação", "Selecione uma imagem para o selo.", "OK");
                 return;
             }
+
+            if (FaceValue <= 0)
+            {
+                await Shell.Current.DisplayAlert("Validação", "O valor facial deve ser maior que zero.", "OK");
+                return;
+            }
+            if (AcquisitionDate.Date > DateTime.Now.Date)
+            {
+                await Shell.Current.DisplayAlert("Validação", "A data de aquisição não pode ser no futuro.", "OK");
+                return;
+            }
+
             //if (!File.Exists(ImagePath) && !ImagePath.StartsWith("http"))
             //{
             //    await Shell.Current.DisplayAlert("Validação", "A imagem não existe.", "OK");
@@ -159,6 +197,24 @@ namespace StampCollectorApp.ViewModels
                 return;
             }
 
+            var collection = SelectedCollection;
+            bool isCollectionFull = collection.TotalExpected.HasValue && collection.TotalCollected.HasValue &&
+                                    collection.TotalCollected.Value >= collection.TotalExpected.Value;
+
+            bool forExchange = false;
+            if (isCollectionFull)
+            {
+                bool createForExchange = await Shell.Current.DisplayAlert(
+                    "Coleção completa",
+                    "A coleção já está completa. Deseja criar este selo como 'Para Troca'?",
+                    "Sim", "Não");
+
+                if (!createForExchange)
+                    return;
+
+                forExchange = true;
+            }
+
             var stamp = new Stamp
             {
                 Name = Name,
@@ -167,7 +223,14 @@ namespace StampCollectorApp.ViewModels
                 Condition = Condition,
                 ImagePath = ImagePath,
                 CategoryId = CategoryId,
-                CollectionId = CollectionId
+                CollectionId = CollectionId,
+                FaceValue = FaceValue,
+                StampLocation = StampLocation,
+                AcquisitionDate = AcquisitionDate,
+                PricePaid = PricePaid,
+                ForExchange = ForExchange,
+                Notes = Notes,
+                TagId = TagId
             };
 
             if (SelectedStamp != null && SelectedStamp.Id != 0)
@@ -179,6 +242,14 @@ namespace StampCollectorApp.ViewModels
             {
                 await _stampService.SaveStampAsync(stamp);
             }
+
+            // Se não for para troca, atualize o TotalCollected da coleção
+            if (!forExchange)
+            {
+                collection.TotalCollected = (collection.TotalCollected ?? 0) + 1;
+                //await _collectionService.SaveCollectionAsync(collection);
+            }
+
 
             await Shell.Current.GoToAsync("..");
         }
