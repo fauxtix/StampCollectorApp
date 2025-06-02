@@ -90,7 +90,7 @@ Este projeto está licenciado sob a licença MIT.
 
 ## 📷 Screenshots
 
-> *(Adicione aqui imagens da aplicação em funcionamento para valorizar o projeto!)*
+> *(Em breve...)*
 
 ---
 
