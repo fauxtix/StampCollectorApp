@@ -42,7 +42,7 @@
 ## 🛠️ Como executar
 
 1. **Clone o repositório:**
-git clone https://github.com/seu-usuario/StampCollectorApp.git cd StampCollectorApp
+git clone https://github.com/fauxtix/StampCollectorApp.git cd StampCollectorApp
 
 
 2. **Abra no Visual Studio 2022 ou superior.**
@@ -58,11 +58,17 @@ git clone https://github.com/seu-usuario/StampCollectorApp.git cd StampCollector
 
 StampCollectorApp/ 
     ├── Models/           # Modelos de dados (Stamp, Collection, Category, etc) 
+
     ├── ViewModels/       # Lógica de apresentação (MVVM) 
+
     ├── Views/            # Páginas XAML 
+
     ├── Services/         # Serviços de dados e integrações 
+
     ├── Resources/        # Imagens, estilos, etc 
+
     ├── AppShell.xaml     # Navegação principal 
+
     ├── MauiProgram.cs    # Configuração de DI e inicialização └── ...
 
 
