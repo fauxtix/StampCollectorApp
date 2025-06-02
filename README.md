@@ -57,6 +57,7 @@ git clone https://github.com/fauxtix/StampCollectorApp.git cd StampCollectorApp
 ## 📂 Estrutura do Projeto
 
 StampCollectorApp/ 
+
     ├── Models/           # Modelos de dados (Stamp, Collection, Category, etc) 
 
     ├── ViewModels/       # Lógica de apresentação (MVVM) 
