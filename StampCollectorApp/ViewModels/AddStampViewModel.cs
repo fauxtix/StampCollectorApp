@@ -243,7 +243,6 @@ namespace StampCollectorApp.ViewModels
                 await _stampService.SaveStampAsync(stamp);
             }
 
-            // Se não for para troca, atualize o TotalCollected da coleção
             if (!forExchange)
             {
                 collection.TotalCollected = (collection.TotalCollected ?? 0) + 1;

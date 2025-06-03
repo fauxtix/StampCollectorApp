@@ -8,9 +8,9 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="14">
-            <Frame WidthRequest="120"
-                   HeightRequest="120"
-                   CornerRadius="60"
+            <Frame WidthRequest="150"
+                   HeightRequest="150"
+                   CornerRadius="50"
                    Padding="0"
                    IsClippedToBounds="True"
                    HasShadow="False"
@@ -18,20 +18,36 @@
                    HorizontalOptions="Center"
                    Margin="0,0,0,10">
                 <Image Source="{Binding ImagePath, TargetNullValue='placeholder.png'}"
-                       WidthRequest="120"
-                       HeightRequest="120"
-                       Aspect="AspectFill" />
+                       Aspect="AspectFill"
+                       HorizontalOptions="Fill"
+                       VerticalOptions="Fill" />
             </Frame>
 
             <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <Entry Placeholder="Nome" Text="{Binding Name}" FontSize="14" />
+                <Entry Placeholder="Nome"  BackgroundColor="White" Text="{Binding Name}" FontSize="14" />
             </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <Entry Placeholder="País" Text="{Binding Country}" FontSize="14" />
-            </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <Entry Placeholder="Ano" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" />
-            </Frame>
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *">
+                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" Padding="10, 0, 0, 0">País</Label>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Ano</Label>
+
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False" HorizontalOptions="Start">
+                    <Entry Placeholder="País"  BackgroundColor="White" Text="{Binding Country}" FontSize="14" WidthRequest="250" />
+                </Frame>
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False" HorizontalOptions="End">
+                    <Entry Placeholder="Ano"  BackgroundColor="White" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" WidthRequest="60" />
+                </Frame>
+            </Grid>
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
+                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Valor facial</Label>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Preço Pago</Label>
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                    <Entry Placeholder="Valor facial"  BackgroundColor="White" Text="{Binding FaceValue, Mode=TwoWay}" Keyboard="Numeric" HorizontalTextAlignment="Center" FontSize="14" />
+                </Frame>
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                    <Entry Placeholder="Preço pago" Background="White" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" HorizontalTextAlignment="Center" />
+                </Frame>
+            </Grid>
+
             <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
                 <Picker Title="Condição" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />
             </Frame>
@@ -41,30 +57,30 @@
             <Frame BackgroundColor="White" CornerRadius="10" Padding="4" HasShadow="False">
                 <Picker Title="Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" />
             </Frame>
+
             <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <Entry Placeholder="Valor facial" Text="{Binding FaceValue, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" />
+                <Entry Placeholder="Localização"  BackgroundColor="White" Text="{Binding StampLocation, Mode=TwoWay}" FontSize="14" />
             </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <Entry Placeholder="Localização" Text="{Binding StampLocation, Mode=TwoWay}" FontSize="14" />
-            </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <DatePicker Date="{Binding AcquisitionDate, Mode=TwoWay}" Format="dd/MM/yyyy" />
-            </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <Entry Placeholder="Preço pago" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" />
-            </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-                <Grid ColumnDefinitions="Auto,*">
-                    <Label Text="Para troca" VerticalOptions="Center" Grid.Column="0" />
-                    <Switch IsToggled="{Binding ForExchange, Mode=TwoWay}" HorizontalOptions="End" Grid.Column="1" />
-                </Grid>
-            </Frame>
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
+                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Aquisição</Label>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Estado</Label>
+
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                    <DatePicker Date="{Binding AcquisitionDate, Mode=TwoWay}" Format="dd/MM/yyyy" HorizontalOptions="Center" />
+                </Frame>
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Label Text="Para troca" VerticalOptions="Center" Grid.Column="0" />
+                        <Switch IsToggled="{Binding ForExchange, Mode=TwoWay}"  Margin="0, 0, 5, 0" HorizontalOptions="End" Grid.Column="1" />
+                    </Grid>
+                </Frame>
+            </Grid>
             <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
                 <Editor Placeholder="Notas" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" FontSize="14" />
             </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <!--<Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
                 <Entry Placeholder="Tag Id" Text="{Binding TagId, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" />
-            </Frame>
+            </Frame>-->
 
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,10">
                 <Button
@@ -79,7 +95,7 @@
                 <Button
                     Text="Escolha imagem local"
                     Command="{Binding PickImageFromDeviceCommand}"
-                    BackgroundColor="#28a745"
+                    BackgroundColor="#CE30CC"
                     TextColor="White"
                     FontAttributes="Bold"
                     FontSize="13"
