@@ -70,7 +70,9 @@ StampCollectorApp/
 
     ├── AppShell.xaml     # Navegação principal 
 
-    ├── MauiProgram.cs    # Configuração de DI e inicialização └── ...
+    ├── MauiProgram.cs    # Configuração de DI e inicialização 
+    
+    └── ...
 
 
 ---
