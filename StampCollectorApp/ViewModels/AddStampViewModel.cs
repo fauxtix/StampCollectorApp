@@ -70,7 +70,7 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty]
         private int collectionId;
 
-        [ObservableProperty] private decimal faceValue;
+        [ObservableProperty] private string faceValue;
         [ObservableProperty] private string stampLocation;
         [ObservableProperty] private DateTime acquisitionDate = DateTime.Now;
         [ObservableProperty] private decimal pricePaid;
@@ -129,7 +129,7 @@ namespace StampCollectorApp.ViewModels
                 ImagePath = string.Empty;
                 CategoryId = 0;
                 CollectionId = 0;
-                FaceValue = 0;
+                FaceValue = "";
                 StampLocation = string.Empty;
                 AcquisitionDate = DateTime.Now;
                 PricePaid = 0;
@@ -175,11 +175,11 @@ namespace StampCollectorApp.ViewModels
                 return;
             }
 
-            if (FaceValue <= 0)
-            {
-                await Shell.Current.DisplayAlert("Validação", "O valor facial deve ser maior que zero.", "OK");
-                return;
-            }
+            //if (FaceValue <= 0)
+            //{
+            //    await Shell.Current.DisplayAlert("Validação", "O valor facial deve ser maior que zero.", "OK");
+            //    return;
+            //}
             if (AcquisitionDate.Date > DateTime.Now.Date)
             {
                 await Shell.Current.DisplayAlert("Validação", "A data de aquisição não pode ser no futuro.", "OK");

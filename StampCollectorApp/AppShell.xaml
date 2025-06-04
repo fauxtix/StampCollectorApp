@@ -3,9 +3,47 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:StampCollectorApp.Views"
+    FlyoutWidth="200"
+    FlyoutHeight="450"
+    Shell.TabBarIsVisible="False"
+    Shell.FlyoutBehavior="Flyout"
     x:Class="StampCollectorApp.AppShell">
+    <Shell.FlyoutBackground>
+        <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="1,1">
+            <GradientStop Color="#93e4c1"
+                          Offset="0.1" />
+            <GradientStop Color="#1f6f78"
+                          Offset="0.3" />
+            <GradientStop Color="#3baea0"
+                          Offset="0.5" />
+            <GradientStop Color="#118a7e"
+                          Offset="0.8" />
+            <GradientStop Color="#2c5d63"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackground>
 
-    <ShellContent Title="Selos" ContentTemplate="{DataTemplate views:MainPage}" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+        Title="Selos"
+        Icon="stamp.png"
+        ContentTemplate="{DataTemplate views:MainPage}"
+        Route="MainPage"/>
+        <ShellContent
+        Title="Coleções"
+        Icon="collection.png"
+        ContentTemplate="{DataTemplate views:CollectionsPage}"
+        Route="CollectionsPage" />
+        <ShellContent
+        Title="Categorias"
+        Icon="categories.png" 
+        ContentTemplate="{DataTemplate views:CategoriesPage}"
+        Route="CategoriesPage" />
+
+    </FlyoutItem>
+
+    <!--<ShellContent Title="Selos" ContentTemplate="{DataTemplate views:MainPage}" />
     <ShellContent Title="Coleções" ContentTemplate="{DataTemplate views:CollectionsPage}" />
-    <ShellContent Title="Categorias" ContentTemplate="{DataTemplate views:CategoriesPage}" />
+    <ShellContent Title="Categorias" ContentTemplate="{DataTemplate views:CategoriesPage}" />-->
 </Shell>

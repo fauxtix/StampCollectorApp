@@ -12,7 +12,7 @@ public class Stamp
     public int Year { get; set; } = DateTime.Now.Year;
     public StampCondition Condition { get; set; }
     public string? ImagePath { get; set; }
-    public decimal FaceValue { get; set; }
+    public string? FaceValue { get; set; }
     public string? StampLocation { get; set; }
     public DateTime AcquisitionDate { get; set; }
     public decimal PricePaid { get; set; }
