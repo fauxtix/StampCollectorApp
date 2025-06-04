@@ -4,7 +4,7 @@
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **StampCollectorApp** é uma aplicação moderna para colecionadores de selos, desenvolvida em .NET MAUI (.NET 8), que permite gerir selos, coleções, categorias e imagens de forma intuitiva e multiplataforma.
+> **StampCollectorApp** é uma aplicação para colecionadores de selos, desenvolvida em .NET MAUI (.NET 8), que permite gerir selos, coleções, categorias e imagens de forma intuitiva e multiplataforma.
 
 ---
 
