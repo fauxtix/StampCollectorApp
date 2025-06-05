@@ -20,7 +20,11 @@
                 <Image Source="{Binding ImagePath, TargetNullValue='stamp_ilustration.png'}"
                        Aspect="AspectFill"
                        HorizontalOptions="Fill"
-                       VerticalOptions="Fill" />
+                       VerticalOptions="Fill">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ViewImageCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Frame>
 
             <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="True">
@@ -34,7 +38,7 @@
                     <Entry Placeholder="País"  BackgroundColor="White" Text="{Binding Country}" FontSize="14" WidthRequest="250" />
                 </Frame>
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False" HorizontalOptions="End">
-                    <Entry Placeholder="Ano"  BackgroundColor="White" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" WidthRequest="60" />
+                    <Entry Placeholder="Ano"  BackgroundColor="White" HorizontalTextAlignment="Center" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" WidthRequest="60" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">

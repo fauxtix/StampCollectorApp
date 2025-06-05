@@ -8,8 +8,14 @@ namespace StampCollectorApp.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
-        private const string PixabayApiKey = "50529772-442b5126c14cb25b021e56dff"; // Replace with your real key
+        private const string PixabayApiKey = "50529772-442b5126c14cb25b021e56dff";
         private const string PixabayApiUrl = "https://pixabay.com/api/";
+
+        private const int PageSize = 4;
+        private int _currentPage = 1;
+        private List<Stamp> _allFilteredStamps = new();
+
+        public bool CanShowMore => FilteredStamps.Count < _allFilteredStamps.Count;
 
         [ObservableProperty]
         private ObservableCollection<Stamp> stamps = new();
@@ -20,6 +26,10 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty]
         private string searchQuery;
 
+        [ObservableProperty]
+        private bool showOnlyForExchange;
+
+
         private readonly IStampService _stampService;
         private readonly IDatabaseInitializerService _initService;
 
@@ -27,7 +37,7 @@ namespace StampCollectorApp.ViewModels
         {
             _stampService = stampService;
             _initService = initService;
-            //_initService.RecreateTablesAsync().ConfigureAwait(false);
+            FilteredStamps.CollectionChanged += (s, e) => OnPropertyChanged(nameof(CanShowMore));
         }
 
         [RelayCommand]
@@ -40,6 +50,7 @@ namespace StampCollectorApp.ViewModels
                 await Shell.Current.DisplayAlert("Feito", "Base de dados reiniciada.", "OK");
             }
         }
+
         [RelayCommand]
         public async Task ClearDataAsync()
         {
@@ -50,8 +61,6 @@ namespace StampCollectorApp.ViewModels
                 await Shell.Current.DisplayAlert("Feito", "Base de dados limpa.", "OK");
             }
         }
-
-
 
         [RelayCommand]
         public async Task LoadStamps()
@@ -71,19 +80,47 @@ namespace StampCollectorApp.ViewModels
             FilterStamps();
         }
 
+        partial void OnShowOnlyForExchangeChanged(bool value)
+        {
+            FilterStamps();
+        }
         private void FilterStamps()
         {
+            _currentPage = 1;
             FilteredStamps.Clear();
 
-            var filtered = string.IsNullOrWhiteSpace(SearchQuery)
-                ? Stamps
-                : new ObservableCollection<Stamp>(
-                    Stamps.Where(s =>
-                        (s.Name?.Contains(SearchQuery, System.StringComparison.OrdinalIgnoreCase) ?? false) ||
-                        (s.Country?.Contains(SearchQuery, System.StringComparison.OrdinalIgnoreCase) ?? false)));
+            IEnumerable<Stamp> query = Stamps;
 
-            foreach (var stamp in filtered)
+            if (ShowOnlyForExchange)
+                query = query.Where(s => s.ForExchange);
+
+            _allFilteredStamps = string.IsNullOrWhiteSpace(SearchQuery)
+                ? query.ToList()
+                : query.Where(s =>
+                    (s.Name?.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    (s.Country?.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    s.Year.ToString().Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
+                    s.Condition.ToString().Replace("_", " ").Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+
+            foreach (var stamp in _allFilteredStamps.Take(PageSize))
                 FilteredStamps.Add(stamp);
+
+            OnPropertyChanged(nameof(CanShowMore));
+        }
+
+        [RelayCommand]
+        public void ShowMore()
+        {
+            if (CanShowMore)
+            {
+                _currentPage++;
+                FilteredStamps.Clear();
+                foreach (var stamp in _allFilteredStamps.Take(_currentPage * PageSize))
+                    FilteredStamps.Add(stamp);
+
+                OnPropertyChanged(nameof(CanShowMore));
+            }
         }
 
         [RelayCommand]
@@ -121,8 +158,12 @@ namespace StampCollectorApp.ViewModels
         [RelayCommand]
         public async Task DeleteStamp(Stamp stamp)
         {
-            if (stamp == null)
-                return;
+            if (stamp == null) return;
+            bool confirm = await Shell.Current.DisplayAlert(
+                "Apagar Selo",
+                "Tem a certeza que deseja apagar este selo?",
+                "Apagar", "Cancelar");
+            if (!confirm) return;
 
             await _stampService.DeleteStampAsync(stamp);
             Stamps.Remove(stamp);
@@ -138,7 +179,6 @@ namespace StampCollectorApp.ViewModels
                 stamp.ImagePath = imageUrl;
         }
 
-        // Optional: Allow picking an image from device for a stamp in the main list
         [RelayCommand]
         public async Task PickImageForStamp(Stamp stamp)
         {

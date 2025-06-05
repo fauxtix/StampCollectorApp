@@ -61,7 +61,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<MauiSplashScreen Include="Resources\Splash\stamp_collection.png">
+		<MauiSplashScreen Include="Resources\Splash\stamp_collection.png" Resize="True">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiSplashScreen>
 	</ItemGroup>
@@ -90,6 +90,9 @@
 		</MauiXaml>
 		<MauiXaml Update="Views\EditCollectionPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\ViewStampImagePage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 	</ItemGroup>
 

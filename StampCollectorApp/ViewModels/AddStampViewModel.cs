@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
 using StampCollectorApp.Services;
+using StampCollectorApp.Views;
 
 namespace StampCollectorApp.ViewModels
 {
@@ -252,18 +253,42 @@ namespace StampCollectorApp.ViewModels
 
             await Shell.Current.GoToAsync("..");
         }
-
         [RelayCommand]
         public async Task FetchImageFromApi()
         {
+            var current = Connectivity.NetworkAccess;
+
+            if (current != NetworkAccess.Internet)
+            {
+                await Shell.Current.DisplayAlert("Sem Internet", "Verifique a ligação e tente de novo.", "OK");
+                return;
+            }
+
+            var connectionType = Connectivity.ConnectionProfiles.Contains(ConnectionProfile.WiFi)
+                ? "Wi-Fi"
+                : Connectivity.ConnectionProfiles.Contains(ConnectionProfile.Cellular)
+                    ? "Cellular"
+                    : "Unknown";
+
             var pixabayCategory = GetPixabayCategory(SelectedCategory?.Name);
 
             var imageUrl = await GetStampImageUrlAsync(null, pixabayCategory, _currentPage);
+
             if (!string.IsNullOrEmpty(imageUrl))
                 ImagePath = imageUrl;
             else
                 ImagePath = "gallery.png";
         }
+
+        [RelayCommand]
+        private async Task ViewImage()
+        {
+            if (!string.IsNullOrWhiteSpace(ImagePath))
+            {
+                await Shell.Current.GoToAsync($"{nameof(ViewStampImagePage)}?ImagePath={Uri.EscapeDataString(ImagePath)}");
+            }
+        }
+
 
         [RelayCommand]
         public async Task PickImageFromDevice()

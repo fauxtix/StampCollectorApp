@@ -32,6 +32,8 @@ public static class MauiProgram
         builder.Services.AddTransient<MainPage>();
         builder.Services.AddTransient<AddStampViewModel>();
         builder.Services.AddTransient<AddStampPage>();
+        builder.Services.AddTransient<ViewStampImageViewModel>();
+        builder.Services.AddTransient<ViewStampImagePage>();
 
         builder.Services.AddTransient<CategoriesPage>();
         builder.Services.AddTransient<CategoriesViewModel>();

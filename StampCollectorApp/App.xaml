@@ -17,6 +17,7 @@
             </Style>
             <Color x:Key="PageBackgroundColor">#f3f4f6</Color>
             <converters:NullToBoolConverter x:Key="NullToBoolConverter" />
+            <converters:StampConditionToStringConverter x:Key="StampConditionToStringConverter" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
