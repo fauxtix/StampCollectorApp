@@ -61,8 +61,8 @@ namespace StampCollectorApp.Services
                     s.Condition.ToString().Replace("_", " ").Contains(searchQuery)
                 );
             }
-
-            return await query.CountAsync();
+            var _count = await query.CountAsync();
+            return _count;
         }
 
         public async Task MigrateConditionToEnumAsync()

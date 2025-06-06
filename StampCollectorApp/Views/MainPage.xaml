@@ -9,7 +9,7 @@
     Title="Coleção de selos"
     BackgroundColor="#f3f4f6">
 
-    <Grid RowDefinitions="Auto,Auto,Auto,  *, Auto" Padding="12">
+    <Grid RowDefinitions="Auto,Auto,Auto, Auto, *, Auto" Padding="12">
         <Button
             Text="Novo"
             Grid.Row="0"
@@ -22,11 +22,7 @@
         <Frame BackgroundColor="White" 
                Grid.Row="1"
                CornerRadius="10" Padding="8" HasShadow="False">
-            <Entry
-                Placeholder="Pesquisar..."
-                Text="{Binding SearchQuery}"
-                PlaceholderColor="#999"
-                FontSize="14" />
+            <SearchBar Placeholder="Pesquisar selos" Text="{Binding SearchQuery}" />
         </Frame>
 
         <!--<Button
@@ -44,16 +40,18 @@
             FontAttributes="Bold"
             HeightRequest="44" />-->
 
-            <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="5">
-                <Label Grid.Column="0" Text="Mostrar apenas para troca" VerticalOptions="Center" Margin="8,0,0,0"/>
-                <Switch 
+        <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="5">
+            <Label Grid.Column="0" Text="Mostrar apenas para troca" VerticalOptions="Center" Margin="8,0,0,0"/>
+            <Switch 
                         Grid.Column="1" HorizontalOptions="End"
                                 IsToggled="{Binding ShowOnlyForExchange}"
                                 ThumbColor="White"
                                 OnColor="Green"
                                 Margin="0,0,20,0"/>
-            </Grid>
-        <CollectionView Grid.Row="3" ItemsSource="{Binding FilteredStamps}">
+        </Grid>
+
+        <ActivityIndicator Grid.Row="3" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
+        <CollectionView Grid.Row="4" ItemsSource="{Binding FilteredStamps}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="12" Padding="12" Margin="0,0,0,10" BackgroundColor="White" HasShadow="True">
@@ -99,10 +97,10 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Grid.Row="4"
+        <Button Grid.Row="5"
                 Text="Mais..."
                 BorderWidth="1" BorderColor="Black"
-                Command="{Binding ShowMoreCommand}"
+                Command="{Binding ShowMoreAsyncCommand}"
                 IsVisible="{Binding CanShowMore}"
                 BackgroundColor="Transparent"
                 TextColor="SteelBlue"

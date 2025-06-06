@@ -89,7 +89,7 @@ namespace StampCollectorApp.ViewModels
             SelectedStamp = new Stamp();
             Name = string.Empty;
             Country = string.Empty;
-            ImagePath = string.Empty;
+            ImagePath = "gallery.png";
             FaceValue = string.Empty;
             StampLocation = string.Empty;
             Notes = string.Empty;
@@ -483,8 +483,5 @@ LIMIT 10";
                 });
             }
         }
-
-
-
     }
 }

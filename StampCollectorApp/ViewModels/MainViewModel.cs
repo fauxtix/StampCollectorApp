@@ -72,24 +72,36 @@ namespace StampCollectorApp.ViewModels
         [RelayCommand]
         public async Task LoadStampsAsync()
         {
-            await _stampService.EnsurePixabayCategoriesAsync();
+            IsLoading = true;
+            _cts?.Cancel();
+            _cts = new CancellationTokenSource();
 
-            var allStamps = await _stampService.GetStampsAsync();
-            Stamps.Clear();
-            foreach (var stamp in allStamps)
-                Stamps.Add(stamp);
+            _currentPage = 1;
+            FilteredStamps.Clear();
 
-            FilterStamps();
+            // Get count for pagination
+            _totalCount = await _stampService.GetStampsCountAsync(SearchQuery, ShowOnlyForExchange, _cts.Token);
+
+            // Get first page
+            var page = await _stampService.GetStampsAsync(SearchQuery, ShowOnlyForExchange, _currentPage, PageSize, _cts.Token);
+
+            foreach (var stamp in page)
+                FilteredStamps.Add(stamp);
+
+            IsLoading = false;
+            OnPropertyChanged(nameof(CanShowMore));
         }
 
         partial void OnSearchQueryChanged(string value)
         {
-            FilterStamps();
+            // Reload on search change
+            _ = LoadStampsAsync();
         }
 
         partial void OnShowOnlyForExchangeChanged(bool value)
         {
-            FilterStamps();
+            // Reload on filter change
+            _ = LoadStampsAsync();
         }
         private void FilterStamps()
         {
@@ -117,21 +129,26 @@ namespace StampCollectorApp.ViewModels
         }
 
         [RelayCommand]
-        public void ShowMore()
+        public async Task ShowMoreAsync()
         {
-            if (CanShowMore)
-            {
-                _currentPage++;
-                FilteredStamps.Clear();
-                foreach (var stamp in _allFilteredStamps.Take(_currentPage * PageSize))
-                    FilteredStamps.Add(stamp);
+            if (!CanShowMore) return;
+            IsLoading = true;
+            _cts?.Cancel();
+            _cts = new CancellationTokenSource();
 
-                OnPropertyChanged(nameof(CanShowMore));
-            }
+            _currentPage++;
+            var nextPage = await _stampService.GetStampsAsync(SearchQuery, ShowOnlyForExchange, _currentPage, PageSize, _cts.Token);
+
+            foreach (var stamp in nextPage)
+                FilteredStamps.Add(stamp);
+
+            IsLoading = false;
+            OnPropertyChanged(nameof(CanShowMore));
         }
 
+
         [RelayCommand]
-        public async Task AddStamp()
+        public async Task AddStampAsync()
         {
             var categories = await _stampService.GetCategoriesAsync();
             var collections = await _stampService.GetCollectionsAsync();
@@ -144,7 +161,7 @@ namespace StampCollectorApp.ViewModels
         }
 
         [RelayCommand]
-        public async Task EditStamp(Stamp stamp)
+        public async Task EditStampAsync(Stamp stamp)
         {
             if (stamp == null)
                 return;
@@ -163,7 +180,7 @@ namespace StampCollectorApp.ViewModels
         }
 
         [RelayCommand]
-        public async Task DeleteStamp(Stamp stamp)
+        public async Task DeleteStampAsync(Stamp stamp)
         {
             if (stamp == null) return;
             bool confirm = await Shell.Current.DisplayAlert(
