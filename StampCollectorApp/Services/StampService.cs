@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using StampCollectorApp.Models;
+using System.Text.Json;
 
 namespace StampCollectorApp.Services
 {
@@ -17,9 +18,51 @@ namespace StampCollectorApp.Services
         public StampService(string dbPath)
         {
             _db = new SQLiteAsyncConnection(dbPath);
-            //_db.CreateTableAsync<Stamp>().Wait();
-            //_db.CreateTableAsync<Category>().Wait();
-            //_db.CreateTableAsync<Collection>().Wait();
+        }
+
+        // Paging/filtering now done at DB level
+        public async Task<List<Stamp>> GetStampsAsync(string? searchQuery = null, bool? onlyForExchange = null, int page = 1, int pageSize = 20, CancellationToken cancellationToken = default)
+        {
+            var query = _db.Table<Stamp>();
+
+            if (onlyForExchange.HasValue && onlyForExchange.Value)
+                query = query.Where(s => s.ForExchange);
+
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                query = query.Where(s =>
+                    (s.Name != null && s.Name.Contains(searchQuery)) ||
+                    (s.Country != null && s.Country.Contains(searchQuery)) ||
+                    s.Year.ToString().Contains(searchQuery) ||
+                    s.Condition.ToString().Replace("_", " ").Contains(searchQuery)
+                );
+            }
+
+            // Paging
+            int skip = (page - 1) * pageSize;
+            query = query.Skip(skip).Take(pageSize);
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<int> GetStampsCountAsync(string? searchQuery = null, bool? onlyForExchange = null, CancellationToken cancellationToken = default)
+        {
+            var query = _db.Table<Stamp>();
+
+            if (onlyForExchange.HasValue && onlyForExchange.Value)
+                query = query.Where(s => s.ForExchange);
+
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                query = query.Where(s =>
+                    (s.Name != null && s.Name.Contains(searchQuery)) ||
+                    (s.Country != null && s.Country.Contains(searchQuery)) ||
+                    s.Year.ToString().Contains(searchQuery) ||
+                    s.Condition.ToString().Replace("_", " ").Contains(searchQuery)
+                );
+            }
+
+            return await query.CountAsync();
         }
 
         public async Task MigrateConditionToEnumAsync()
@@ -127,6 +170,90 @@ namespace StampCollectorApp.Services
             // 3. Compare with TotalExpected
             return selosOriginais < colecao.TotalExpected;
         }
+
+        public async Task<List<WikiStamps>> SearchWikiStampsAsync(string country, string year, string keyword)
+        {
+            var token = "YOUR_API_KEY";
+            var url = $"https://colnect.com/api/v3/stamps/search?country={country}&year={year}&text={keyword}&token={token}";
+
+            using var client = new HttpClient();
+            var response = await client.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
+                return new List<WikiStamps>();
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            var raw = JsonSerializer.Deserialize<JsonElement>(json);
+            var list = new List<WikiStamps>();
+
+            foreach (var item in raw.GetProperty("items").EnumerateArray())
+            {
+                list.Add(new WikiStamps
+                {
+                    Name = item.GetProperty("name").GetString() ?? "",
+                    Year = item.GetProperty("year").GetString() ?? "",
+                    ImageUrl = item.GetProperty("image_url").GetString() ?? ""
+                });
+            }
+
+            return list;
+        }
+
+        public async Task<List<string>> GetStampImagesByCountryCategoryAsync(string country, int limit = 10)
+        {
+            var httpClient = new HttpClient();
+
+            // Build category name dynamically, replacing spaces with underscores
+            string category = $"Category:Postage_stamps_of_{country.Replace(" ", "_")}";
+
+            // Wikimedia Commons API endpoint to get files in category
+            string url = $"https://commons.wikimedia.org/w/api.php?action=query&format=json&list=categorymembers&cmtitle={Uri.EscapeDataString(category)}&cmtype=file&cmlimit={limit}";
+
+            var response = await httpClient.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
+                return new List<string>();
+
+            var json = await response.Content.ReadAsStringAsync();
+            using var doc = JsonDocument.Parse(json);
+
+            var images = new List<string>();
+
+            if (doc.RootElement.TryGetProperty("query", out var query) &&
+                query.TryGetProperty("categorymembers", out var members))
+            {
+                foreach (var member in members.EnumerateArray())
+                {
+                    if (member.TryGetProperty("title", out var titleProp))
+                    {
+                        string fileTitle = titleProp.GetString()!; // e.g. "File:Stamp_of_Portugal.png"
+
+                        // Get image info for this file to retrieve image URL
+                        string infoUrl = $"https://commons.wikimedia.org/w/api.php?action=query&format=json&titles={Uri.EscapeDataString(fileTitle)}&prop=imageinfo&iiprop=url";
+
+                        var infoResponse = await httpClient.GetAsync(infoUrl);
+                        if (!infoResponse.IsSuccessStatusCode)
+                            continue;
+
+                        var infoJson = await infoResponse.Content.ReadAsStringAsync();
+                        using var infoDoc = JsonDocument.Parse(infoJson);
+
+                        var pages = infoDoc.RootElement.GetProperty("query").GetProperty("pages");
+                        foreach (var page in pages.EnumerateObject())
+                        {
+                            if (page.Value.TryGetProperty("imageinfo", out var imageInfo))
+                            {
+                                string imageUrl = imageInfo[0].GetProperty("url").GetString()!;
+                                images.Add(imageUrl);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return images;
+        }
+
 
     }
 }

@@ -13,9 +13,11 @@ namespace StampCollectorApp.ViewModels
 
         private const int PageSize = 4;
         private int _currentPage = 1;
+        private int _totalCount = 0;
+        private CancellationTokenSource? _cts;
         private List<Stamp> _allFilteredStamps = new();
 
-        public bool CanShowMore => FilteredStamps.Count < _allFilteredStamps.Count;
+        public bool CanShowMore => FilteredStamps.Count < _totalCount;
 
         [ObservableProperty]
         private ObservableCollection<Stamp> stamps = new();
@@ -28,6 +30,9 @@ namespace StampCollectorApp.ViewModels
 
         [ObservableProperty]
         private bool showOnlyForExchange;
+
+        [ObservableProperty]
+        private bool isLoading;
 
 
         private readonly IStampService _stampService;
@@ -48,6 +53,7 @@ namespace StampCollectorApp.ViewModels
             {
                 await _initService.RecreateTablesAsync();
                 await Shell.Current.DisplayAlert("Feito", "Base de dados reiniciada.", "OK");
+                await LoadStampsAsync();
             }
         }
 
@@ -59,11 +65,12 @@ namespace StampCollectorApp.ViewModels
             {
                 await _initService.ClearDataAsync();
                 await Shell.Current.DisplayAlert("Feito", "Base de dados limpa.", "OK");
+                await LoadStampsAsync();
             }
         }
 
         [RelayCommand]
-        public async Task LoadStamps()
+        public async Task LoadStampsAsync()
         {
             await _stampService.EnsurePixabayCategoriesAsync();
 
