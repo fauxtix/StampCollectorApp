@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:StampCollectorApp.ViewModels"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:converters="clr-namespace:StampCollectorApp.Converters"
 
     x:Class="StampCollectorApp.Views.MainPage"
@@ -22,7 +23,19 @@
         <Frame BackgroundColor="White" 
                Grid.Row="1"
                CornerRadius="10" Padding="8" HasShadow="False">
-            <SearchBar Placeholder="Pesquisar selos" Text="{Binding SearchQuery}" />
+            <SearchBar
+    x:Name="searchBar"
+    Placeholder="Pesquisar selos"
+    FontSize="14"
+    Margin="8"
+    Text="{Binding SearchQuery}">
+                <SearchBar.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                            EventName="TextChanged"
+                            Command="{Binding SearchStampsCommand}"
+                            CommandParameter="{Binding Text, Source={x:Reference searchBar}}" />
+                </SearchBar.Behaviors>
+            </SearchBar>
         </Frame>
 
         <!--<Button

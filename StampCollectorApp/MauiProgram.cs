@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using CommunityToolkit.Maui;
+using SQLite;
 using StampCollectorApp.Services;
 using StampCollectorApp.ViewModels;
 using StampCollectorApp.Views;
@@ -13,7 +14,12 @@ public static class MauiProgram
 
         builder
             .UseMauiApp<App>()
-            .ConfigureFonts(fonts => fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular"));
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
         string dbPath = Path.Combine(FileSystem.AppDataDirectory, "stamps.db3");
 

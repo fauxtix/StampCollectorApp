@@ -13,27 +13,15 @@ namespace StampCollectorApp.ViewModels
 
         private const int PageSize = 4;
         private int _currentPage = 1;
-        private int _totalCount = 0;
-        private CancellationTokenSource? _cts;
         private List<Stamp> _allFilteredStamps = new();
 
-        public bool CanShowMore => FilteredStamps.Count < _totalCount;
+        public bool CanShowMore => FilteredStamps.Count < _allFilteredStamps.Count;
 
-        [ObservableProperty]
-        private ObservableCollection<Stamp> stamps = new();
-
-        [ObservableProperty]
-        private ObservableCollection<Stamp> filteredStamps = new();
-
-        [ObservableProperty]
-        private string searchQuery;
-
-        [ObservableProperty]
-        private bool showOnlyForExchange;
-
-        [ObservableProperty]
-        private bool isLoading;
-
+        [ObservableProperty] private ObservableCollection<Stamp> stamps = new();
+        [ObservableProperty] private ObservableCollection<Stamp> filteredStamps = new();
+        [ObservableProperty] private string searchQuery;
+        [ObservableProperty] private bool showOnlyForExchange;
+        [ObservableProperty] private bool isLoading;
 
         private readonly IStampService _stampService;
         private readonly IDatabaseInitializerService _initService;
@@ -73,36 +61,16 @@ namespace StampCollectorApp.ViewModels
         public async Task LoadStampsAsync()
         {
             IsLoading = true;
-            _cts?.Cancel();
-            _cts = new CancellationTokenSource();
-
             _currentPage = 1;
-            FilteredStamps.Clear();
-
-            // Get count for pagination
-            _totalCount = await _stampService.GetStampsCountAsync(SearchQuery, ShowOnlyForExchange, _cts.Token);
-
-            // Get first page
-            var page = await _stampService.GetStampsAsync(SearchQuery, ShowOnlyForExchange, _currentPage, PageSize, _cts.Token);
-
-            foreach (var stamp in page)
-                FilteredStamps.Add(stamp);
-
+            var all = await _stampService.GetStampsAsync();
+            Stamps = new ObservableCollection<Stamp>(all);
+            FilterStamps();
             IsLoading = false;
-            OnPropertyChanged(nameof(CanShowMore));
         }
 
-        partial void OnSearchQueryChanged(string value)
-        {
-            // Reload on search change
-            _ = LoadStampsAsync();
-        }
+        partial void OnSearchQueryChanged(string value) => FilterStamps();
+        partial void OnShowOnlyForExchangeChanged(bool value) => FilterStamps();
 
-        partial void OnShowOnlyForExchangeChanged(bool value)
-        {
-            // Reload on filter change
-            _ = LoadStampsAsync();
-        }
         private void FilterStamps()
         {
             _currentPage = 1;
@@ -127,22 +95,14 @@ namespace StampCollectorApp.ViewModels
 
             OnPropertyChanged(nameof(CanShowMore));
         }
-
         [RelayCommand]
-        public async Task ShowMoreAsync()
+        public void ShowMoreAsync()
         {
             if (!CanShowMore) return;
-            IsLoading = true;
-            _cts?.Cancel();
-            _cts = new CancellationTokenSource();
-
             _currentPage++;
-            var nextPage = await _stampService.GetStampsAsync(SearchQuery, ShowOnlyForExchange, _currentPage, PageSize, _cts.Token);
-
+            var nextPage = _allFilteredStamps.Skip((_currentPage - 1) * PageSize).Take(PageSize);
             foreach (var stamp in nextPage)
                 FilteredStamps.Add(stamp);
-
-            IsLoading = false;
             OnPropertyChanged(nameof(CanShowMore));
         }
 
@@ -193,7 +153,6 @@ namespace StampCollectorApp.ViewModels
             Stamps.Remove(stamp);
             FilterStamps();
         }
-
         [RelayCommand]
         public async Task FetchImageForStamp(Stamp stamp)
         {
