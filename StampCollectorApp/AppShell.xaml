@@ -7,6 +7,8 @@
     FlyoutHeight="450"
     Shell.TabBarIsVisible="False"
     Shell.FlyoutBehavior="Flyout"
+    Shell.BackgroundColor="#6C63FF"
+    Shell.TitleColor="White"
     x:Class="StampCollectorApp.AppShell">
     <Shell.FlyoutBackground>
         <LinearGradientBrush StartPoint="0,0"

@@ -6,16 +6,16 @@
     x:Name="CollectionsPageRef"
     Title="Coleções">
 
-    <Grid RowDefinitions="Auto,*" Padding="20">
-        <Button Text="Nova Coleção"
-                Command="{Binding AddCollectionCommand}"
-                BackgroundColor="#007AFF"
-                TextColor="White"
-                FontAttributes="Bold"
-                HeightRequest="44"
-                CornerRadius="8"
-                Margin="0,0,0,8"/>
-        <CollectionView Grid.Row="1"
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Gravar"
+            IconImageSource="add.png" 
+            Command="{Binding AddCollectionCommand}" />
+    </ContentPage.ToolbarItems>
+
+
+    <Grid Padding="20">
+        <CollectionView 
                         ItemsSource="{Binding Collections}"
                         VerticalScrollBarVisibility="Always">
             <CollectionView.ItemTemplate>

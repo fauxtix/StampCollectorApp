@@ -5,9 +5,14 @@
     x:Class="StampCollectorApp.Views.AddStampPage"
     Title="Criar / Editar Selo"
     BackgroundColor="#f3f4f6">
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="Load" Command="{Binding LoadWikiStampsCommand}" />
-    </ContentPage.ToolbarItems>-->
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Gravar"
+            IconImageSource="icon_save.png" 
+            Command="{Binding SaveStampCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="14">
             <Frame WidthRequest="170"
@@ -29,59 +34,59 @@
                 </Image>
             </Frame>
 
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="True">
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="True">
                 <Entry Placeholder="Descrição"  BackgroundColor="White" Text="{Binding Name}" FontSize="14" />
             </Frame>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *">
                 <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" Padding="10, 0, 0, 0">País</Label>
                 <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Ano</Label>
 
-                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False" HorizontalOptions="Start">
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False" HorizontalOptions="Start">
                     <Entry Placeholder="País"  BackgroundColor="White" Text="{Binding Country}" FontSize="14" WidthRequest="250" />
                 </Frame>
-                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False" HorizontalOptions="End">
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False" HorizontalOptions="End">
                     <Entry Placeholder="Ano"  BackgroundColor="White" HorizontalTextAlignment="Center" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" WidthRequest="60" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
                 <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Valor facial</Label>
                 <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Preço Pago</Label>
-                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <Entry Placeholder="Valor facial"  BackgroundColor="White" Text="{Binding FaceValue, Mode=TwoWay}" HorizontalTextAlignment="Center" FontSize="14" />
                 </Frame>
-                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <Entry Placeholder="Preço pago" Background="White" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" HorizontalTextAlignment="Center" />
                 </Frame>
             </Grid>
 
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                 <Picker Title="Condição" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />
             </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="4" HasShadow="False">
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                 <Picker Title="Coleção" ItemsSource="{Binding Collections}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCollection, Mode=TwoWay}" />
             </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="4" HasShadow="False">
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                 <Picker Title="Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" />
             </Frame>
 
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                 <Entry Placeholder="Localização"  BackgroundColor="White" Text="{Binding StampLocation, Mode=TwoWay}" FontSize="14" />
             </Frame>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
                 <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Aquisição</Label>
                 <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Estado</Label>
 
-                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <DatePicker Date="{Binding AcquisitionDate, Mode=TwoWay}" Format="dd/MM/yyyy" HorizontalOptions="Center" />
                 </Frame>
-                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <Grid ColumnDefinitions="Auto,*">
-                        <Label Text="Para troca" VerticalOptions="Center" Grid.Column="0" />
+                        <Label Text="Para troca" VerticalOptions="Center" Grid.Column="0" Margin="5, 0, 0, 0"/>
                         <Switch IsToggled="{Binding ForExchange, Mode=TwoWay}"  Margin="0, 0, 5, 0" HorizontalOptions="End" Grid.Column="1" />
                     </Grid>
                 </Frame>
             </Grid>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                 <Editor Placeholder="Notas" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" FontSize="14" />
             </Frame>
             <!--<Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
@@ -127,14 +132,14 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>-->
 
-            <Button
+            <!--<Button
                 Text="Gravar"
                 Command="{Binding SaveStampCommand}"
                 BackgroundColor="#28a745"
                 TextColor="White"
                 FontAttributes="Bold"
                 HeightRequest="45"
-                Margin="0,10,0,5" />
+                Margin="0,10,0,5" />-->
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

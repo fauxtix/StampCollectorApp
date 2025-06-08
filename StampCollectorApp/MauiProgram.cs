@@ -30,7 +30,6 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<IStampService>(sp =>
             new StampService(dbPath));
-
         builder.Services.AddSingleton<ICategoryService, CategoryService>();
         builder.Services.AddSingleton<ICollectionService, CollectionService>();
 
@@ -54,7 +53,5 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
         return builder.Build();
-
-
     }
 }

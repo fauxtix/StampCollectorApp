@@ -5,6 +5,13 @@
     x:Class="StampCollectorApp.Views.EditCollectionPage"
     Title="Coleção">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Gravar"
+            IconImageSource="icon_save.png" 
+            Command="{Binding SaveCommand}" />
+    </ContentPage.ToolbarItems>
+
     <VerticalStackLayout Padding="20" Spacing="14">
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
             <Entry Placeholder="Nome da Coleção" Text="{Binding Collection.Name}" FontSize="14" />
@@ -24,13 +31,13 @@
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
             <Editor Placeholder="Notas" Text="{Binding Collection.Notes}" AutoSize="TextChanges" FontSize="14" />
         </Frame>
-        <Button  
+        <!--<Button  
            Text="Gravar"  
            Command="{Binding SaveCommand}"  
            BackgroundColor="#28a745"  
            TextColor="White"  
            FontAttributes="Bold"  
            HeightRequest="45"  
-           Margin="0,10,0,0" />
+           Margin="0,10,0,0" />-->
     </VerticalStackLayout>
 </ContentPage>

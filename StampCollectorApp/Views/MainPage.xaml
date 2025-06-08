@@ -5,23 +5,20 @@
     xmlns:viewModels="clr-namespace:StampCollectorApp.ViewModels"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:converters="clr-namespace:StampCollectorApp.Converters"
-
     x:Class="StampCollectorApp.Views.MainPage"
     Title="Coleção de selos"
     BackgroundColor="#f3f4f6">
 
-    <Grid RowDefinitions="Auto,Auto,Auto, Auto, *, Auto" Padding="12">
-        <Button
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
             Text="Novo"
-            Grid.Row="0"
-            Command="{Binding AddStampCommand}"
-            BackgroundColor="#007AFF"
-            TextColor="White"
-            FontAttributes="Bold"
-            HeightRequest="44" />
+            IconImageSource="add.png" 
+            Command="{Binding AddStampCommand}" />
+    </ContentPage.ToolbarItems>
 
+    <Grid RowDefinitions="Auto,Auto, Auto, *, Auto" Padding="12">
         <Frame BackgroundColor="White" 
-               Grid.Row="1"
+               Grid.Row="0"
                CornerRadius="10" Padding="8" HasShadow="False">
             <SearchBar
     x:Name="searchBar"
@@ -53,7 +50,7 @@
             FontAttributes="Bold"
             HeightRequest="44" />-->
 
-        <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="5">
+        <Grid Grid.Row="1" ColumnDefinitions="*, *" ColumnSpacing="5">
             <Label Grid.Column="0" Text="Mostrar apenas para troca" VerticalOptions="Center" Margin="8,0,0,0"/>
             <Switch 
                         Grid.Column="1" HorizontalOptions="End"
@@ -63,8 +60,8 @@
                                 Margin="0,0,20,0"/>
         </Grid>
 
-        <ActivityIndicator Grid.Row="3" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
-        <CollectionView Grid.Row="4" ItemsSource="{Binding FilteredStamps}">
+        <ActivityIndicator Grid.Row="2" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
+        <CollectionView Grid.Row="3" ItemsSource="{Binding FilteredStamps}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="12" Padding="12" Margin="0,0,0,10" BackgroundColor="White" HasShadow="True">
@@ -110,7 +107,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Grid.Row="5"
+        <Button Grid.Row="4"
                 Text="Mais..."
                 BorderWidth="1" BorderColor="Black"
                 Command="{Binding ShowMoreAsyncCommand}"
