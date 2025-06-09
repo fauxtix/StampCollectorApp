@@ -1,6 +1,6 @@
 # StampCollectorApp
 
-[🇬🇧 English version](./README.en.md)
+[🇬🇧 Verão em Inglês](./README.en.md)
 
 ![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-8.0-blueviolet)
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
