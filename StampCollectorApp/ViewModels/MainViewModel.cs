@@ -30,6 +30,7 @@ namespace StampCollectorApp.ViewModels
         {
             _stampService = stampService;
             _initService = initService;
+            //_initService.RecreateTablesAsync().Wait(); // Ensure database is initialized
             FilteredStamps.CollectionChanged += (s, e) => OnPropertyChanged(nameof(CanShowMore));
         }
 
@@ -85,7 +86,6 @@ namespace StampCollectorApp.ViewModels
                 ? query.ToList()
                 : query.Where(s =>
                     (s.Name?.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                    (s.Country?.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
                     s.Year.ToString().Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
                     s.Condition.ToString().Replace("_", " ").Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)
                 ).ToList();
@@ -112,10 +112,12 @@ namespace StampCollectorApp.ViewModels
         {
             var categories = await _stampService.GetCategoriesAsync();
             var collections = await _stampService.GetCollectionsAsync();
+            var countries = await _stampService.GetCountriesAsync();
             var navParams = new Dictionary<string, object>
             {
                 { "Categories", categories },
-                { "Collections", collections }
+                { "Collections", collections },
+                { "Countries", countries}
             };
             await Shell.Current.GoToAsync(nameof(Views.AddStampPage), navParams);
         }
@@ -128,11 +130,13 @@ namespace StampCollectorApp.ViewModels
 
             var categories = await _stampService.GetCategoriesAsync();
             var collections = await _stampService.GetCollectionsAsync();
+            var countries = await _stampService.GetCountriesAsync();
 
             var navParams = new Dictionary<string, object>
             {
                 { "Categories", categories },
                 { "Collections", collections },
+                { "Countries", countries},
                 { "SelectedStamp", stamp }
             };
 
@@ -157,7 +161,7 @@ namespace StampCollectorApp.ViewModels
         public async Task FetchImageForStamp(Stamp stamp)
         {
             if (stamp == null) return;
-            var imageUrl = await GetStampImageUrlAsync($"{stamp.Name} {stamp.Country} stamp");
+            var imageUrl = await GetStampImageUrlAsync($"{stamp.Name} {stamp.Name} stamp");
             if (!string.IsNullOrEmpty(imageUrl))
                 stamp.ImagePath = imageUrl;
         }

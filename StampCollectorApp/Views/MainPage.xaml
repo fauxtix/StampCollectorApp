@@ -17,38 +17,19 @@
     </ContentPage.ToolbarItems>
 
     <Grid RowDefinitions="Auto,Auto, Auto, *, Auto" Padding="12">
-        <Frame BackgroundColor="White" 
-               Grid.Row="0"
-               CornerRadius="10" Padding="8" HasShadow="False">
-            <SearchBar
+        <SearchBar
     x:Name="searchBar"
-    Placeholder="Pesquisar selos"
-    FontSize="14"
-    Margin="8"
-    Text="{Binding SearchQuery}">
-                <SearchBar.Behaviors>
-                    <toolkit:EventToCommandBehavior
+            Placeholder="Pesquisar selos"
+            FontSize="14"
+            Margin="8"
+            Text="{Binding SearchQuery}">
+            <SearchBar.Behaviors>
+                <toolkit:EventToCommandBehavior
                             EventName="TextChanged"
                             Command="{Binding SearchStampsCommand}"
                             CommandParameter="{Binding Text, Source={x:Reference searchBar}}" />
-                </SearchBar.Behaviors>
-            </SearchBar>
-        </Frame>
-
-        <!--<Button
-            Text="Re-criar base de dados"
-            Command="{Binding ResetDatabaseCommand}"
-            BackgroundColor="#007AFF"
-            TextColor="White"
-            FontAttributes="Bold"
-            HeightRequest="44" />
-            <Button
-            Text="Limpar dados"
-            Command="{Binding ClearDataCommand}"
-            BackgroundColor="#007AFF"
-            TextColor="White"
-            FontAttributes="Bold"
-            HeightRequest="44" />-->
+            </SearchBar.Behaviors>
+        </SearchBar>
 
         <Grid Grid.Row="1" ColumnDefinitions="*, *" ColumnSpacing="5">
             <Label Grid.Column="0" Text="Mostrar apenas para troca" VerticalOptions="Center" Margin="8,0,0,0"/>
@@ -84,7 +65,9 @@
 
                             <StackLayout Grid.Column="1" VerticalOptions="Center">
                                 <Label Text="{Binding Name}" FontSize="14" FontAttributes="Bold" />
-                                <Label Text="{Binding Year}" FontSize="14" TextColor="DarkGray" />
+                                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="3">
+                                    <Label Text="{Binding Year}" FontSize="14" TextColor="DarkGray" />
+                                </Grid>
                                 <Label Text="{Binding Condition, Converter={StaticResource StampConditionToStringConverter}}" FontSize="14" />
                             </StackLayout>
 

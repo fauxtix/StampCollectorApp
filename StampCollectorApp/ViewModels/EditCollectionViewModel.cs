@@ -23,18 +23,26 @@ public partial class EditCollectionViewModel : ObservableObject, IQueryAttributa
             return;
         }
 
-        if (Collection.TotalExpected < 1)
+        if (Collection.TotalExpected == 0 && Collection.TotalCollected == 0)
+        {
+            Collection.TotalExpected = 1000;
+            Collection.TotalCollected = 0;
+        }
+
+        //if (Collection.TotalExpected != 1000 || Collection.TotalCollected > 0)
+        //{
+        //    if ((Collection.TotalExpected > 0 && Collection.TotalCollected <= 1) || Collection.TotalExpected == 0 && Collection.TotalCollected > 0)
+        //    {
+        //        await Shell.Current.DisplayAlert("Validação", "Um dos Totais não está preenchido", "OK");
+        //        return;
+        //    }
+        //}
+        if (Collection.TotalExpected < 0)
         {
             await Shell.Current.DisplayAlert("Validação", "Total Esperado deve ser um valor positivo", "OK");
             return;
         }
-        if (Collection.TotalCollected < 0)
-        {
-            await Shell.Current.DisplayAlert("Validação", "Total Colecionado deve ser um valor positivo.", "OK");
-            return;
-        }
-
-        if (Collection.TotalCollected > Collection.TotalExpected)
+        else if (Collection.TotalCollected > 0 && Collection.TotalCollected > Collection.TotalExpected)
         {
             await Shell.Current.DisplayAlert("Validação", "Total Colecionado deve ser <= Total Esperado.", "OK");
             return;

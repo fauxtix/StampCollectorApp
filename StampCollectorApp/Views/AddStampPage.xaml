@@ -37,13 +37,14 @@
             <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="True">
                 <Entry Placeholder="Descrição"  BackgroundColor="White" Text="{Binding Name}" FontSize="14" />
             </Frame>
-            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *">
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto">
                 <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" Padding="10, 0, 0, 0">País</Label>
                 <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Ano</Label>
 
-                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False" HorizontalOptions="Start">
-                    <Entry Placeholder="País"  BackgroundColor="White" Text="{Binding Country}" FontSize="14" WidthRequest="250" />
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
+                    <Picker Title="Paises" ItemsSource="{Binding Countries}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" />
                 </Frame>
+
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False" HorizontalOptions="End">
                     <Entry Placeholder="Ano"  BackgroundColor="White" HorizontalTextAlignment="Center" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" WidthRequest="60" />
                 </Frame>

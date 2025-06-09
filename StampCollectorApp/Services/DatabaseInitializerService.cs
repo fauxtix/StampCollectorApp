@@ -34,16 +34,26 @@ public class DatabaseInitializerService : IDatabaseInitializerService
         //// Apagar na ordem inversa das dependências
         //await _db.DropTableAsync<StampCollection>();
         ////await _db.DropTableAsync<Category>();
-        await _db.DropTableAsync<Stamp>();
+        //await _db.DropTableAsync<Country>();
+        //await _db.DropTableAsync<Stamp>();
         //await _db.DropTableAsync<Collection>();
         //await _db.DropTableAsync<Tag>();
+        try
+        {
+            // Criar na ordem correta
+            //await _db.CreateTableAsync<Tag>();
+            await _db.CreateTableAsync<Stamp>();
+            //await _db.CreateTableAsync<Category>();
+            //await _db.CreateTableAsync<Country>();
+            //await _db.CreateTableAsync<Collection>();
+            //await _db.CreateTableAsync<StampCollection>();
+        }
+        catch (Exception ex)
+        {
+            var x = ex.Message;
 
-        // Criar na ordem correta
-        //await _db.CreateTableAsync<Tag>();
-        await _db.CreateTableAsync<Stamp>();
-        await _db.CreateTableAsync<Category>();
-        await _db.CreateTableAsync<Collection>();
-        //await _db.CreateTableAsync<StampCollection>();
+            throw;
+        }
     }
     public async Task ClearDataAsync()
     {

@@ -16,7 +16,6 @@ public class CollectionService : ICollectionService
         return result;
     }
 
-    //public async Task SaveCollectionAsync(Collection collection) => await _db.InsertOrReplaceAsync(collection);
     public async Task SaveCollectionAsync(Collection collection)
     {
         if (collection.Id == 0)

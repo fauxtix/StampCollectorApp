@@ -32,7 +32,6 @@ namespace StampCollectorApp.Services
             {
                 query = query.Where(s =>
                     (s.Name != null && s.Name.Contains(searchQuery)) ||
-                    (s.Country != null && s.Country.Contains(searchQuery)) ||
                     s.Year.ToString().Contains(searchQuery) ||
                     s.Condition.ToString().Replace("_", " ").Contains(searchQuery)
                 );
@@ -56,7 +55,6 @@ namespace StampCollectorApp.Services
             {
                 query = query.Where(s =>
                     (s.Name != null && s.Name.Contains(searchQuery)) ||
-                    (s.Country != null && s.Country.Contains(searchQuery)) ||
                     s.Year.ToString().Contains(searchQuery) ||
                     s.Condition.ToString().Replace("_", " ").Contains(searchQuery)
                 );
@@ -131,6 +129,11 @@ namespace StampCollectorApp.Services
         public async Task<List<Collection>> GetCollectionsAsync()
         {
             var result = await _db.Table<Collection>().ToListAsync();
+            return result;
+        }
+        public async Task<List<Country>> GetCountriesAsync()
+        {
+            var result = await _db.Table<Country>().ToListAsync();
             return result;
         }
 

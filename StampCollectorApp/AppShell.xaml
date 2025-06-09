@@ -38,10 +38,15 @@
         ContentTemplate="{DataTemplate views:CollectionsPage}"
         Route="CollectionsPage" />
         <ShellContent
-        Title="Categorias"
-        Icon="categories.png" 
-        ContentTemplate="{DataTemplate views:CategoriesPage}"
-        Route="CategoriesPage" />
+            Title="Categorias"
+            Icon="categories.png" 
+            ContentTemplate="{DataTemplate views:CategoriesPage}"
+            Route="CategoriesPage" />
+        <ShellContent
+            Title="Paises"
+            Icon="categories.png" 
+            ContentTemplate="{DataTemplate views:CountriesPage}"
+            Route="CountriesPage" />
 
     </FlyoutItem>
 

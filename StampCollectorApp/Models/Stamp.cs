@@ -8,7 +8,6 @@ public class Stamp
     [AutoIncrement]
     public int Id { get; set; }
     public string? Name { get; set; }
-    public string? Country { get; set; }
     public int Year { get; set; } = DateTime.Now.Year;
     public StampCondition Condition { get; set; }
     public string? ImagePath { get; set; }
@@ -20,10 +19,13 @@ public class Stamp
     public string? Notes { get; set; }
     public int CategoryId { get; set; }
     public int CollectionId { get; set; }
+    public int CountryId { get; set; }
     public int TagId { get; set; }
 
     [Ignore]
     public List<StampCollection> Collections { get; set; } = new();
+    [Ignore]
+    public List<Country> Countries { get; set; } = new();
 
 
 }

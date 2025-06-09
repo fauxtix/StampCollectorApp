@@ -32,6 +32,7 @@ public static class MauiProgram
             new StampService(dbPath));
         builder.Services.AddSingleton<ICategoryService, CategoryService>();
         builder.Services.AddSingleton<ICollectionService, CollectionService>();
+        builder.Services.AddSingleton<ICountryService, CountryService>();
 
         builder.Services.AddTransient<MainViewModel>();
         builder.Services.AddTransient<MainPage>();
@@ -44,6 +45,11 @@ public static class MauiProgram
         builder.Services.AddTransient<CategoriesViewModel>();
         builder.Services.AddTransient<EditCategoryViewModel>();
         builder.Services.AddTransient<EditCategoryPage>();
+
+        builder.Services.AddTransient<CountriesPage>();
+        builder.Services.AddTransient<CountriesViewModel>();
+        builder.Services.AddTransient<EditCountryViewModel>();
+        builder.Services.AddTransient<EditCountryPage>();
 
         builder.Services.AddTransient<CollectionsPage>();
         builder.Services.AddTransient<CollectionsViewModel>();

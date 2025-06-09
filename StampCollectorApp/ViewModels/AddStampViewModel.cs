@@ -4,22 +4,22 @@ using StampCollectorApp.Models;
 using StampCollectorApp.Services;
 using StampCollectorApp.Views;
 using System.Collections.ObjectModel;
-using System.Text.Json;
 
 namespace StampCollectorApp.ViewModels
 {
     [QueryProperty(nameof(Categories), "Categories")]
     [QueryProperty(nameof(Collections), "Collections")]
+    [QueryProperty(nameof(Countries), "Countries")]
     [QueryProperty(nameof(SelectedStamp), "SelectedStamp")]
     public partial class AddStampViewModel : ObservableObject
     {
         private readonly IStampService _stampService;
-        //private readonly ICollectionService _collectionService;
+        private readonly ICollectionService _collectionService;
 
         private int _currentPage = 1;
         public List<StampCondition> Conditions { get; } = Enum.GetValues(typeof(StampCondition)).Cast<StampCondition>().ToList();
         public bool CanFetchImageFromApi =>
-            !string.IsNullOrWhiteSpace(Country) && Year.HasValue && Year > 1865;
+            Year.HasValue && Year > 1865;
 
         private const string PixabayApiKey = "50529772-442b5126c14cb25b021e56dff";
         private const string PixabayApiUrl = "https://pixabay.com/api/";
@@ -39,21 +39,22 @@ namespace StampCollectorApp.ViewModels
         private List<Category> categories;
         [ObservableProperty]
         private List<Collection> collections;
+        [ObservableProperty]
+        private List<Country> countries;
 
         [ObservableProperty]
         private Category selectedCategory;
 
         [ObservableProperty]
         private Collection selectedCollection;
+        [ObservableProperty]
+        private Country selectedCountry;
 
         [ObservableProperty]
         private Stamp selectedStamp;
 
         [ObservableProperty]
         private string name;
-
-        [ObservableProperty]
-        private string country;
 
         [ObservableProperty]
         private int? year;
@@ -69,6 +70,8 @@ namespace StampCollectorApp.ViewModels
 
         [ObservableProperty]
         private int collectionId;
+        [ObservableProperty]
+        private int countryId;
 
         [ObservableProperty] private string faceValue;
         [ObservableProperty] private string stampLocation;
@@ -78,17 +81,18 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty] private string notes;
         [ObservableProperty] private int tagId;
 
-        public AddStampViewModel(IStampService stampService)
+        public AddStampViewModel(IStampService stampService, ICollectionService collectionService)
         {
             _stampService = stampService;
 
             Categories = new List<Category>();
             Collections = new List<Collection>();
+            Countries = new List<Country>();
             SelectedCategory = new Category();
             SelectedCollection = new Collection();
+            SelectedCountry = new Country();
             SelectedStamp = new Stamp();
             Name = string.Empty;
-            Country = string.Empty;
             ImagePath = "gallery.png";
             FaceValue = string.Empty;
             StampLocation = string.Empty;
@@ -96,14 +100,10 @@ namespace StampCollectorApp.ViewModels
 
             AcquisitionDate = DateTime.Now;
             Notes = string.Empty;
+            _collectionService = collectionService;
         }
 
 
-
-        partial void OnCountryChanged(string value)
-        {
-            OnPropertyChanged(nameof(CanFetchImageFromApi));
-        }
 
         partial void OnYearChanged(int? value)
         {
@@ -128,6 +128,13 @@ namespace StampCollectorApp.ViewModels
 
             OnPropertyChanged(nameof(CanFetchImageFromApi));
         }
+        partial void OnSelectedCountryChanged(Country value)
+        {
+            if (value != null)
+                CountryId = value.Id;
+
+            OnPropertyChanged(nameof(CanFetchImageFromApi));
+        }
 
 
         partial void OnSelectedStampChanged(Stamp? value)
@@ -135,12 +142,12 @@ namespace StampCollectorApp.ViewModels
             if (value != null)
             {
                 Name = value.Name ?? string.Empty; // Ensure null-safe assignment
-                Country = value.Country ?? string.Empty; // Ensure null-safe assignment
                 Year = value.Year;
                 Condition = value.Condition;
                 ImagePath = value.ImagePath ?? string.Empty; // Ensure null-safe assignment
                 CategoryId = value.CategoryId;
                 CollectionId = value.CollectionId;
+                CountryId = value.CountryId;
                 FaceValue = value.FaceValue ?? "";
                 StampLocation = value.StampLocation ?? string.Empty;
                 AcquisitionDate = value.AcquisitionDate;
@@ -150,16 +157,17 @@ namespace StampCollectorApp.ViewModels
                 TagId = value.TagId;
                 SelectedCategory = Categories?.FirstOrDefault(c => c.Id == value.CategoryId) ?? new Category();
                 SelectedCollection = Collections?.FirstOrDefault(c => c.Id == value.CollectionId) ?? new Collection();
+                SelectedCountry = Countries?.FirstOrDefault(c => c.Id == value.CountryId) ?? new Country();
             }
             else
             {
                 Name = string.Empty;
-                Country = string.Empty;
                 Year = DateTime.Now.Year;
                 Condition = StampCondition.Novo;
                 ImagePath = string.Empty;
                 CategoryId = 0;
                 CollectionId = 0;
+                CountryId = 0;
                 FaceValue = "";
                 StampLocation = string.Empty;
                 AcquisitionDate = DateTime.Now;
@@ -185,14 +193,14 @@ namespace StampCollectorApp.ViewModels
                 await Shell.Current.DisplayAlert("Validação", "Preencha Nome para o selo.", "OK");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(Country))
-            {
-                await Shell.Current.DisplayAlert("Validação", "Preencha País.", "OK");
-                return;
-            }
             if (SelectedCategory == null)
             {
                 await Shell.Current.DisplayAlert("Validação", "Selecione Categoria.", "OK");
+                return;
+            }
+            if (SelectedCountry == null)
+            {
+                await Shell.Current.DisplayAlert("Validação", "Selecione País.", "OK");
                 return;
             }
             if (SelectedCollection == null)
@@ -229,8 +237,8 @@ namespace StampCollectorApp.ViewModels
             }
 
             var collection = SelectedCollection;
-            bool isCollectionFull = collection.TotalExpected.HasValue && collection.TotalCollected.HasValue &&
-                                    collection.TotalCollected.Value >= collection.TotalExpected.Value;
+
+            bool isCollectionFull = collection.TotalCollected >= collection.TotalExpected;
 
             bool forExchange = false;
             if (isCollectionFull)
@@ -249,12 +257,12 @@ namespace StampCollectorApp.ViewModels
             var stamp = new Stamp
             {
                 Name = Name,
-                Country = Country,
                 Year = Year.Value,
                 Condition = Condition,
                 ImagePath = ImagePath,
                 CategoryId = CategoryId,
                 CollectionId = CollectionId,
+                CountryId = CountryId,
                 FaceValue = FaceValue,
                 StampLocation = StampLocation,
                 AcquisitionDate = AcquisitionDate,
@@ -277,7 +285,7 @@ namespace StampCollectorApp.ViewModels
             if (!forExchange)
             {
                 collection.TotalCollected = (collection.TotalCollected ?? 0) + 1;
-                //await _collectionService.SaveCollectionAsync(collection);
+                await _collectionService.SaveCollectionAsync(collection);
             }
 
 
@@ -380,108 +388,6 @@ namespace StampCollectorApp.ViewModels
             }
 
             return null;
-        }
-
-        [RelayCommand]
-        public async Task LoadWikiStampsAsync()
-        {
-            WikiStamps.Clear();
-
-            if (string.IsNullOrWhiteSpace(Country) || Year <= 0)
-            {
-                await Shell.Current.DisplayAlert("Validation", "Please enter both country and year.", "OK");
-                return;
-            }
-
-            // Build the SPARQL query dynamically, injecting country and year
-            string sparqlQuery = $@"
-SELECT ?item ?itemLabel ?image WHERE {{
-  ?item wdt:P31 wd:Q167578;     # instance of postage stamp
-        wdt:P18 ?image;         # has image
-        wdt:P17 ?country;       # country of origin
-        wdt:P577 ?date.         # issuance date
-
-  ?country rdfs:label ?countryLabel.
-  FILTER(LANG(?countryLabel) = 'en')
-  FILTER(CONTAINS(LCASE(?countryLabel), '{Country.ToLowerInvariant()}'))
-
-  FILTER(YEAR(?date) = {Year})
-
-  SERVICE wikibase:label {{ bd:serviceParam wikibase:language 'en'. }}
-}}
-LIMIT 10";
-
-            string url = "https://query.wikidata.org/sparql?query=" +
-                         Uri.EscapeDataString(sparqlQuery) + "&format=json";
-
-            using var client = new HttpClient();
-            client.DefaultRequestHeaders.UserAgent.ParseAdd("StampCollectorApp/1.0");
-
-            try
-            {
-                var response = await client.GetAsync(url);
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    await Shell.Current.DisplayAlert("Error", $"HTTP {response.StatusCode}", "OK");
-                    return;
-                }
-
-                var json = await response.Content.ReadAsStringAsync();
-
-                using var doc = JsonDocument.Parse(json);
-
-                var bindings = doc.RootElement
-                    .GetProperty("results")
-                    .GetProperty("bindings");
-
-                if (bindings.GetArrayLength() == 0)
-                {
-                    await Shell.Current.DisplayAlert("No results", "No stamps found for your search.", "OK");
-                    return;
-                }
-
-                foreach (var item in bindings.EnumerateArray())
-                {
-                    string name = item.GetProperty("itemLabel").GetProperty("value").GetString() ?? "Unnamed";
-                    string rawImageUrl = item.GetProperty("image").GetProperty("value").GetString() ?? "";
-                    string imageUrl = rawImageUrl.Replace("http://", "https://");
-
-                    WikiStamps.Add(new WikiStamps
-                    {
-                        Name = name,
-                        Year = Year.ToString(),
-                        ImageUrl = imageUrl
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
-            }
-        }
-
-        [RelayCommand]
-        public async Task LoadStampImagesForCountryAsync()
-        {
-            if (string.IsNullOrWhiteSpace(Country))
-            {
-                await Shell.Current.DisplayAlert("Error", "Please select a country.", "OK");
-                return;
-            }
-
-            var images = await _stampService.GetStampImagesByCountryCategoryAsync(Country, 10);
-            WikiStamps.Clear();
-
-            foreach (var url in images)
-            {
-                WikiStamps.Add(new WikiStamps
-                {
-                    Name = $"Stamp from {Country}",
-                    Year = Year?.ToString() ?? "",
-                    ImageUrl = url
-                });
-            }
         }
     }
 }
