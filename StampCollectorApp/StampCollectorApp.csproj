@@ -77,6 +77,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Localization\Strings.en.resx">
+	    <Generator>ResXFileCodeGenerator </Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Localization\Strings.resx">
+	    <Generator>ResXFileCodeGenerator </Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 		<MauiXaml Update="Views\AddStampPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
