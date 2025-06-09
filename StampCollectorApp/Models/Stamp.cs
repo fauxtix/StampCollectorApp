@@ -27,7 +27,8 @@ public class Stamp
     [Ignore]
     public List<Country> Countries { get; set; } = new();
 
-
+    [Ignore]
+    public string CountryName { get; set; } = string.Empty;
 }
 
 public enum StampCondition

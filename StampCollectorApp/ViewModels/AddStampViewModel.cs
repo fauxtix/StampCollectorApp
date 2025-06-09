@@ -93,7 +93,7 @@ namespace StampCollectorApp.ViewModels
             SelectedCountry = new Country();
             SelectedStamp = new Stamp();
             Name = string.Empty;
-            ImagePath = "gallery.png";
+            ImagePath = "stamp.png";
             FaceValue = string.Empty;
             StampLocation = string.Empty;
             Notes = string.Empty;
@@ -315,7 +315,7 @@ namespace StampCollectorApp.ViewModels
             if (!string.IsNullOrEmpty(imageUrl))
                 ImagePath = imageUrl;
             else
-                ImagePath = "gallery.png";
+                ImagePath = "stamp.png";
         }
 
         [RelayCommand]

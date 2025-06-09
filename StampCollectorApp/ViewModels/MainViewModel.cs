@@ -63,12 +63,25 @@ namespace StampCollectorApp.ViewModels
         {
             IsLoading = true;
             _currentPage = 1;
-            var all = await _stampService.GetStampsAsync();
-            Stamps = new ObservableCollection<Stamp>(all);
+
+            // Load all stamps
+            var allStamps = await _stampService.GetStampsAsync();
+            // Load all countries
+            var allCountries = await _stampService.GetCountriesAsync();
+
+            // Create a dictionary for fast lookup
+            var countryDict = allCountries.ToDictionary(c => c.Id, c => c.Name);
+
+            // Set CountryName efficiently with O(1) lookups
+            foreach (var stamp in allStamps)
+            {
+                stamp.CountryName = countryDict.TryGetValue(stamp.CountryId, out string name) ? name : "";
+            }
+
+            Stamps = new ObservableCollection<Stamp>(allStamps);
             FilterStamps();
             IsLoading = false;
         }
-
         partial void OnSearchQueryChanged(string value) => FilterStamps();
         partial void OnShowOnlyForExchangeChanged(bool value) => FilterStamps();
 
