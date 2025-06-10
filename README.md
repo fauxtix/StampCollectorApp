@@ -102,4 +102,4 @@ Este projeto está licenciado sob a licença MIT.
 ## 🤝 Contacto
 
 Dúvidas ou sugestões?  
-Abra uma issue ou entre em contato pelo [seu-email@dominio.com](mailto:seu-email@dominio.com).
+Abra uma issue, por favor.
