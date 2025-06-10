@@ -102,4 +102,4 @@ This project is licensed under the MIT license.
 ## 🤝 Contact
 
 Questions or suggestions?  
-Open an issue or contact us at [your-email@domain.com](mailto:your-email@domain.com).
+Open an issue please.
