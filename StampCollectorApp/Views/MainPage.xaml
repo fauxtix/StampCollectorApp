@@ -5,9 +5,8 @@
     xmlns:viewModels="clr-namespace:StampCollectorApp.ViewModels"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:converters="clr-namespace:StampCollectorApp.Converters"
-    xmlns:resources="clr-namespace:StampCollectorApp.Resources.Localization"
     x:Class="StampCollectorApp.Views.MainPage"
-    Title="{x:Static resources:Strings.TituloPaginaSelos}"
+    Title="Coleção de selos"
     BackgroundColor="#f3f4f6">
 
     <ContentPage.ToolbarItems>

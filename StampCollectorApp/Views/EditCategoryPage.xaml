@@ -16,7 +16,7 @@
         <Entry x:Name="CategoryNameEntry"
                Placeholder="Category Name"
                Text="{Binding Category.Name}" />
-        <Button Text="Save"
+        <Button Text="Gravar"
                 Command="{Binding SaveCommand}" />
     </VerticalStackLayout>
 </ContentPage>

@@ -7,7 +7,7 @@
         <Entry x:Name="CountryNameEntry"
                Placeholder="Nome do País"
                Text="{Binding Country.Name}" />
-        <Button Text="Save"
+        <Button Text="Gravar"
                 Command="{Binding SaveCommand}" />
     </VerticalStackLayout>
 </ContentPage>
