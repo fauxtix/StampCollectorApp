@@ -32,7 +32,21 @@
                         <TapGestureRecognizer Command="{Binding ViewImageCommand}" />
                     </Image.GestureRecognizers>
                 </Image>
+
             </Frame>
+            <Button
+                    Text="Escolha imagem local"
+                    Command="{Binding PickImageFromDeviceCommand}"
+                    BackgroundColor="#CE30CC"
+                    TextColor="White" CornerRadius="15"
+                    FontAttributes="Bold"
+                    FontSize="13"
+                    HeightRequest="40" />
+            <BoxView
+                HeightRequest="1"
+                Color="Black"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"/>
 
             <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="True">
                 <Entry Placeholder="Descrição"  BackgroundColor="White" Text="{Binding Name}" FontSize="14" />
@@ -51,7 +65,7 @@
             </Grid>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
                 <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Valor facial</Label>
-                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Preço Pago</Label>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Preço Pago (€)</Label>
                 <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <Entry Placeholder="Valor facial"  BackgroundColor="White" Text="{Binding FaceValue, Mode=TwoWay}" HorizontalTextAlignment="Center" FontSize="14" />
                 </Frame>
@@ -59,24 +73,34 @@
                     <Entry Placeholder="Preço pago" Background="White" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" HorizontalTextAlignment="Center" />
                 </Frame>
             </Grid>
+            <Grid RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Estado</Label>
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
+                    <Picker Title="Condição" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />
+                </Frame>
+            </Grid>
+            <Grid RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Coleção</Label>
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
+                    <Picker Title="Coleção" ItemsSource="{Binding Collections}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCollection, Mode=TwoWay}" />
+                </Frame>
+            </Grid>
+            <Grid RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Categoria</Label>
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
+                    <Picker Title="Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" />
+                </Frame>
+            </Grid>
 
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                <Picker Title="Condição" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />
-            </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                <Picker Title="Coleção" ItemsSource="{Binding Collections}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCollection, Mode=TwoWay}" />
-            </Frame>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                <Picker Title="Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" />
-            </Frame>
-
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                <Entry Placeholder="Localização"  BackgroundColor="White" Text="{Binding StampLocation, Mode=TwoWay}" FontSize="14" />
-            </Frame>
+            <Grid RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Localização</Label>
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
+                    <Entry Placeholder="Localização"  BackgroundColor="White" Text="{Binding StampLocation, Mode=TwoWay}" FontSize="14" />
+                </Frame>
+            </Grid>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
                 <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Aquisição</Label>
                 <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Estado</Label>
-
                 <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <DatePicker Date="{Binding AcquisitionDate, Mode=TwoWay}" Format="dd/MM/yyyy" HorizontalOptions="Center" />
                 </Frame>
@@ -87,9 +111,12 @@
                     </Grid>
                 </Frame>
             </Grid>
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                <Editor Placeholder="Notas" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" FontSize="14" />
-            </Frame>
+            <Grid RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Notas</Label>
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
+                    <Editor Placeholder="Notas" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" FontSize="14" />
+                </Frame>
+            </Grid>
             <!--<Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
                 <Entry Placeholder="Tag Id" Text="{Binding TagId, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" />
             </Frame>-->
@@ -104,14 +131,6 @@
                     FontSize="13"
                     FontAttributes="Bold"
                     HeightRequest="40" />-->
-                <Button
-                    Text="Escolha imagem local"
-                    Command="{Binding PickImageFromDeviceCommand}"
-                    BackgroundColor="#CE30CC"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    FontSize="13"
-                    HeightRequest="40" />
             </HorizontalStackLayout>
 
             <!--<CollectionView ItemsSource="{Binding WikiStamps}"
