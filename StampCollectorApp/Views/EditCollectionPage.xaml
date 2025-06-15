@@ -2,8 +2,9 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resx="clr-namespace:StampCollectorApp.Resources.Languages"
     x:Class="StampCollectorApp.Views.EditCollectionPage"
-    Title="Coleção">
+    Title="{resx:Localize Key=TituloColecao}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -14,22 +15,22 @@
 
     <VerticalStackLayout Padding="20" Spacing="14">
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-            <Entry Placeholder="Nome da Coleção" Text="{Binding Collection.Name}" FontSize="14" />
+            <Entry Placeholder="{resx:Localize Key=TituloNomeColecao}" Text="{Binding Collection.Name}" FontSize="14" />
         </Frame>
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-            <Entry Placeholder="Descrição" Text="{Binding Collection.Description}" FontSize="14" />
+            <Entry Placeholder="{resx:Localize Key=TituloDescricao}" Text="{Binding Collection.Description}" FontSize="14" />
         </Frame>
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-            <Entry Placeholder="Total Esperado" Text="{Binding Collection.TotalExpected}" FontSize="14" Keyboard="Numeric" />
+            <Entry Placeholder="{resx:Localize Key=TituloTotalEsperado}" Text="{Binding Collection.TotalExpected}" FontSize="14" Keyboard="Numeric" />
         </Frame>
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-            <Entry Placeholder="Total Colecionado" Text="{Binding Collection.TotalCollected}" FontSize="14" Keyboard="Numeric" />
+            <Entry Placeholder="{resx:Localize Key=TituloTotalColecionado}" Text="{Binding Collection.TotalCollected}" FontSize="14" Keyboard="Numeric" />
         </Frame>
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
             <DatePicker Date="{Binding Collection.CreatedAt}" Format="dd/MM/yyyy" />
         </Frame>
         <Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">
-            <Editor Placeholder="Notas" Text="{Binding Collection.Notes}" AutoSize="TextChanges" FontSize="14" />
+            <Editor Placeholder="{resx:Localize Key=TituloNotas}" Text="{Binding Collection.Notes}" AutoSize="TextChanges" FontSize="14" />
         </Frame>
         <!--<Button  
            Text="Gravar"  

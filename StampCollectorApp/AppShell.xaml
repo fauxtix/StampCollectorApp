@@ -3,6 +3,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:StampCollectorApp.Views"
+    xmlns:resx="clr-namespace:StampCollectorApp.Resources.Languages"
+
     FlyoutWidth="200"
     FlyoutHeight="450"
     Shell.TabBarIsVisible="False"
@@ -28,22 +30,22 @@
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
-        Title="Selos"
+        Title="{resx:Localize Key=TituloSelos}"
         Icon="stamp.png"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage"/>
         <ShellContent
-        Title="Coleções"
+        Title="{resx:Localize Key=TituloColecoes}"
         Icon="collection.png"
         ContentTemplate="{DataTemplate views:CollectionsPage}"
         Route="CollectionsPage" />
         <ShellContent
-            Title="Categorias"
+            Title="{resx:Localize Key=TituloCategorias}"
             Icon="categories.png" 
             ContentTemplate="{DataTemplate views:CategoriesPage}"
             Route="CategoriesPage" />
         <ShellContent
-            Title="Paises"
+            Title="{resx:Localize Key=TituloPaginaPaises}"
             Icon="categories.png" 
             ContentTemplate="{DataTemplate views:CountriesPage}"
             Route="CountriesPage" />

@@ -3,12 +3,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="StampCollectorApp.Views.CollectionsPage"
+    xmlns:resx="clr-namespace:StampCollectorApp.Resources.Languages"
     x:Name="CollectionsPageRef"
-    Title="Coleções">
+    Title="{resx:Localize Key=TituloColecoes}"
+    BackgroundColor="#f3f4f6">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
-            Text="Gravar"
             IconImageSource="add.png" 
             Command="{Binding AddCollectionCommand}" />
     </ContentPage.ToolbarItems>
@@ -32,7 +33,7 @@
                                    VerticalOptions="Center"
                                    TextColor="#222"/>
                             <Button Grid.Column="1"
-                                    Text="Editar"
+                                    Text="{resx:Localize Key=TituloEditar}"
                                     Command="{Binding BindingContext.EditCollectionCommand, Source={x:Reference CollectionsPageRef}}"
                                     CommandParameter="{Binding .}"
                                     BackgroundColor="#2196F3"
@@ -43,7 +44,7 @@
                                     Margin="0,0,8,0"
                                     VerticalOptions="Center"/>
                             <Button Grid.Column="2"
-                                    Text="Apagar"
+                                    Text="{resx:Localize Key=TituloApagar}"
                                     Command="{Binding BindingContext.DeleteCollectionCommand, Source={x:Reference CollectionsPageRef}}"
                                     CommandParameter="{Binding .}"
                                     BackgroundColor="#E53935"

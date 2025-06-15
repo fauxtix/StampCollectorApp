@@ -3,12 +3,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="StampCollectorApp.Views.AddStampPage"
-    Title="Criar / Editar Selo"
+    xmlns:resx="clr-namespace:StampCollectorApp.Resources.Languages"
+    Title="{resx:Localize Key=TituloCriarEditarSelo}"
     BackgroundColor="#f3f4f6">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
-            Text="Gravar"
+            Text="{resx:Localize Key=TituloGravar}"
             IconImageSource="icon_save.png" 
             Command="{Binding SaveStampCommand}" />
     </ContentPage.ToolbarItems>
@@ -35,7 +36,7 @@
 
             </Frame>
             <Button
-                    Text="Escolha imagem local"
+                    Text="{resx:Localize Key=TituloEscolherImagemLocal}"
                     Command="{Binding PickImageFromDeviceCommand}"
                     BackgroundColor="#CE30CC"
                     TextColor="White" CornerRadius="15"
@@ -49,72 +50,72 @@
                 VerticalOptions="Center"/>
 
             <Frame BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="True">
-                <Entry Placeholder="Descrição"  BackgroundColor="White" Text="{Binding Name}" FontSize="14" />
+                <Entry Placeholder="{resx:Localize Key=TituloDescricao}"  BackgroundColor="White" Text="{Binding Name}" FontSize="14" />
             </Frame>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto">
-                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" Padding="10, 0, 0, 0">País</Label>
-                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Ano</Label>
+                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" Padding="10, 0, 0, 0" Text="{resx:Localize Key=TituloPaises}"/>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloAno}"/>
 
                 <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Picker Title="Paises" ItemsSource="{Binding Countries}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" />
+                    <Picker Title="{resx:Localize Key=TituloPaises}" ItemsSource="{Binding Countries}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" />
                 </Frame>
 
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False" HorizontalOptions="End">
-                    <Entry Placeholder="Ano"  BackgroundColor="White" HorizontalTextAlignment="Center" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" WidthRequest="60" />
+                    <Entry Placeholder="{resx:Localize Key=TituloPaises}"  BackgroundColor="White" HorizontalTextAlignment="Center" Text="{Binding Year, Mode=TwoWay}" Keyboard="Numeric" MaxLength="4" WidthRequest="60" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
-                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Valor facial</Label>
-                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Preço Pago (€)</Label>
+                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloValorFacial}"/>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloValorPago}"/>
                 <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Entry Placeholder="Valor facial"  BackgroundColor="White" Text="{Binding FaceValue, Mode=TwoWay}" HorizontalTextAlignment="Center" FontSize="14" />
+                    <Entry Placeholder="{resx:Localize Key=TituloValorFacial}"  BackgroundColor="White" Text="{Binding FaceValue, Mode=TwoWay}" HorizontalTextAlignment="Center" FontSize="14" />
                 </Frame>
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Entry Placeholder="Preço pago" Background="White" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" HorizontalTextAlignment="Center" />
+                    <Entry Placeholder="{resx:Localize Key=TitulovalorPago}" Background="White" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" HorizontalTextAlignment="Center" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto">
-                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Estado</Label>
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3" Text="{resx:Localize Key=TituloCondicao}"/>
                 <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Picker Title="Condição" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />
+                    <Picker Title="{resx:Localize Key=TituloCondicao}" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto">
-                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Coleção</Label>
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3" Text="{resx:Localize Key=TituloColecao}"/>
                 <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Picker Title="Coleção" ItemsSource="{Binding Collections}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCollection, Mode=TwoWay}" />
+                    <Picker Title="{resx:Localize Key=TituloColecao}" ItemsSource="{Binding Collections}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCollection, Mode=TwoWay}" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto">
-                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Categoria</Label>
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3" Text="{resx:Localize Key=TituloCategoria}"/>
                 <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Picker Title="Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" />
+                    <Picker Title="{resx:Localize Key=TituloCategoria}" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" />
                 </Frame>
             </Grid>
 
             <Grid RowDefinitions="Auto, Auto">
-                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Localização</Label>
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3" Text="{resx:Localize Key=TituloLocalizacao}"/>
                 <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Entry Placeholder="Localização"  BackgroundColor="White" Text="{Binding StampLocation, Mode=TwoWay}" FontSize="14" />
+                    <Entry Placeholder="{resx:Localize Key=TituloLocalizacao}"  BackgroundColor="White" Text="{Binding StampLocation, Mode=TwoWay}" FontSize="14" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
-                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center">Aquisição</Label>
-                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center">Estado</Label>
+                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloValorFacial}"/>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloSituacao}"/>
                 <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <DatePicker Date="{Binding AcquisitionDate, Mode=TwoWay}" Format="dd/MM/yyyy" HorizontalOptions="Center" />
                 </Frame>
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <Grid ColumnDefinitions="Auto,*">
-                        <Label Text="Para troca" VerticalOptions="Center" Grid.Column="0" Margin="5, 0, 0, 0"/>
+                        <Label Text="{resx:Localize Key=TituloParaTroca}" VerticalOptions="Center" Grid.Column="0" Margin="5, 0, 0, 0"/>
                         <Switch IsToggled="{Binding ForExchange, Mode=TwoWay}"  Margin="0, 0, 5, 0" HorizontalOptions="End" Grid.Column="1" />
                     </Grid>
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto">
-                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3">Notas</Label>
+                <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3" Text="{resx:Localize Key=TituloNotas}"/>
                 <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Editor Placeholder="Notas" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" FontSize="14" />
+                    <Editor Placeholder="{resx:Localize Key=TituloNotas}" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" FontSize="14" />
                 </Frame>
             </Grid>
             <!--<Frame BackgroundColor="White" CornerRadius="10" Padding="8" HasShadow="False">

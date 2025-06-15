@@ -118,99 +118,99 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MostrarApenasParaTroca" xml:space="preserve">
-    <value>Mostrar apenas para Trocas</value>
+    <value>Show only for Exchanges</value>
   </data>
   <data name="TituloColecao" xml:space="preserve">
-    <value>Coleção</value>
+    <value>Collection</value>
   </data>
   <data name="TituloAno" xml:space="preserve">
-    <value>Ano</value>
+    <value>Year</value>
   </data>
   <data name="TituloApagar" xml:space="preserve">
-    <value>Apagar</value>
+    <value>Delete</value>
   </data>
   <data name="TituloCategoria" xml:space="preserve">
-    <value>Categoria</value>
+    <value>Category</value>
   </data>
   <data name="TituloCondicao" xml:space="preserve">
-    <value>Condição</value>
+    <value>Condition</value>
   </data>
   <data name="TituloCriarEditarSelo" xml:space="preserve">
-    <value>Criar / Editar</value>
+    <value>Create / Edit</value>
   </data>
   <data name="TituloDataAquisicao" xml:space="preserve">
-    <value>Aquisição</value>
+    <value>Acquisition</value>
   </data>
   <data name="TituloDescricao" xml:space="preserve">
-    <value>Descrição</value>
+    <value>Description</value>
   </data>
   <data name="TituloEditar" xml:space="preserve">
-    <value>Editar</value>
+    <value>Edit</value>
   </data>
   <data name="TituloEscolherImagemLocal" xml:space="preserve">
-    <value>Escolha imagem local</value>
+    <value>Choose local image</value>
   </data>
   <data name="TituloEstado" xml:space="preserve">
-    <value>Estado</value>
+    <value>Status</value>
   </data>
   <data name="TituloGravar" xml:space="preserve">
-    <value>Gravar</value>
+    <value>Save</value>
   </data>
   <data name="TituloLocalizacao" xml:space="preserve">
-    <value>Localização</value>
+    <value>Location</value>
   </data>
   <data name="TituloMais" xml:space="preserve">
-    <value>Mais...</value>
+    <value>More...</value>
   </data>
   <data name="TituloNotas" xml:space="preserve">
-    <value>Notas</value>
+    <value>Notes</value>
   </data>
   <data name="TituloNovo" xml:space="preserve">
-    <value>Novo</value>
+    <value>New</value>
   </data>
   <data name="TituloPaginaSelos" xml:space="preserve">
-    <value>Coleção de Selos</value>
+    <value>Stamps Collector</value>
   </data>
   <data name="TituloPaises" xml:space="preserve">
-    <value>País</value>
+    <value>Country</value>
   </data>
   <data name="TituloParaTroca" xml:space="preserve">
-    <value>Para troca</value>
+    <value>For exchange</value>
   </data>
   <data name="TituloPesquisarSelo" xml:space="preserve">
-    <value>Pesquisar...</value>
+    <value>Search...</value>
   </data>
   <data name="TituloSituacao" xml:space="preserve">
-    <value>Situação</value>
+    <value>Status</value>
   </data>
   <data name="TituloValorFacial" xml:space="preserve">
-    <value>Valor facial</value>
+    <value>Face value</value>
   </data>
   <data name="TituloValorPago" xml:space="preserve">
-    <value>Valor pago</value>
+    <value>Price paid</value>
   </data>
   <data name="TituloCategorias" xml:space="preserve">
-    <value>Categorias</value>
+    <value>Categories</value>
   </data>
   <data name="TituloColecoes" xml:space="preserve">
-    <value>Coleções</value>
+    <value>Collections</value>
   </data>
   <data name="TituloPaginaPaises" xml:space="preserve">
-    <value>Paises</value>
+    <value>Countries</value>
   </data>
   <data name="TituloNomeColecao" xml:space="preserve">
-    <value>Nome da Coleção</value>
+    <value>Collection name</value>
   </data>
   <data name="TituloTotalEsperado" xml:space="preserve">
-    <value>Total Esperado</value>
+    <value>Total expected</value>
   </data>
   <data name="TituloTotalColecionado" xml:space="preserve">
-    <value>Total Colecionado</value>
+    <value>Total collected</value>
   </data>
   <data name="TituloCriadoEm" xml:space="preserve">
-    <value>Criada em</value>
+    <value>Created On</value>
   </data>
   <data name="TituloSelos" xml:space="preserve">
-    <value>Selos</value>
+    <value>Stamps</value>
   </data>
 </root>

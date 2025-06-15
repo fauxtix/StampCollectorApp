@@ -2,12 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StampCollectorApp.Views.EditCountryPage"
-             Title="Criar/Editar País">
+             xmlns:resx="clr-namespace:StampCollectorApp.Resources.Languages"
+             Title="{resx:Localize Key=TituloCriarEditarSelo}"
+    BackgroundColor="#f3f4f6">
     <VerticalStackLayout Padding="20" Spacing="15">
         <Entry x:Name="CountryNameEntry"
-               Placeholder="Nome do País"
+               Placeholder="{resx:Localize Key=TituloPaises}"
                Text="{Binding Country.Name}" />
-        <Button Text="Gravar"
+        <Button Text="{resx:Localize Key=TituloGravar}"
                 Command="{Binding SaveCommand}" />
     </VerticalStackLayout>
 </ContentPage>

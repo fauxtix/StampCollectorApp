@@ -3,6 +3,8 @@ using SQLite;
 using StampCollectorApp.Services;
 using StampCollectorApp.ViewModels;
 using StampCollectorApp.Views;
+using System.Globalization;
+
 
 namespace StampCollectorApp;
 
@@ -20,6 +22,11 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+        builder.Services.AddLocalization(options => options.ResourcesPath = "Resources/Languages");
+        var culture = new CultureInfo("en-US");
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
 
         string dbPath = Path.Combine(FileSystem.AppDataDirectory, "stamps.db3");
 
@@ -56,8 +63,8 @@ public static class MauiProgram
         builder.Services.AddTransient<EditCollectionViewModel>();
         builder.Services.AddTransient<EditCollectionPage>();
 
-
         builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
-        return builder.Build();
+        var app = builder.Build();
+        return app;
     }
 }

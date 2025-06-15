@@ -2,11 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:StampCollectorApp.ViewModels"
+             xmlns:resx="clr-namespace:StampCollectorApp.Resources.Languages"
              x:Class="StampCollectorApp.Views.CategoriesPage"
              x:Name="CategoriesPageRef"
-             Title="Categorias">
+             Title="{resx:Localize Key=TituloCategorias}"
+             BackgroundColor="#f3f4f6">
+
     <Grid RowDefinitions="Auto,*" Padding="20">
-        <Button Text="Nova Categoria"
+        <Button Text="{resx:Localize Key=TituloNovo}"
                 Command="{Binding AddCategoryCommand}"
                 BackgroundColor="#007AFF"
                 TextColor="White"
@@ -31,7 +34,7 @@
                                    VerticalOptions="Center"
                                    TextColor="#222"/>
                             <Button Grid.Column="1"
-                                    Text="Editar"
+                                    Text="{resx:Localize Key=TituloEditar}"
                                     Command="{Binding BindingContext.EditCategoryCommand, Source={x:Reference CategoriesPageRef}}"
                                     CommandParameter="{Binding .}"
                                     BackgroundColor="#2196F3"
@@ -42,7 +45,7 @@
                                     Margin="0,0,8,0"
                                     VerticalOptions="Center"/>
                             <Button Grid.Column="2"
-                                    Text="Apagar"
+                                    Text="{resx:Localize Key=TituloApagar}"
                                     Command="{Binding BindingContext.DeleteCategoryCommand, Source={x:Reference CategoriesPageRef}}"
                                     CommandParameter="{Binding .}"
                                     BackgroundColor="#E53935"

@@ -61,11 +61,290 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mostrar apenas para Trocas.
+        /// </summary>
+        internal static string MostrarApenasParaTroca {
+            get {
+                return ResourceManager.GetString("MostrarApenasParaTroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ano.
+        /// </summary>
+        internal static string TituloAno {
+            get {
+                return ResourceManager.GetString("TituloAno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apagar.
+        /// </summary>
+        internal static string TituloApagar {
+            get {
+                return ResourceManager.GetString("TituloApagar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categoria.
+        /// </summary>
+        internal static string TituloCategoria {
+            get {
+                return ResourceManager.GetString("TituloCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categorias.
+        /// </summary>
+        internal static string TituloCategorias {
+            get {
+                return ResourceManager.GetString("TituloCategorias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coleção.
+        /// </summary>
+        internal static string TituloColecao {
+            get {
+                return ResourceManager.GetString("TituloColecao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coleções.
+        /// </summary>
+        internal static string TituloColecoes {
+            get {
+                return ResourceManager.GetString("TituloColecoes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Condição.
+        /// </summary>
+        internal static string TituloCondicao {
+            get {
+                return ResourceManager.GetString("TituloCondicao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Criada em.
+        /// </summary>
+        internal static string TituloCriadoEm {
+            get {
+                return ResourceManager.GetString("TituloCriadoEm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Criar / Editar.
+        /// </summary>
+        internal static string TituloCriarEditarSelo {
+            get {
+                return ResourceManager.GetString("TituloCriarEditarSelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aquisição.
+        /// </summary>
+        internal static string TituloDataAquisicao {
+            get {
+                return ResourceManager.GetString("TituloDataAquisicao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrição.
+        /// </summary>
+        internal static string TituloDescricao {
+            get {
+                return ResourceManager.GetString("TituloDescricao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar.
+        /// </summary>
+        internal static string TituloEditar {
+            get {
+                return ResourceManager.GetString("TituloEditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Escolha imagem local.
+        /// </summary>
+        internal static string TituloEscolherImagemLocal {
+            get {
+                return ResourceManager.GetString("TituloEscolherImagemLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estado.
+        /// </summary>
+        internal static string TituloEstado {
+            get {
+                return ResourceManager.GetString("TituloEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gravar.
+        /// </summary>
+        internal static string TituloGravar {
+            get {
+                return ResourceManager.GetString("TituloGravar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Localização.
+        /// </summary>
+        internal static string TituloLocalizacao {
+            get {
+                return ResourceManager.GetString("TituloLocalizacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mais....
+        /// </summary>
+        internal static string TituloMais {
+            get {
+                return ResourceManager.GetString("TituloMais", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome da Coleção.
+        /// </summary>
+        internal static string TituloNomeColecao {
+            get {
+                return ResourceManager.GetString("TituloNomeColecao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notas.
+        /// </summary>
+        internal static string TituloNotas {
+            get {
+                return ResourceManager.GetString("TituloNotas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Novo.
+        /// </summary>
+        internal static string TituloNovo {
+            get {
+                return ResourceManager.GetString("TituloNovo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paises.
+        /// </summary>
+        internal static string TituloPaginaPaises {
+            get {
+                return ResourceManager.GetString("TituloPaginaPaises", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coleção de Selos.
         /// </summary>
         internal static string TituloPaginaSelos {
             get {
                 return ResourceManager.GetString("TituloPaginaSelos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to País.
+        /// </summary>
+        internal static string TituloPaises {
+            get {
+                return ResourceManager.GetString("TituloPaises", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para troca.
+        /// </summary>
+        internal static string TituloParaTroca {
+            get {
+                return ResourceManager.GetString("TituloParaTroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pesquisar....
+        /// </summary>
+        internal static string TituloPesquisarSelo {
+            get {
+                return ResourceManager.GetString("TituloPesquisarSelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selos.
+        /// </summary>
+        internal static string TituloSelos {
+            get {
+                return ResourceManager.GetString("TituloSelos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Situação.
+        /// </summary>
+        internal static string TituloSituacao {
+            get {
+                return ResourceManager.GetString("TituloSituacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Colecionado.
+        /// </summary>
+        internal static string TituloTotalColecionado {
+            get {
+                return ResourceManager.GetString("TituloTotalColecionado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Esperado.
+        /// </summary>
+        internal static string TituloTotalEsperado {
+            get {
+                return ResourceManager.GetString("TituloTotalEsperado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor facial.
+        /// </summary>
+        internal static string TituloValorFacial {
+            get {
+                return ResourceManager.GetString("TituloValorFacial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor pago.
+        /// </summary>
+        internal static string TituloValorPago {
+            get {
+                return ResourceManager.GetString("TituloValorPago", resourceCulture);
             }
         }
     }
