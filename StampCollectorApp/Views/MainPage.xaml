@@ -36,7 +36,7 @@
                         </SearchBar.Behaviors>
         </SearchBar>
 
-        <Grid Grid.Row="1" ColumnDefinitions="*, *" ColumnSpacing="5">
+        <Grid Grid.Row="1" ColumnDefinitions="*, *" ColumnSpacing="5" IsVisible="{Binding HasStamps}">
             <Label Grid.Column="0" Text="{resx:Localize Key=MostrarApenasParaTroca}" VerticalOptions="Center" Margin="8,0,0,0"/>
             <Switch 
                         Grid.Column="1" HorizontalOptions="End"

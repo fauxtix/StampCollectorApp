@@ -27,12 +27,18 @@ namespace StampCollectorApp.ViewModels
         private readonly IStampService _stampService;
         private readonly IDatabaseInitializerService _initService;
 
+        public bool HasStamps => FilteredStamps?.Count > 0;
+
         public MainViewModel(IStampService stampService, IDatabaseInitializerService initService)
         {
             _stampService = stampService;
             _initService = initService;
             //_initService.RecreateTablesAsync().Wait(); // Ensure database is initialized
-            FilteredStamps.CollectionChanged += (s, e) => OnPropertyChanged(nameof(CanShowMore));
+            FilteredStamps.CollectionChanged += (s, e) =>
+            {
+                OnPropertyChanged(nameof(CanShowMore));
+                OnPropertyChanged(nameof(HasStamps));
+            };
         }
 
         [RelayCommand]
