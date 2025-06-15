@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 using System.Collections.ObjectModel;
 
@@ -161,9 +162,10 @@ namespace StampCollectorApp.ViewModels
         {
             if (stamp == null) return;
             bool confirm = await Shell.Current.DisplayAlert(
-                "Apagar Selo",
-                "Tem a certeza que deseja apagar este selo?",
-                "Apagar", "Cancelar");
+                AppResources.TituloApagarSelo,
+                AppResources.TituloApagarSeloCaption,
+                AppResources.TituloApagar, AppResources.TituloCancelar);
+
             if (!confirm) return;
 
             await _stampService.DeleteStampAsync(stamp);

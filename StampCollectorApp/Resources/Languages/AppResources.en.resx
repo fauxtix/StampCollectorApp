@@ -213,4 +213,37 @@
   <data name="TituloSelos" xml:space="preserve">
     <value>Stamps</value>
   </data>
+  <data name="TituloEscolherIdioma" xml:space="preserve">
+    <value>Choose language</value>
+  </data>
+  <data name="TituloCancelar" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TituloCancelar1" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TituloApagarCategoria" xml:space="preserve">
+    <value>Delete Category</value>
+  </data>
+  <data name="TituloApagarCategoriaCaption" xml:space="preserve">
+    <value>Deleting this Category will also delete all the stamps in it. Are you sure?</value>
+  </data>
+  <data name="TituloApagarColecaoCaption" xml:space="preserve">
+    <value>Deleting this Collection will also delete all the stamps in it. Are you sure?</value>
+  </data>
+  <data name="TituloApagarPaisCaption" xml:space="preserve">
+    <value>Deleting this Country will also delete all the stamps in it. Are you sure?</value>
+  </data>
+  <data name="TituloApagarSeloCaption" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="TituloApagarColecao" xml:space="preserve">
+    <value>Delete Collection</value>
+  </data>
+  <data name="TituloApagarPais" xml:space="preserve">
+    <value>Delete Country</value>
+  </data>
+  <data name="TituloApagarSelo" xml:space="preserve">
+    <value>Delete Stamp</value>
+  </data>
 </root>

@@ -3,7 +3,6 @@ using SQLite;
 using StampCollectorApp.Services;
 using StampCollectorApp.ViewModels;
 using StampCollectorApp.Views;
-using System.Globalization;
 
 
 namespace StampCollectorApp;
@@ -24,9 +23,15 @@ public static class MauiProgram
             });
 
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resources/Languages");
-        var culture = new CultureInfo("en-US");
-        CultureInfo.DefaultThreadCurrentCulture = culture;
-        CultureInfo.DefaultThreadCurrentUICulture = culture;
+        var savedCulture = Preferences.Get("AppLanguage", null);
+        if (string.IsNullOrEmpty(savedCulture))
+        {
+            savedCulture = System.Globalization.CultureInfo.CurrentCulture.Name;
+            Preferences.Set("AppLanguage", savedCulture);
+        }
+        var culture = new System.Globalization.CultureInfo(savedCulture);
+        System.Globalization.CultureInfo.DefaultThreadCurrentCulture = culture;
+        System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = culture;
 
         string dbPath = Path.Combine(FileSystem.AppDataDirectory, "stamps.db3");
 

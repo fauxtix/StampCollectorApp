@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 using StampCollectorApp.Views;
 using System.Collections.ObjectModel;
@@ -51,19 +52,24 @@ public partial class CategoriesViewModel : ObservableObject
         if (category == null) return;
 
         bool confirm = await Shell.Current.DisplayAlert(
-            "Apagar Categoria",
-            "Apagando esta Categoria, também apagará todos os selos da mesma. Tem a certeza?",
-            "Apagar", "Cancelar");
+            AppResources.TituloApagarCategoria,
+            AppResources.TituloApagarCategoriaCaption,
+            AppResources.TituloApagar, AppResources.TituloCancelar);
 
         if (!confirm)
             return;
 
         var stamps = await _stampService.GetStampsAsync();
         var toDelete = stamps.Where(s => s.CategoryId == category.Id).ToList();
-        foreach (var stamp in toDelete)
-            await _stampService.DeleteStampAsync(stamp);
-
-        await _categoryService.DeleteCategoryAsync(category);
-        Categories.Remove(category);
+        if (toDelete.Count > 0)
+        {
+            foreach (var stamp in toDelete)
+                await _stampService.DeleteStampAsync(stamp);
+        }
+        else
+        {
+            await _categoryService.DeleteCategoryAsync(category);
+            Categories.Remove(category);
+        }
     }
 }

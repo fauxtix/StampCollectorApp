@@ -5,7 +5,7 @@
              xmlns:resx="clr-namespace:StampCollectorApp.Resources.Languages"
              x:Class="StampCollectorApp.Views.CountriesPage"
              x:Name="CountriesPageRef"
-             Title="{resx:Localize Key=TituloPaises}"
+             Title="{resx:Localize Key=TituloPaginaPaises}"
              BackgroundColor="#f3f4f6">
     <Grid RowDefinitions="Auto,*" Padding="20">
         <Button Text="{resx:Localize Key=TituloNovo}"

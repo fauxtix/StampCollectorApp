@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 using StampCollectorApp.Views;
 using System.Collections.ObjectModel;
@@ -52,19 +53,24 @@ public partial class CountriesViewModel : ObservableObject
         if (country == null) return;
 
         bool confirm = await Shell.Current.DisplayAlert(
-            "Apagar País",
-            "Apagando este País, também apagará todos os selos da do mesmo. Tem a certeza?",
-            "Apagar", "Cancelar");
+            AppResources.TituloApagarPais,
+            AppResources.TituloApagarPaisCaption,
+            AppResources.TituloApagar, AppResources.TituloCancelar);
 
         if (!confirm)
             return;
 
         var stamps = await _stampService.GetStampsAsync();
-        var toDelete = stamps.Where(s => s.CategoryId == country.Id).ToList();
-        foreach (var stamp in toDelete)
-            await _stampService.DeleteStampAsync(stamp);
-
-        await _countryService.DeleteCountryAsync(country);
-        Countries.Remove(country);
+        var toDelete = stamps.Where(s => s.CountryId == country.Id).ToList();
+        if (toDelete.Count > 0)
+        {
+            foreach (var stamp in toDelete)
+                await _stampService.DeleteStampAsync(stamp);
+        }
+        else
+        {
+            await _countryService.DeleteCountryAsync(country);
+            Countries.Remove(country);
+        }
     }
 }

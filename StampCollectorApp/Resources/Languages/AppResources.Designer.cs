@@ -88,6 +88,96 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apagar Categoria.
+        /// </summary>
+        internal static string TituloApagarCategoria {
+            get {
+                return ResourceManager.GetString("TituloApagarCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apagando esta Categoria, também apagará todos os selos da mesma. Tem a certeza?.
+        /// </summary>
+        internal static string TituloApagarCategoriaCaption {
+            get {
+                return ResourceManager.GetString("TituloApagarCategoriaCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apagar Coleção.
+        /// </summary>
+        internal static string TituloApagarColecao {
+            get {
+                return ResourceManager.GetString("TituloApagarColecao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apagando esta Coleção, também apagará todos os selos da mesma. Tem a certeza?.
+        /// </summary>
+        internal static string TituloApagarColecaoCaption {
+            get {
+                return ResourceManager.GetString("TituloApagarColecaoCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apagar País.
+        /// </summary>
+        internal static string TituloApagarPais {
+            get {
+                return ResourceManager.GetString("TituloApagarPais", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apagando este País, também apagará todos os selos do mesmo. Tem a certeza?.
+        /// </summary>
+        internal static string TituloApagarPaisCaption {
+            get {
+                return ResourceManager.GetString("TituloApagarPaisCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apagar Selo.
+        /// </summary>
+        internal static string TituloApagarSelo {
+            get {
+                return ResourceManager.GetString("TituloApagarSelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirma operação?.
+        /// </summary>
+        internal static string TituloApagarSeloCaption {
+            get {
+                return ResourceManager.GetString("TituloApagarSeloCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        internal static string TituloCancelar {
+            get {
+                return ResourceManager.GetString("TituloCancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        internal static string TituloCancelar1 {
+            get {
+                return ResourceManager.GetString("TituloCancelar1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categoria.
         /// </summary>
         internal static string TituloCategoria {
@@ -174,6 +264,15 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloEditar {
             get {
                 return ResourceManager.GetString("TituloEditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Escolha o idioma.
+        /// </summary>
+        internal static string TituloEscolherIdioma {
+            get {
+                return ResourceManager.GetString("TituloEscolherIdioma", resourceCulture);
             }
         }
         

@@ -213,4 +213,37 @@
   <data name="TituloSelos" xml:space="preserve">
     <value>Selos</value>
   </data>
+  <data name="TituloEscolherIdioma" xml:space="preserve">
+    <value>Escolha o idioma</value>
+  </data>
+  <data name="TituloCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="TituloCancelar1" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="TituloApagarCategoria" xml:space="preserve">
+    <value>Apagar Categoria</value>
+  </data>
+  <data name="TituloApagarCategoriaCaption" xml:space="preserve">
+    <value>Apagando esta Categoria, também apagará todos os selos da mesma. Tem a certeza?</value>
+  </data>
+  <data name="TituloApagarColecaoCaption" xml:space="preserve">
+    <value>Apagando esta Coleção, também apagará todos os selos da mesma. Tem a certeza?</value>
+  </data>
+  <data name="TituloApagarPaisCaption" xml:space="preserve">
+    <value>Apagando este País, também apagará todos os selos do mesmo. Tem a certeza?</value>
+  </data>
+  <data name="TituloApagarSeloCaption" xml:space="preserve">
+    <value>Confirma operação?</value>
+  </data>
+  <data name="TituloApagarColecao" xml:space="preserve">
+    <value>Apagar Coleção</value>
+  </data>
+  <data name="TituloApagarPais" xml:space="preserve">
+    <value>Apagar País</value>
+  </data>
+  <data name="TituloApagarSelo" xml:space="preserve">
+    <value>Apagar Selo</value>
+  </data>
 </root>
