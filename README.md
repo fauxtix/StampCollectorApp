@@ -41,6 +41,17 @@
 
 ---
 
+## 🌐 Localização
+
+Esta aplicação suporta os idiomas Português e Inglês. Você pode alterar o idioma nas configurações da aplicação ou conforme a preferência do seu sistema.
+
+- **Português**: Interface totalmente traduzida para português.
+- **Inglês**: Interface totalmente traduzida para inglês.
+
+Caso queira contribuir com traduções ou sugerir melhorias, sinta-se à vontade para abrir uma issue ou um pull request!
+
+---
+
 ## 🛠️ Como executar
 
 1. **Clone o repositório:**
