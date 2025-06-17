@@ -349,6 +349,15 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mostrar todos...
+        /// </summary>
+        internal static string TituloMostrarTodos {
+            get {
+                return ResourceManager.GetString("TituloMostrarTodos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Não.
         /// </summary>
         internal static string TituloNao {
@@ -498,6 +507,15 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloTotalEsperado {
             get {
                 return ResourceManager.GetString("TituloTotalEsperado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trocas.
+        /// </summary>
+        internal static string TituloTrocas {
+            get {
+                return ResourceManager.GetString("TituloTrocas", resourceCulture);
             }
         }
         

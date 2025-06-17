@@ -300,4 +300,10 @@
   <data name="TituloPaisJaExiste" xml:space="preserve">
     <value>Nome do País jáexiste</value>
   </data>
+  <data name="TituloMostrarTodos" xml:space="preserve">
+    <value>Mostrar todos..</value>
+  </data>
+  <data name="TituloTrocas" xml:space="preserve">
+    <value>Trocas</value>
+  </data>
 </root>

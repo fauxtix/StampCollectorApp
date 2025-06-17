@@ -46,19 +46,13 @@
             Route="CategoriesPage" />
         <ShellContent
             Title="{resx:Localize Key=TituloPaginaPaises}"
-            Icon="categories.png" 
+            Icon="globe.png" 
             ContentTemplate="{DataTemplate views:CountriesPage}"
             Route="CountriesPage" />
         <ShellContent
-            Title="{resx:Localize Key=TituloPaginaPaises}"
-            Icon="categories.png" 
+            Title="{resx:Localize Key=TituloTrocas}"
+            Icon="exchange.png" 
             ContentTemplate="{DataTemplate views:ExchangePage}"
             Route="ExchangePage" />
-
-
     </FlyoutItem>
-
-    <!--<ShellContent Title="Selos" ContentTemplate="{DataTemplate views:MainPage}" />
-    <ShellContent Title="Coleções" ContentTemplate="{DataTemplate views:CollectionsPage}" />
-    <ShellContent Title="Categorias" ContentTemplate="{DataTemplate views:CategoriesPage}" />-->
 </Shell>

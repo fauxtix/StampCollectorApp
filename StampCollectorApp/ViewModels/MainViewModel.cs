@@ -23,6 +23,7 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty] private string searchQuery;
         [ObservableProperty] private bool showOnlyForExchange;
         [ObservableProperty] private bool isLoading;
+        [ObservableProperty] private string showForExchangeCaption = AppResources.MostrarApenasParaTroca;
 
         private readonly IStampService _stampService;
         private readonly IDatabaseInitializerService _initService;
@@ -33,7 +34,7 @@ namespace StampCollectorApp.ViewModels
         {
             _stampService = stampService;
             _initService = initService;
-            _initService.RecreateTablesAsync().Wait(); // Ensure database is initialized
+            // _initService.RecreateTablesAsync().Wait(); // Ensure database is initialized
             FilteredStamps.CollectionChanged += (s, e) =>
             {
                 OnPropertyChanged(nameof(CanShowMore));
@@ -90,8 +91,13 @@ namespace StampCollectorApp.ViewModels
             IsLoading = false;
         }
         partial void OnSearchQueryChanged(string value) => FilterStamps();
-        partial void OnShowOnlyForExchangeChanged(bool value) => FilterStamps();
-
+        partial void OnShowOnlyForExchangeChanged(bool value)
+        {
+            FilterStamps();
+            ShowForExchangeCaption = value
+                ? AppResources.TituloMostrarTodos
+                : AppResources.MostrarApenasParaTroca;
+        }
         private void FilterStamps()
         {
             _currentPage = 1;

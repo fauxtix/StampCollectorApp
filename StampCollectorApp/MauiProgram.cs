@@ -71,7 +71,7 @@ public static class MauiProgram
         builder.Services.AddTransient<EditCollectionPage>();
 
         builder.Services.AddTransient<ExchangePage>();
-        builder.Services.AddSingleton<ExchangeViewModel>();
+        builder.Services.AddTransient<ExchangeViewModel>();
 
         builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
         var app = builder.Build();
