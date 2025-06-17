@@ -142,10 +142,10 @@ namespace StampCollectorApp.ViewModels
         {
             if (value != null)
             {
-                Name = value.Name ?? string.Empty; // Ensure null-safe assignment
+                Name = value.Name ?? string.Empty;
                 Year = value.Year;
                 Condition = value.Condition;
-                ImagePath = value.ImagePath ?? string.Empty; // Ensure null-safe assignment
+                ImagePath = value.ImagePath ?? string.Empty;
                 CategoryId = value.CategoryId;
                 CollectionId = value.CollectionId;
                 CountryId = value.CountryId;

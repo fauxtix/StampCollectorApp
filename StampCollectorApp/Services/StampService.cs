@@ -37,7 +37,6 @@ namespace StampCollectorApp.Services
                 );
             }
 
-            // Paging
             int skip = (page - 1) * pageSize;
             query = query.Skip(skip).Take(pageSize);
 
@@ -78,7 +77,6 @@ namespace StampCollectorApp.Services
         );
     ");
 
-            // 2. Copy and convert data
             // 2. Copy and convert data
             var oldStamps = await _db.QueryAsync<dynamic>("SELECT * FROM Stamp");
             foreach (var old in oldStamps)
@@ -161,16 +159,13 @@ namespace StampCollectorApp.Services
 
         public async Task<bool> CanAddStampToCollectionAsync(int colecaoId)
         {
-            // 1. Get the collection by id
             var colecao = await _db.Table<Collection>().Where(c => c.Id == colecaoId).FirstOrDefaultAsync();
             if (colecao == null) return false;
 
-            // 2. Get the count of original stamps for this collection
             var selosOriginais = await _db.Table<StampCollection>()
                 .Where(sc => sc.CollectionId == colecaoId && sc.OriginalForTheCollection)
                 .CountAsync();
 
-            // 3. Compare with TotalExpected
             return selosOriginais < colecao.TotalExpected;
         }
 
@@ -207,10 +202,8 @@ namespace StampCollectorApp.Services
         {
             var httpClient = new HttpClient();
 
-            // Build category name dynamically, replacing spaces with underscores
             string category = $"Category:Postage_stamps_of_{country.Replace(" ", "_")}";
 
-            // Wikimedia Commons API endpoint to get files in category
             string url = $"https://commons.wikimedia.org/w/api.php?action=query&format=json&list=categorymembers&cmtitle={Uri.EscapeDataString(category)}&cmtype=file&cmlimit={limit}";
 
             var response = await httpClient.GetAsync(url);
@@ -231,7 +224,6 @@ namespace StampCollectorApp.Services
                     {
                         string fileTitle = titleProp.GetString()!; // e.g. "File:Stamp_of_Portugal.png"
 
-                        // Get image info for this file to retrieve image URL
                         string infoUrl = $"https://commons.wikimedia.org/w/api.php?action=query&format=json&titles={Uri.EscapeDataString(fileTitle)}&prop=imageinfo&iiprop=url";
 
                         var infoResponse = await httpClient.GetAsync(infoUrl);

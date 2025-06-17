@@ -54,7 +54,8 @@ public partial class CategoriesViewModel : ObservableObject
         bool confirm = await Shell.Current.DisplayAlert(
             AppResources.TituloApagarCategoria,
             AppResources.TituloApagarCategoriaCaption,
-            AppResources.TituloApagar, AppResources.TituloCancelar);
+            AppResources.TituloApagar,
+            AppResources.TituloCancelar);
 
         if (!confirm)
             return;

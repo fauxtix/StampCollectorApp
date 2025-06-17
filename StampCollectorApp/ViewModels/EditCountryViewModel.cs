@@ -26,13 +26,12 @@ public partial class EditCountryViewModel : ObservableObject, IQueryAttributable
             return;
         }
 
-        // Unique name validation
         if (await _countryService.CountryNameExistsAsync(Country.Name, Country.Id))
         {
             await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloPaisJaExiste, "OK");
             return;
         }
-        // Save the category
+
         await _countryService.SaveCountryAsync(Country);
         await Shell.Current.GoToAsync("..");
     }

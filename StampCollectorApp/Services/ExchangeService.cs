@@ -10,7 +10,7 @@ namespace StampCollectorApp.Services
         public ExchangeService(SQLiteAsyncConnection db)
         {
             _db = db;
-            _db.CreateTableAsync<StampExchange>();
+            //_db.CreateTableAsync<StampExchange>();
         }
 
         public Task<List<StampExchange>> GetAllAsync() =>

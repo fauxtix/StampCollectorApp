@@ -72,15 +72,11 @@ namespace StampCollectorApp.ViewModels
             IsLoading = true;
             _currentPage = 1;
 
-            // Load all stamps
             var allStamps = await _stampService.GetStampsAsync();
-            // Load all countries
             var allCountries = await _stampService.GetCountriesAsync();
 
-            // Create a dictionary for fast lookup
             var countryDict = allCountries.ToDictionary(c => c.Id, c => c.Name);
 
-            // Set CountryName efficiently with O(1) lookups
             foreach (var stamp in allStamps)
             {
                 stamp.CountryName = countryDict.TryGetValue(stamp.CountryId, out string name) ? name : "";
@@ -121,6 +117,7 @@ namespace StampCollectorApp.ViewModels
 
             OnPropertyChanged(nameof(CanShowMore));
         }
+
         [RelayCommand]
         public void ShowMoreAsync()
         {

@@ -27,13 +27,12 @@ public partial class EditCategoryViewModel : ObservableObject, IQueryAttributabl
             return;
         }
 
-        // Unique name validation
         if (await _categoryService.CategoryNameExistsAsync(Category.Name, Category.Id))
         {
             await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloCategoriaJaExiste, "OK");
             return;
         }
-        // Save the category
+
         await _stampService.SaveCategoryAsync(Category);
         await Shell.Current.GoToAsync("..");
     }
