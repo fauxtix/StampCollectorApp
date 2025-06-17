@@ -18,9 +18,24 @@
 - **Imagens:** Associe imagens locais ou pesquise imagens de selos via API do Pixabay.
 - **Validações inteligentes:** Preenchimento obrigatório, datas, valores positivos, etc.
 - **Modo Troca:** Marque selos como disponíveis para troca.
+- **Registro de Trocas:** Registe facilmente a troca de um selo com outro colecionador. Após selecionar o selo para troca, preencha o nome e contacto do colecionador, e adicione notas se desejar. Um histórico de todas as trocas realizadas fica disponível na aplicação para consulta posterior.
 - **Notas e Detalhes:** Registre informações detalhadas sobre cada selo e coleção.
 
 ---
+
+## 🔄 Sobre o Registo de Trocas
+
+A aplicação permite registar trocas de selos com outros colecionadores de forma prática:
+
+1. **Selecione um selo marcado como disponível para troca.**
+2. **Preencha as informações do colecionador** (nome e contacto) e, se desejar, adicione notas sobre a troca.
+3. **Registe a troca:** O selo será removido da sua coleção e a troca será adicionada ao histórico.
+4. **Histórico de trocas:** Consulte todas as trocas realizadas numa secção específica da aplicação, com detalhes como data, nome do colecionador, contacto e notas.
+5. **Dica:** Após registar a troca, caso ainda não tenha registado o selo recebido do outro colecionador, faça-o para manter sua coleção sempre atualizada.
+
+---
+
+
 
 ## 🚀 Tecnologias
 
