@@ -45,6 +45,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<ICategoryService, CategoryService>();
         builder.Services.AddSingleton<ICollectionService, CollectionService>();
         builder.Services.AddSingleton<ICountryService, CountryService>();
+        builder.Services.AddSingleton<IExchangeService, ExchangeService>();
+
 
         builder.Services.AddTransient<MainViewModel>();
         builder.Services.AddTransient<MainPage>();
@@ -69,7 +71,6 @@ public static class MauiProgram
         builder.Services.AddTransient<EditCollectionPage>();
 
         builder.Services.AddTransient<ExchangePage>();
-        builder.Services.AddSingleton<IExchangeService, ExchangeService>();
         builder.Services.AddSingleton<ExchangeViewModel>();
 
         builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
