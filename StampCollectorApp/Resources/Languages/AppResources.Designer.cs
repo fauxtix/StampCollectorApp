@@ -169,20 +169,20 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancelar.
-        /// </summary>
-        internal static string TituloCancelar1 {
-            get {
-                return ResourceManager.GetString("TituloCancelar1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Categoria.
         /// </summary>
         internal static string TituloCategoria {
             get {
                 return ResourceManager.GetString("TituloCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categoria já existe.
+        /// </summary>
+        internal static string TituloCategoriaJaExiste {
+            get {
+                return ResourceManager.GetString("TituloCategoriaJaExiste", resourceCulture);
             }
         }
         
@@ -201,6 +201,33 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloColecao {
             get {
                 return ResourceManager.GetString("TituloColecao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coleção completa.
+        /// </summary>
+        internal static string TituloColecaoCompleta {
+            get {
+                return ResourceManager.GetString("TituloColecaoCompleta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A coleção já está completa. Deseja criar este selo como &apos;Para Troca&apos;?.
+        /// </summary>
+        internal static string TituloColecaoCompletaCaption {
+            get {
+                return ResourceManager.GetString("TituloColecaoCompletaCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O Nome da Coleção é requerido.
+        /// </summary>
+        internal static string TituloColecaoVazio {
+            get {
+                return ResourceManager.GetString("TituloColecaoVazio", resourceCulture);
             }
         }
         
@@ -322,6 +349,15 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não.
+        /// </summary>
+        internal static string TituloNao {
+            get {
+                return ResourceManager.GetString("TituloNao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome da Coleção.
         /// </summary>
         internal static string TituloNomeColecao {
@@ -376,6 +412,24 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nome do País jáexiste.
+        /// </summary>
+        internal static string TituloPaisJaExiste {
+            get {
+                return ResourceManager.GetString("TituloPaisJaExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do Paós  ´requerido.
+        /// </summary>
+        internal static string TituloPaisVazio {
+            get {
+                return ResourceManager.GetString("TituloPaisVazio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Para troca.
         /// </summary>
         internal static string TituloParaTroca {
@@ -394,11 +448,29 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Escolha imagem.
+        /// </summary>
+        internal static string TituloSelecaoImagem {
+            get {
+                return ResourceManager.GetString("TituloSelecaoImagem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selos.
         /// </summary>
         internal static string TituloSelos {
             get {
                 return ResourceManager.GetString("TituloSelos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sim.
+        /// </summary>
+        internal static string TituloSim {
+            get {
+                return ResourceManager.GetString("TituloSim", resourceCulture);
             }
         }
         
@@ -426,6 +498,96 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloTotalEsperado {
             get {
                 return ResourceManager.GetString("TituloTotalEsperado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validação.
+        /// </summary>
+        internal static string TituloValidacao {
+            get {
+                return ResourceManager.GetString("TituloValidacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O Ano deverá estar entre 1865 e .
+        /// </summary>
+        internal static string TituloValidacaoAno {
+            get {
+                return ResourceManager.GetString("TituloValidacaoAno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A data de aquisição não pode ser no futuro.
+        /// </summary>
+        internal static string TituloValidacaoAquisicao {
+            get {
+                return ResourceManager.GetString("TituloValidacaoAquisicao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Escolha Categoria.
+        /// </summary>
+        internal static string TituloValidacaoCategoria {
+            get {
+                return ResourceManager.GetString("TituloValidacaoCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Escolha Coleção.
+        /// </summary>
+        internal static string TituloValidacaoColecao {
+            get {
+                return ResourceManager.GetString("TituloValidacaoColecao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Colecionado deve ser &lt;= Total Esperado..
+        /// </summary>
+        internal static string TituloValidacaoColecionado {
+            get {
+                return ResourceManager.GetString("TituloValidacaoColecionado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selecione uma imagem para o selo.
+        /// </summary>
+        internal static string TituloValidacaoImagemSelo {
+            get {
+                return ResourceManager.GetString("TituloValidacaoImagemSelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preencha Nome para o selo.
+        /// </summary>
+        internal static string TituloValidacaoNomeSelo {
+            get {
+                return ResourceManager.GetString("TituloValidacaoNomeSelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Escolha País.
+        /// </summary>
+        internal static string TituloValidacaoPais {
+            get {
+                return ResourceManager.GetString("TituloValidacaoPais", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Esperado deve ser um valor positivo.
+        /// </summary>
+        internal static string TituloValidacaoTotalEsperado {
+            get {
+                return ResourceManager.GetString("TituloValidacaoTotalEsperado", resourceCulture);
             }
         }
         

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 
 public partial class EditCollectionViewModel : ObservableObject, IQueryAttributable
 {
@@ -19,7 +20,7 @@ public partial class EditCollectionViewModel : ObservableObject, IQueryAttributa
     {
         if (string.IsNullOrWhiteSpace(Collection.Name))
         {
-            await Shell.Current.DisplayAlert("Validação", "O nome da coleção não pode estar vazio.", "OK");
+            await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloColecaoVazio, "OK");
             return;
         }
 
@@ -39,12 +40,12 @@ public partial class EditCollectionViewModel : ObservableObject, IQueryAttributa
         //}
         if (Collection.TotalExpected < 0)
         {
-            await Shell.Current.DisplayAlert("Validação", "Total Esperado deve ser um valor positivo", "OK");
+            await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloValidacaoTotalEsperado, "OK");
             return;
         }
         else if (Collection.TotalCollected > 0 && Collection.TotalCollected > Collection.TotalExpected)
         {
-            await Shell.Current.DisplayAlert("Validação", "Total Colecionado deve ser <= Total Esperado.", "OK");
+            await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloValidacaoColecionado, "OK");
             return;
         }
 

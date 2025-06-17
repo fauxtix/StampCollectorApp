@@ -219,9 +219,6 @@
   <data name="TituloCancelar" xml:space="preserve">
     <value>Cancelar</value>
   </data>
-  <data name="TituloCancelar1" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
   <data name="TituloApagarCategoria" xml:space="preserve">
     <value>Apagar Categoria</value>
   </data>
@@ -245,5 +242,62 @@
   </data>
   <data name="TituloApagarSelo" xml:space="preserve">
     <value>Apagar Selo</value>
+  </data>
+  <data name="TituloSelecaoImagem" xml:space="preserve">
+    <value>Escolha imagem</value>
+  </data>
+  <data name="TituloValidacao" xml:space="preserve">
+    <value>Validação</value>
+  </data>
+  <data name="TituloValidacaoAno" xml:space="preserve">
+    <value>O Ano deverá estar entre 1865 e </value>
+  </data>
+  <data name="TituloValidacaoNomeSelo" xml:space="preserve">
+    <value>Preencha Nome para o selo</value>
+  </data>
+  <data name="TituloValidacaoCategoria" xml:space="preserve">
+    <value>Escolha Categoria</value>
+  </data>
+  <data name="TituloValidacaoPais" xml:space="preserve">
+    <value>Escolha País</value>
+  </data>
+  <data name="TituloValidacaoColecao" xml:space="preserve">
+    <value>Escolha Coleção</value>
+  </data>
+  <data name="TituloValidacaoImagemSelo" xml:space="preserve">
+    <value>Selecione uma imagem para o selo</value>
+  </data>
+  <data name="TituloValidacaoAquisicao" xml:space="preserve">
+    <value>A data de aquisição não pode ser no futuro</value>
+  </data>
+  <data name="TituloColecaoCompleta" xml:space="preserve">
+    <value>Coleção completa</value>
+  </data>
+  <data name="TituloColecaoCompletaCaption" xml:space="preserve">
+    <value>A coleção já está completa. Deseja criar este selo como 'Para Troca'?</value>
+  </data>
+  <data name="TituloSim" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="TituloNao" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="TituloCategoriaJaExiste" xml:space="preserve">
+    <value>Categoria já existe</value>
+  </data>
+  <data name="TituloColecaoVazio" xml:space="preserve">
+    <value>O Nome da Coleção é requerido</value>
+  </data>
+  <data name="TituloValidacaoTotalEsperado" xml:space="preserve">
+    <value>Total Esperado deve ser um valor positivo</value>
+  </data>
+  <data name="TituloValidacaoColecionado" xml:space="preserve">
+    <value>Total Colecionado deve ser &lt;= Total Esperado.</value>
+  </data>
+  <data name="TituloPaisVazio" xml:space="preserve">
+    <value>Nome do Paós  ´requerido</value>
+  </data>
+  <data name="TituloPaisJaExiste" xml:space="preserve">
+    <value>Nome do País jáexiste</value>
   </data>
 </root>

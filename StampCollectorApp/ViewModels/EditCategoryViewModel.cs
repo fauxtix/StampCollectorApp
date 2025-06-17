@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 
 public partial class EditCategoryViewModel : ObservableObject, IQueryAttributable
@@ -22,14 +23,14 @@ public partial class EditCategoryViewModel : ObservableObject, IQueryAttributabl
     {
         if (string.IsNullOrWhiteSpace(Category.Name))
         {
-            await Shell.Current.DisplayAlert("Validação", "Preencha Categoria, p.f.", "OK");
+            await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloValidacaoCategoria, "OK");
             return;
         }
 
         // Unique name validation
         if (await _categoryService.CategoryNameExistsAsync(Category.Name, Category.Id))
         {
-            await Shell.Current.DisplayAlert("Validação", "Categoria já existe.", "OK");
+            await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloCategoriaJaExiste, "OK");
             return;
         }
         // Save the category

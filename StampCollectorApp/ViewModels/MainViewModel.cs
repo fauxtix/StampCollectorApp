@@ -56,7 +56,7 @@ namespace StampCollectorApp.ViewModels
         [RelayCommand]
         public async Task ClearDataAsync()
         {
-            bool confirm = await Shell.Current.DisplayAlert("Confirmar", "Deseja limpar os dadosem todas as tabelas?", "Sim", "Não");
+            bool confirm = await Shell.Current.DisplayAlert("Confirmar", "Deseja limpar os dados em todas as tabelas?", "Sim", "Não");
             if (confirm)
             {
                 await _initService.ClearDataAsync();
@@ -195,7 +195,7 @@ namespace StampCollectorApp.ViewModels
             {
                 var result = await FilePicker.Default.PickAsync(new PickOptions
                 {
-                    PickerTitle = "Select an image",
+                    PickerTitle = AppResources.TituloSelecaoImagem,
                     FileTypes = FilePickerFileType.Images
                 });
 

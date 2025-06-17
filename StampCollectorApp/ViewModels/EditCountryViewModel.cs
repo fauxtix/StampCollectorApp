@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 
 public partial class EditCountryViewModel : ObservableObject, IQueryAttributable
@@ -21,14 +22,14 @@ public partial class EditCountryViewModel : ObservableObject, IQueryAttributable
     {
         if (string.IsNullOrWhiteSpace(Country.Name))
         {
-            await Shell.Current.DisplayAlert("Validação", "Preencha País, p.f.", "OK");
+            await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloPaisVazio, "OK");
             return;
         }
 
         // Unique name validation
         if (await _countryService.CountryNameExistsAsync(Country.Name, Country.Id))
         {
-            await Shell.Current.DisplayAlert("Validação", "País já existe.", "OK");
+            await Shell.Current.DisplayAlert(AppResources.TituloValidacao, AppResources.TituloPaisJaExiste, "OK");
             return;
         }
         // Save the category

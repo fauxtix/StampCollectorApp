@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 using StampCollectorApp.Views;
 using System.Collections.ObjectModel;
@@ -183,34 +184,45 @@ namespace StampCollectorApp.ViewModels
         [RelayCommand]
         public async Task SaveStamp()
         {
+            string validationTitle = AppResources.TituloValidacao;
+            string validationYear = AppResources.TituloValidacaoAno;
+            string validationCategory = AppResources.TituloValidacaoCategoria;
+            string validationStampCollection = AppResources.TituloValidacaoColecao;
+            string validationStampName = AppResources.TituloValidacaoNomeSelo;
+            string validationCountry = AppResources.TituloValidacaoPais;
+            string validationStampImage = AppResources.TituloValidacaoImagemSelo;
+            string validationStampAcquisiition = AppResources.TituloValidacaoAquisicao;
+            string validationColectionComplete = AppResources.TituloColecaoCompleta;
+            string validationColectionCompleteCaption = AppResources.TituloColecaoCompletaCaption;
+
             if (Year < 1865 || Year > DateTime.Now.Year)
             {
-                await Shell.Current.DisplayAlert("Validação", $"O Ano deverá estar entre 1865 e {DateTime.Now.Year}.", "OK");
+                await Shell.Current.DisplayAlert(validationTitle, $"{validationYear}{DateTime.Now.Year}.", "OK");
                 return;
             }
             if (string.IsNullOrWhiteSpace(Name))
             {
-                await Shell.Current.DisplayAlert("Validação", "Preencha Nome para o selo.", "OK");
+                await Shell.Current.DisplayAlert(validationTitle, validationStampName, "OK");
                 return;
             }
             if (SelectedCategory == null)
             {
-                await Shell.Current.DisplayAlert("Validação", "Selecione Categoria.", "OK");
+                await Shell.Current.DisplayAlert(validationTitle, validationCategory, "OK");
                 return;
             }
             if (SelectedCountry == null)
             {
-                await Shell.Current.DisplayAlert("Validação", "Selecione País.", "OK");
+                await Shell.Current.DisplayAlert(validationTitle, validationCountry, "OK");
                 return;
             }
             if (SelectedCollection == null)
             {
-                await Shell.Current.DisplayAlert("Validação", "Selecione Coleção.", "OK");
+                await Shell.Current.DisplayAlert(validationTitle, validationStampCollection, "OK");
                 return;
             }
             if (string.IsNullOrWhiteSpace(ImagePath))
             {
-                await Shell.Current.DisplayAlert("Validação", "Selecione uma imagem para o selo.", "OK");
+                await Shell.Current.DisplayAlert(validationTitle, validationStampImage, "OK");
                 return;
             }
 
@@ -221,7 +233,7 @@ namespace StampCollectorApp.ViewModels
             //}
             if (AcquisitionDate.Date > DateTime.Now.Date)
             {
-                await Shell.Current.DisplayAlert("Validação", "A data de aquisição não pode ser no futuro.", "OK");
+                await Shell.Current.DisplayAlert(validationTitle, validationStampAcquisiition, "OK");
                 return;
             }
 
@@ -244,9 +256,10 @@ namespace StampCollectorApp.ViewModels
             if (isCollectionFull)
             {
                 bool createForExchange = await Shell.Current.DisplayAlert(
-                    "Coleção completa",
-                    "A coleção já está completa. Deseja criar este selo como 'Para Troca'?",
-                    "Sim", "Não");
+                    validationColectionComplete,
+                    validationColectionCompleteCaption,
+                    AppResources.TituloSim,
+                    AppResources.TituloNao);
 
                 if (!createForExchange)
                     return;
@@ -298,7 +311,7 @@ namespace StampCollectorApp.ViewModels
 
             if (current != NetworkAccess.Internet)
             {
-                await Shell.Current.DisplayAlert("Sem Internet", "Verifique a ligação e tente de novo.", "OK");
+                await Shell.Current.DisplayAlert("No Internet", "Check the connection and try again.", "OK");
                 return;
             }
 
@@ -335,7 +348,7 @@ namespace StampCollectorApp.ViewModels
             {
                 var result = await FilePicker.Default.PickAsync(new PickOptions
                 {
-                    PickerTitle = "Escolha uma imagem",
+                    PickerTitle = AppResources.TituloSelecaoImagem,
                     FileTypes = FilePickerFileType.Images
                 });
 
