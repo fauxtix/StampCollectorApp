@@ -19,7 +19,7 @@
 - **Validações inteligentes:** Preenchimento obrigatório, datas, valores positivos, etc.
 - **Modo Troca:** Marque selos como disponíveis para troca.
 - **Registro de Trocas:** Registe facilmente a troca de um selo com outro colecionador. Após selecionar o selo para troca, preencha o nome e contacto do colecionador, e adicione notas se desejar. Um histórico de todas as trocas realizadas fica disponível na aplicação para consulta posterior.
-- **Notas e Detalhes:** Registre informações detalhadas sobre cada selo e coleção.
+- **Notas e Detalhes:** Registe informações detalhadas sobre cada selo e coleção.
 
 ---
 
