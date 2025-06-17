@@ -53,7 +53,7 @@
 
         <CollectionView Grid.Row="3" ItemsSource="{Binding FilteredStamps}">
             <CollectionView.EmptyView>
-                <Label Text="{resx:Localize Key=NenhumSeloEncontrado}"
+                <Label Text="{resx:Localize Key=TituloSemDados}"
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand"
                        FontAttributes="Italic"

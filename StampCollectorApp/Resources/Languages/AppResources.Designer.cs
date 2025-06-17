@@ -79,6 +79,15 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aviso.
+        /// </summary>
+        internal static string TituloAlerta {
+            get {
+                return ResourceManager.GetString("TituloAlerta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ano.
         /// </summary>
         internal static string TituloAno {
@@ -259,6 +268,15 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contacto (email/telefone).
+        /// </summary>
+        internal static string TituloContacto {
+            get {
+                return ResourceManager.GetString("TituloContacto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Criada em.
         /// </summary>
         internal static string TituloCriadoEm {
@@ -291,6 +309,15 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloDescricao {
             get {
                 return ResourceManager.GetString("TituloDescricao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrição do selo.
+        /// </summary>
+        internal static string TituloDescricaoSelo {
+            get {
+                return ResourceManager.GetString("TituloDescricaoSelo", resourceCulture);
             }
         }
         
@@ -340,6 +367,24 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Histórico de trocas.
+        /// </summary>
+        internal static string TituloHistoricoTrocas {
+            get {
+                return ResourceManager.GetString("TituloHistoricoTrocas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informações do colecionador.
+        /// </summary>
+        internal static string TituloInformacoesColecionador {
+            get {
+                return ResourceManager.GetString("TituloInformacoesColecionador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Localização.
         /// </summary>
         internal static string TituloLocalizacao {
@@ -372,6 +417,15 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloNao {
             get {
                 return ResourceManager.GetString("TituloNao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome.
+        /// </summary>
+        internal static string TituloNome {
+            get {
+                return ResourceManager.GetString("TituloNome", resourceCulture);
             }
         }
         
@@ -439,7 +493,7 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nome do País jáexiste.
+        ///   Looks up a localized string similar to Nome do País já existe.
         /// </summary>
         internal static string TituloPaisJaExiste {
             get {
@@ -475,6 +529,15 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registar Troca.
+        /// </summary>
+        internal static string TituloRegistarTroca {
+            get {
+                return ResourceManager.GetString("TituloRegistarTroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Escolha imagem.
         /// </summary>
         internal static string TituloSelecaoImagem {
@@ -489,6 +552,33 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloSelos {
             get {
                 return ResourceManager.GetString("TituloSelos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selos disponíveis para troca.
+        /// </summary>
+        internal static string TituloSelosDisponiveisParaTroca {
+            get {
+                return ResourceManager.GetString("TituloSelosDisponiveisParaTroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sem dados para mostrar.
+        /// </summary>
+        internal static string TituloSemDados {
+            get {
+                return ResourceManager.GetString("TituloSemDados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não há selos disponíveis para troca.
+        /// </summary>
+        internal static string TituloSemSelosParaTroca {
+            get {
+                return ResourceManager.GetString("TituloSemSelosParaTroca", resourceCulture);
             }
         }
         

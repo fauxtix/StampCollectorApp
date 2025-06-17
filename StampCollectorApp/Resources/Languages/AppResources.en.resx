@@ -312,4 +312,34 @@
   <data name="TituloOperacaoComSucess" xml:space="preserve">
     <value>Successful operation</value>
   </data>
+  <data name="TituloRegistarTroca" xml:space="preserve">
+    <value>Register Exchange</value>
+  </data>
+  <data name="TituloHistoricoTrocas" xml:space="preserve">
+    <value>Trading history</value>
+  </data>
+  <data name="TituloDescricaoSelo" xml:space="preserve">
+    <value>Stamp description</value>
+  </data>
+  <data name="TituloInformacoesColecionador" xml:space="preserve">
+    <value>Collector's information</value>
+  </data>
+  <data name="TituloNome" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TituloContacto" xml:space="preserve">
+    <value>Contact (email/phone)</value>
+  </data>
+  <data name="TituloSelosDisponiveisParaTroca" xml:space="preserve">
+    <value>Stamps available for exchange</value>
+  </data>
+  <data name="TituloSemDados" xml:space="preserve">
+    <value>No data available</value>
+  </data>
+  <data name="TituloSemSelosParaTroca" xml:space="preserve">
+    <value>There are no stamps available for exchange</value>
+  </data>
+  <data name="TituloAlerta" xml:space="preserve">
+    <value>Warning</value>
+  </data>
 </root>

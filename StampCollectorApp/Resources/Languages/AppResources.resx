@@ -298,7 +298,7 @@
     <value>Nome do Paós  ´requerido</value>
   </data>
   <data name="TituloPaisJaExiste" xml:space="preserve">
-    <value>Nome do País jáexiste</value>
+    <value>Nome do País já existe</value>
   </data>
   <data name="TituloMostrarTodos" xml:space="preserve">
     <value>Mostrar todos..</value>
@@ -311,5 +311,35 @@
   </data>
   <data name="TituloOperacaoComSucess" xml:space="preserve">
     <value>Operação realizada com sucesso</value>
+  </data>
+  <data name="TituloRegistarTroca" xml:space="preserve">
+    <value>Registar Troca</value>
+  </data>
+  <data name="TituloHistoricoTrocas" xml:space="preserve">
+    <value>Histórico de trocas</value>
+  </data>
+  <data name="TituloDescricaoSelo" xml:space="preserve">
+    <value>Descrição do selo</value>
+  </data>
+  <data name="TituloInformacoesColecionador" xml:space="preserve">
+    <value>Informações do colecionador</value>
+  </data>
+  <data name="TituloNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="TituloContacto" xml:space="preserve">
+    <value>Contacto (email/telefone)</value>
+  </data>
+  <data name="TituloSelosDisponiveisParaTroca" xml:space="preserve">
+    <value>Selos disponíveis para troca</value>
+  </data>
+  <data name="TituloSemDados" xml:space="preserve">
+    <value>Sem dados para mostrar</value>
+  </data>
+  <data name="TituloSemSelosParaTroca" xml:space="preserve">
+    <value>Não há selos disponíveis para troca</value>
+  </data>
+  <data name="TituloAlerta" xml:space="preserve">
+    <value>Aviso</value>
   </data>
 </root>

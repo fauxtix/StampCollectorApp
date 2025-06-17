@@ -1,4 +1,5 @@
-﻿using StampCollectorApp.Services;
+﻿using StampCollectorApp.Resources.Languages;
+using StampCollectorApp.Services;
 using StampCollectorApp.Views;
 
 namespace StampCollectorApp;
@@ -34,8 +35,8 @@ public partial class AppShell : Shell
 
                 // Show alert
                 await Current.DisplayAlert(
-                    "Aviso",
-                    "Não há selos disponíveis para troca.",
+                    AppResources.TituloAlerta,
+                    AppResources.TituloSemSelosParaTroca,
                     "OK"
                 );
 
