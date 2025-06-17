@@ -257,6 +257,10 @@ namespace StampCollectorApp.Services
             return images;
         }
 
-
+        public async Task<bool> AnyStampsForExchangeAsync()
+        {
+            var result = await _db.Table<Stamp>().Where(s => s.ForExchange).FirstOrDefaultAsync();
+            return result != null;
+        }
     }
 }

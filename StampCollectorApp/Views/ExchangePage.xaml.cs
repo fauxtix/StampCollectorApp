@@ -8,7 +8,15 @@ public partial class ExchangePage : ContentPage
     {
         InitializeComponent();
         BindingContext = vm;
-        vm.LoadStampsForExchangeCommand.Execute(null);
-        vm.LoadExchangesCommand.Execute(null);
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        if (BindingContext is ExchangeViewModel vm)
+        {
+            vm.LoadStampsForExchangeCommand.Execute(null);
+            vm.LoadExchangesCommand.Execute(null);
+        }
     }
 }

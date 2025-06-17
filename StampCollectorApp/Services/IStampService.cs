@@ -22,4 +22,5 @@ public interface IStampService
     Task<List<WikiStamps>> SearchWikiStampsAsync(string country, string year, string keyword);
     Task<List<string>> GetStampImagesByCountryCategoryAsync(string country, int limit = 10);
     Task<List<Country>> GetCountriesAsync();
+    Task<bool> AnyStampsForExchangeAsync();
 }

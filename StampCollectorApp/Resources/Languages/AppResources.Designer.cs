@@ -61,6 +61,15 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Em caso de ainda não ter registado o selo recebido, faça-o agora, por favor..
+        /// </summary>
+        internal static string MensagemAposTroca {
+            get {
+                return ResourceManager.GetString("MensagemAposTroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mostrar apenas para Trocas.
         /// </summary>
         internal static string MostrarApenasParaTroca {
@@ -390,6 +399,15 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloNovo {
             get {
                 return ResourceManager.GetString("TituloNovo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operação realizada com sucesso.
+        /// </summary>
+        internal static string TituloOperacaoComSucess {
+            get {
+                return ResourceManager.GetString("TituloOperacaoComSucess", resourceCulture);
             }
         }
         

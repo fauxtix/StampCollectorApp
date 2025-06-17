@@ -306,4 +306,10 @@
   <data name="TituloTrocas" xml:space="preserve">
     <value>Exchanges</value>
   </data>
+  <data name="MensagemAposTroca" xml:space="preserve">
+    <value>If you have not yet registered the stamp you received, please do so now.</value>
+  </data>
+  <data name="TituloOperacaoComSucess" xml:space="preserve">
+    <value>Successful operation</value>
+  </data>
 </root>

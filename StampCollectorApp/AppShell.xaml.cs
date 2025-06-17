@@ -1,10 +1,12 @@
-﻿using StampCollectorApp.Views;
+﻿using StampCollectorApp.Services;
+using StampCollectorApp.Views;
 
 namespace StampCollectorApp;
 
 public partial class AppShell : Shell
 {
-    private static bool _categoriesSeeded = false;
+    private readonly IStampService _stampService;
+
     public AppShell()
     {
         InitializeComponent();
@@ -16,5 +18,32 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(EditCollectionPage), typeof(EditCollectionPage));
         Routing.RegisterRoute(nameof(ViewStampImagePage), typeof(ViewStampImagePage));
         Routing.RegisterRoute(nameof(ExchangePage), typeof(ExchangePage));
+
+        _stampService = App.Services.GetService<IStampService>();
+        this.Navigating += OnShellNavigating;
+    }
+
+    private async void OnShellNavigating(object sender, ShellNavigatingEventArgs e)
+    {
+        // Only intercept navigation to ExchangePage
+        if (e.Target.Location.OriginalString.Contains(nameof(ExchangePage), StringComparison.OrdinalIgnoreCase))
+        {
+            if (_stampService != null && !await _stampService.AnyStampsForExchangeAsync())
+            {
+                e.Cancel(); // Stop navigating to ExchangePage
+
+                // Show alert
+                await Current.DisplayAlert(
+                    "Aviso",
+                    "Não há selos disponíveis para troca.",
+                    "OK"
+                );
+
+                // Immediately redirect to a safe, neutral page (e.g., MainPage or Home)
+                // Replace "MainPage" with your actual main/root route if different
+                await Task.Delay(1); // Ensure alert is shown before navigating
+                await GoToAsync("//MainPage");
+            }
+        }
     }
 }

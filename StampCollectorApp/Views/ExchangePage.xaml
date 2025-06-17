@@ -12,31 +12,36 @@
     <VerticalStackLayout Padding="20" Spacing="18">
 
         <Label Text="Selos disponíveis para troca:" FontAttributes="Bold" FontSize="18"/>
-        <CollectionView ItemsSource="{Binding Exchanges}" HeightRequest="140">
+        <CollectionView ItemsSource="{Binding StampsForExchange}"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedStamp, Mode=TwoWay}"
+                HeightRequest="140">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:StampExchange">
+                <DataTemplate x:DataType="models:Stamp">
                     <Border StrokeThickness="1" Stroke="{AppThemeBinding Light=LightGray, Dark=Gray}" Margin="0,4" Padding="10" StrokeShape="RoundRectangle 8">
                         <VerticalStackLayout>
-                            <Label Text="{Binding StampDescription}" FontAttributes="Bold"/>
-                            <Label Text="{Binding ExchangeDate, StringFormat='Troca: {0:dd/MM/yyyy}'}" FontSize="12"/>
-                            <Label Text="{Binding CollectorName}" FontSize="12"/>
-                            <Label Text="{Binding Notes}" FontSize="11" TextColor="Gray"/>
+                            <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Year}" FontSize="12"/>
+                            <Label Text="{Binding FaceValue}" FontSize="12"/>
                         </VerticalStackLayout>
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="Descrição do selo" FontSize="16" FontAttributes="Bold" Margin="0,18,0,0"/>
-        <Label Text="Informações do colecionador" FontSize="16" FontAttributes="Bold" Margin="0,18,0,0"/>
-        <Entry Placeholder="Nome" Text="{Binding CollectorName, Mode=TwoWay}" />
-        <Entry Placeholder="Contacto (email/telefone)" Text="{Binding CollectorContact, Mode=TwoWay}" />
-        <Editor Placeholder="Notas sobre a troca" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" HeightRequest="70"/>
 
-        <Button
-            x:Name="RegisterButton"
-            Text="Registar troca"
-            Command="{Binding RegisterExchangeCommand}"
-            Margin="0,20,0,0" />
+        <VerticalStackLayout IsVisible="{Binding SelectedStamp, Converter={StaticResource NullToBoolConverter}}">
+            <Label Text="Descrição do selo" FontSize="16" FontAttributes="Bold" Margin="0,18,0,0"/>
+            <Label Text="{Binding SelectedStamp.Name}" FontSize="14"/>
+            <Label Text="Informações do colecionador" FontSize="16" FontAttributes="Bold" Margin="0,18,0,0"/>
+            <Entry Placeholder="Nome" Text="{Binding CollectorName, Mode=TwoWay}" />
+            <Entry Placeholder="Contacto (email/telefone)" Text="{Binding CollectorContact, Mode=TwoWay}" />
+            <Editor Placeholder="Notas sobre a troca" Text="{Binding Notes, Mode=TwoWay}" AutoSize="TextChanges" HeightRequest="70"/>
+            <Button
+        x:Name="RegisterButton"
+        Text="Registar troca"
+        Command="{Binding RegisterExchangeCommand}"
+        Margin="0,20,0,0" />
+        </VerticalStackLayout>
         
         <Label Text="Histórico de trocas" FontSize="16" FontAttributes="Bold" Margin="0,24,0,0"/>
         <CollectionView ItemsSource="{Binding Exchanges}" HeightRequest="140">

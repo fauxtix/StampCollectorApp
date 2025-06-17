@@ -1,27 +1,34 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 using System.Collections.ObjectModel;
+
 
 namespace StampCollectorApp.ViewModels;
 
 public partial class ExchangeViewModel : ObservableObject
 {
-    private readonly ExchangeService _exchangeService;
-    private readonly StampService _stampService;
+    private readonly IExchangeService _exchangeService;
+    private readonly IStampService _stampService;
 
     [ObservableProperty] ObservableCollection<Stamp> stampsForExchange = new();
     [ObservableProperty] ObservableCollection<StampExchange> exchanges = new();
     [ObservableProperty] Stamp? selectedStamp;
+    [NotifyCanExecuteChangedFor(nameof(RegisterExchangeCommand))]
+
 
     [ObservableProperty] string collectorName = string.Empty;
+    [NotifyCanExecuteChangedFor(nameof(RegisterExchangeCommand))]
     [ObservableProperty] string collectorContact = string.Empty;
+    [NotifyCanExecuteChangedFor(nameof(RegisterExchangeCommand))]
+
     [ObservableProperty] string notes = string.Empty;
 
 
 
-    public ExchangeViewModel(ExchangeService exchangeService, StampService stampService)
+    public ExchangeViewModel(IExchangeService exchangeService, IStampService stampService)
     {
         _exchangeService = exchangeService;
         _stampService = stampService;
@@ -67,6 +74,12 @@ public partial class ExchangeViewModel : ObservableObject
 
         await LoadStampsForExchange();
         await LoadExchanges();
+
+        await Shell.Current.DisplayAlert(
+            AppResources.TituloOperacaoComSucess,
+            AppResources.MensagemAposTroca,
+            "OK"
+);
     }
 
     public bool CanRegisterExchange() =>

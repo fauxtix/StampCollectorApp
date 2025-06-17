@@ -306,4 +306,10 @@
   <data name="TituloTrocas" xml:space="preserve">
     <value>Trocas</value>
   </data>
+  <data name="MensagemAposTroca" xml:space="preserve">
+    <value>Em caso de ainda não ter registado o selo recebido, faça-o agora, por favor.</value>
+  </data>
+  <data name="TituloOperacaoComSucess" xml:space="preserve">
+    <value>Operação realizada com sucesso</value>
+  </data>
 </root>
