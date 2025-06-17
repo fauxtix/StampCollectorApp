@@ -33,7 +33,7 @@ namespace StampCollectorApp.ViewModels
         {
             _stampService = stampService;
             _initService = initService;
-            //_initService.RecreateTablesAsync().Wait(); // Ensure database is initialized
+            _initService.RecreateTablesAsync().Wait(); // Ensure database is initialized
             FilteredStamps.CollectionChanged += (s, e) =>
             {
                 OnPropertyChanged(nameof(CanShowMore));

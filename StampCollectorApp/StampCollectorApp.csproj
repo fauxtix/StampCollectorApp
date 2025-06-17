@@ -117,6 +117,9 @@
 		<MauiXaml Update="Views\EditCountryPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Views\ExchangePage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Views\ViewStampImagePage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

@@ -42,7 +42,8 @@ public class DatabaseInitializerService : IDatabaseInitializerService
         {
             // Criar na ordem correta
             //await _db.CreateTableAsync<Tag>();
-            await _db.CreateTableAsync<Stamp>();
+            //await _db.CreateTableAsync<Stamp>();
+            await _db.CreateTableAsync<StampExchange>();
             //await _db.CreateTableAsync<Category>();
             //await _db.CreateTableAsync<Country>();
             //await _db.CreateTableAsync<Collection>();

@@ -49,6 +49,12 @@
             Icon="categories.png" 
             ContentTemplate="{DataTemplate views:CountriesPage}"
             Route="CountriesPage" />
+        <ShellContent
+            Title="{resx:Localize Key=TituloPaginaPaises}"
+            Icon="categories.png" 
+            ContentTemplate="{DataTemplate views:ExchangePage}"
+            Route="ExchangePage" />
+
 
     </FlyoutItem>
 

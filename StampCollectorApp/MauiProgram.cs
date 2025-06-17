@@ -68,6 +68,10 @@ public static class MauiProgram
         builder.Services.AddTransient<EditCollectionViewModel>();
         builder.Services.AddTransient<EditCollectionPage>();
 
+        builder.Services.AddTransient<ExchangePage>();
+        builder.Services.AddSingleton<IExchangeService, ExchangeService>();
+        builder.Services.AddSingleton<ExchangeViewModel>();
+
         builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
         var app = builder.Build();
         return app;
