@@ -31,7 +31,7 @@ A aplicação permite registar trocas de selos com outros colecionadores de form
 2. **Preencha as informações do colecionador** (nome e contacto) e, se desejar, adicione notas sobre a troca.
 3. **Registe a troca:** O selo será removido da sua coleção e a troca será adicionada ao histórico.
 4. **Histórico de trocas:** Consulte todas as trocas realizadas numa secção específica da aplicação, com detalhes como data, nome do colecionador, contacto e notas.
-5. **Dica:** Após registar a troca, caso ainda não tenha registado o selo recebido do outro colecionador, faça-o para manter sua coleção sempre atualizada.
+5. **Dica:** Após registar a troca, caso ainda não tenha registado o selo recebido do outro colecionador, faça-o para manter a sua coleção sempre atualizada. A aplicação exibe um alerta para o efeito.
 
 ---
 
