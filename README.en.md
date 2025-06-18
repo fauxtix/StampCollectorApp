@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **StampCollectorApp** is a cross-platform app for stamp collectors, developed with .NET MAUI (.NET 8). It allows intuitive and organized management of stamps, collections, categories, and images.
+> **StampCollectorApp** is a cross-platform app for stamp collectors, developed with .NET MAUI (.NET 8). It allows intuitive and organized management of stamps, exchanges, collections, categories, and images.
 
 ---
 
@@ -110,16 +110,19 @@ This project is licensed under the MIT license.
 
 ## 📷 Screenshots
 
-![Splash](https://github.com/user-attachments/assets/6281c02c-f3d1-45b4-ad4b-aed2b21f4379)
-![Opcoes](https://github.com/user-attachments/assets/2fd55f64-e831-4d93-9856-bf4b6056ebe4)
-![Stamps](https://github.com/user-attachments/assets/6b289627-6af5-4c1f-ba35-9174a32260b0)
-![StampEdit_1](https://github.com/user-attachments/assets/f3bc1688-5de0-417a-84d2-9e2195788891)
-![StampEdit_2](https://github.com/user-attachments/assets/f90d7ec0-ece3-4d73-9b15-a974f6219cb9)
-![Paises](https://github.com/user-attachments/assets/472b6cae-c530-4ee7-a5cd-6952202c287f)
-![Colecoes](https://github.com/user-attachments/assets/9209d9f6-a494-4fcb-8cdf-a035dac04819)
-![Colecoes_Novo](https://github.com/user-attachments/assets/424d2f0c-0e2a-41ec-b827-34757aa273d2)
-![Colecoes_Edit](https://github.com/user-attachments/assets/995ea6c3-769c-4e2f-8440-80864a7fd695)
-![Categorias](https://github.com/user-attachments/assets/c80168d9-d403-48f8-8895-09f478e3aebe)
+![Splash](https://github.com/user-attachments/assets/5f570aac-f09c-4b8b-977b-e4afd1fdf22f)
+![Opcoes_en](https://github.com/user-attachments/assets/6dc9ad17-ba63-411a-bf72-380015142255)
+![Colecoes_en](https://github.com/user-attachments/assets/e6788cde-96ed-44e1-bb38-351cbb16dabc)
+![Colecoes_Novo_en](https://github.com/user-attachments/assets/9d3b02ad-9c95-43c7-b793-58dbfb4d52eb)
+![Collection_Delete_Warning_en](https://github.com/user-attachments/assets/77ac317a-6050-44e2-a36d-029b37c99f8f)
+
+![Stamps_en](https://github.com/user-attachments/assets/ef1abcf9-9d52-451b-9fac-631f40661a62)
+![StampNovo_1_en](https://github.com/user-attachments/assets/c2f33719-8369-4c31-8ace-8c859c445de2)
+![StampNovo_2_en](https://github.com/user-attachments/assets/19ecc078-d285-4bc8-808e-feffc8a74470)
+![StampEdit_1_en](https://github.com/user-attachments/assets/c827c0b7-d4ce-4e0a-b67c-1d2da6ff748b)
+![StampEdit_2_en](https://github.com/user-attachments/assets/efc4a4b2-0687-4dc3-8111-bc55b1edbadb)
+
+![Trocas_en](https://github.com/user-attachments/assets/b90eb0e3-22d7-41e8-a08b-c38d8a348292)
 
 ---
 

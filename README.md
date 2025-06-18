@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **StampCollectorApp** é uma aplicação multiplataforma para colecionadores de selos, desenvolvida em .NET MAUI (.NET 8). Permite gerir selos, coleções, categorias e imagens de forma intuitiva e organizada.
+> **StampCollectorApp** é uma aplicação multiplataforma para colecionadores de selos, desenvolvida em .NET MAUI (.NET 8). Permite gerir selos, trocas, coleções, categorias e imagens de forma intuitiva e organizada.
 
 ---
 
@@ -19,7 +19,7 @@
 - **Validações inteligentes:** Preenchimento obrigatório, datas, valores positivos, etc.
 - **Modo Troca:** Marque selos como disponíveis para troca.
 - **Registro de Trocas:** Registe facilmente a troca de um selo com outro colecionador. Após selecionar o selo para troca, preencha o nome e contacto do colecionador, e adicione notas se desejar. Um histórico de todas as trocas realizadas fica disponível na aplicação para consulta posterior.
-- **Notas e Detalhes:** Registre informações detalhadas sobre cada selo e coleção.
+- **Notas e Detalhes:** Registe informações detalhadas sobre cada selo e coleção.
 
 ---
 
@@ -31,7 +31,7 @@ A aplicação permite registar trocas de selos com outros colecionadores de form
 2. **Preencha as informações do colecionador** (nome e contacto) e, se desejar, adicione notas sobre a troca.
 3. **Registe a troca:** O selo será removido da sua coleção e a troca será adicionada ao histórico.
 4. **Histórico de trocas:** Consulte todas as trocas realizadas numa secção específica da aplicação, com detalhes como data, nome do colecionador, contacto e notas.
-5. **Dica:** Após registar a troca, caso ainda não tenha registado o selo recebido do outro colecionador, faça-o para manter sua coleção sempre atualizada.
+5. **Dica:** Após registar a troca, caso ainda não tenha registado o selo recebido do outro colecionador, faça-o para manter a sua coleção sempre atualizada. A aplicação exibe um alerta para o efeito.
 
 ---
 
@@ -58,7 +58,7 @@ A aplicação permite registar trocas de selos com outros colecionadores de form
 
 ## 🌐 Localização
 
-Esta aplicação suporta os idiomas Português e Inglês. Você pode alterar o idioma nas configurações da aplicação ou conforme a preferência do seu sistema.
+Esta aplicação suporta os idiomas Português e Inglês. Ppode alterar o idioma no ecrã inicial. A escolha é persistida no armazenamento local.
 
 - **Português**: Interface totalmente traduzida para português.
 - **Inglês**: Interface totalmente traduzida para inglês.
@@ -112,16 +112,25 @@ Este projeto está licenciado sob a licença MIT.
 
 ## 📷 Screenshots
 
-![Splash](https://github.com/user-attachments/assets/6281c02c-f3d1-45b4-ad4b-aed2b21f4379)
-![Opcoes](https://github.com/user-attachments/assets/2fd55f64-e831-4d93-9856-bf4b6056ebe4)
-![Stamps](https://github.com/user-attachments/assets/6b289627-6af5-4c1f-ba35-9174a32260b0)
-![StampEdit_1](https://github.com/user-attachments/assets/f3bc1688-5de0-417a-84d2-9e2195788891)
-![StampEdit_2](https://github.com/user-attachments/assets/f90d7ec0-ece3-4d73-9b15-a974f6219cb9)
-![Paises](https://github.com/user-attachments/assets/472b6cae-c530-4ee7-a5cd-6952202c287f)
-![Colecoes](https://github.com/user-attachments/assets/9209d9f6-a494-4fcb-8cdf-a035dac04819)
-![Colecoes_Novo](https://github.com/user-attachments/assets/424d2f0c-0e2a-41ec-b827-34757aa273d2)
-![Colecoes_Edit](https://github.com/user-attachments/assets/995ea6c3-769c-4e2f-8440-80864a7fd695)
-![Categorias](https://github.com/user-attachments/assets/c80168d9-d403-48f8-8895-09f478e3aebe)
+![Splash](https://github.com/user-attachments/assets/792e9004-a1d5-41bf-bbf2-967da12d2570)
+![Opcoes](https://github.com/user-attachments/assets/dfcbee95-9321-45a2-8696-d16f898d4cfd)
+![Colecoes](https://github.com/user-attachments/assets/32db104d-9c9d-45ed-aa2c-292cea31f685)
+![Colecoes_Novo](https://github.com/user-attachments/assets/1a197a80-081f-4f8e-883c-3b8b0a147cc9)
+![Colecoes_Edit](https://github.com/user-attachments/assets/dcbc9ed7-bbe2-4a47-9af5-496780c6105c)
+![Collection_Delete_Warning](https://github.com/user-attachments/assets/c3cc9a55-a0e2-4dc0-ab1b-56f631c53a1e)
+![Categorias](https://github.com/user-attachments/assets/8b58450e-3914-424d-ad39-1f7e2172c92c)
+![Paises](https://github.com/user-attachments/assets/a032b801-34ff-4c94-afb0-4e368ff988a9)
+![Paises_edit](https://github.com/user-attachments/assets/74a08561-5142-468c-8300-f4853accc49d)
+
+![Stamps](https://github.com/user-attachments/assets/ec95d70a-5d12-446e-a7d1-61c087f36dd1)
+![StampNovo_1](https://github.com/user-attachments/assets/25cbfa60-8815-4d95-80a2-8f54d024674b)
+![StampNovo_2](https://github.com/user-attachments/assets/41b5eeaf-e707-4ff3-8171-5940341c5fe3)
+![StampEdit_1](https://github.com/user-attachments/assets/cdf87ec8-7ea2-498d-bfa8-dde24992b48e)
+![StampEdit_2](https://github.com/user-attachments/assets/7ae1cb65-6abf-4464-9b87-910d3fa7885a)
+![Trocas](https://github.com/user-attachments/assets/425ec19d-6e45-434b-b8e3-72694213beea)
+
+
+
 
 ---
 
