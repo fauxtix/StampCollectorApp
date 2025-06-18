@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **StampCollectorApp** is a cross-platform app for stamp collectors, developed with .NET MAUI (.NET 8). It allows intuitive and organized management of stamps, collections, categories, and images.
+> **StampCollectorApp** is a cross-platform app for stamp collectors, developed with .NET MAUI (.NET 8). It allows intuitive and organized management of stamps, exchanges, collections, categories, and images.
 
 ---
 
