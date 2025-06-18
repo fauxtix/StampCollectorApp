@@ -112,7 +112,7 @@ This project is licensed under the MIT license.
 
 ![Splash](https://github.com/user-attachments/assets/5f570aac-f09c-4b8b-977b-e4afd1fdf22f)
 ![Opcoes_en](https://github.com/user-attachments/assets/6dc9ad17-ba63-411a-bf72-380015142255)
-fc27![Colecoes_en](https://github.com/user-attachments/assets/05c8b588-b245-4917-8d95-c02a9f5d)
+![Colecoes_en](https://github.com/user-attachments/assets/e6788cde-96ed-44e1-bb38-351cbb16dabc)
 ![Colecoes_Novo_en](https://github.com/user-attachments/assets/9d3b02ad-9c95-43c7-b793-58dbfb4d52eb)
 ![Collection_Delete_Warning_en](https://github.com/user-attachments/assets/77ac317a-6050-44e2-a36d-029b37c99f8f)
 
