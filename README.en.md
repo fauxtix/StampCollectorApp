@@ -110,7 +110,18 @@ This project is licensed under the MIT license.
 
 ## 📷 Screenshots
 
-(todo...)
+![Splash](https://github.com/user-attachments/assets/5f570aac-f09c-4b8b-977b-e4afd1fdf22f)
+![Opcoes_en](https://github.com/user-attachments/assets/6dc9ad17-ba63-411a-bf72-380015142255)
+fc27![Colecoes_en](https://github.com/user-attachments/assets/05c8b588-b245-4917-8d95-c02a9f5d)
+![Colecoes_Novo_en](https://github.com/user-attachments/assets/9d3b02ad-9c95-43c7-b793-58dbfb4d52eb)
+![Collection_Delete_Warning_en](https://github.com/user-attachments/assets/77ac317a-6050-44e2-a36d-029b37c99f8f)
+
+![Stamps_en](https://github.com/user-attachments/assets/ef1abcf9-9d52-451b-9fac-631f40661a62)
+![StampNovo_1_en](https://github.com/user-attachments/assets/c2f33719-8369-4c31-8ace-8c859c445de2)
+![StampNovo_2_en](https://github.com/user-attachments/assets/19ecc078-d285-4bc8-808e-feffc8a74470)
+![StampEdit_1_en](https://github.com/user-attachments/assets/c827c0b7-d4ce-4e0a-b67c-1d2da6ff748b)
+![StampEdit_2_en](https://github.com/user-attachments/assets/efc4a4b2-0687-4dc3-8111-bc55b1edbadb)
+![Trocas_en](https://github.com/user-attachments/assets/b90eb0e3-22d7-41e8-a08b-c38d8a348292)
 
 ---
 
