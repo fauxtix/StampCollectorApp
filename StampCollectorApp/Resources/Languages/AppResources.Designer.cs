@@ -637,7 +637,7 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Ano deverá estar entre 1865 e .
+        ///   Looks up a localized string similar to O Ano deverá estar entre 1700 e .
         /// </summary>
         internal static string TituloValidacaoAno {
             get {

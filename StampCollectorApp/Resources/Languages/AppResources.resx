@@ -250,7 +250,7 @@
     <value>Validação</value>
   </data>
   <data name="TituloValidacaoAno" xml:space="preserve">
-    <value>O Ano deverá estar entre 1865 e </value>
+    <value>O Ano deverá estar entre 1700 e </value>
   </data>
   <data name="TituloValidacaoNomeSelo" xml:space="preserve">
     <value>Preencha Nome para o selo</value>

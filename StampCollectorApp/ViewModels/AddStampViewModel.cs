@@ -195,7 +195,7 @@ namespace StampCollectorApp.ViewModels
             string validationColectionComplete = AppResources.TituloColecaoCompleta;
             string validationColectionCompleteCaption = AppResources.TituloColecaoCompletaCaption;
 
-            if (Year < 1865 || Year > DateTime.Now.Year)
+            if (Year < 1700 || Year > DateTime.Now.Year)
             {
                 await Shell.Current.DisplayAlert(validationTitle, $"{validationYear}{DateTime.Now.Year}.", "OK");
                 return;

@@ -100,7 +100,7 @@
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
-                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloValorFacial}"/>
+                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloDataAquisicao}"/>
                 <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" Text="{resx:Localize Key=TituloSituacao}"/>
                 <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
                     <DatePicker Date="{Binding AcquisitionDate, Mode=TwoWay}" Format="dd/MM/yyyy" HorizontalOptions="Center" />
