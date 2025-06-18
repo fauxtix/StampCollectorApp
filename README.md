@@ -58,7 +58,7 @@ A aplicação permite registar trocas de selos com outros colecionadores de form
 
 ## 🌐 Localização
 
-Esta aplicação suporta os idiomas Português e Inglês. Você pode alterar o idioma nas configurações da aplicação ou conforme a preferência do seu sistema.
+Esta aplicação suporta os idiomas Português e Inglês. Ppode alterar o idioma no ecrã inicial. A escolha é persistida no armazenamento local.
 
 - **Português**: Interface totalmente traduzida para português.
 - **Inglês**: Interface totalmente traduzida para inglês.
