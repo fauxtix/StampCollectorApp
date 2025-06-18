@@ -121,6 +121,7 @@ Este projeto está licenciado sob a licença MIT.
 ![Categorias](https://github.com/user-attachments/assets/8b58450e-3914-424d-ad39-1f7e2172c92c)
 ![Paises](https://github.com/user-attachments/assets/a032b801-34ff-4c94-afb0-4e368ff988a9)
 ![Paises_edit](https://github.com/user-attachments/assets/74a08561-5142-468c-8300-f4853accc49d)
+
 ![Stamps](https://github.com/user-attachments/assets/ec95d70a-5d12-446e-a7d1-61c087f36dd1)
 ![StampNovo_1](https://github.com/user-attachments/assets/25cbfa60-8815-4d95-80a2-8f54d024674b)
 ![StampNovo_2](https://github.com/user-attachments/assets/41b5eeaf-e707-4ff3-8171-5940341c5fe3)
