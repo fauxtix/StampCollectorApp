@@ -112,7 +112,21 @@ Este projeto está licenciado sob a licença MIT.
 
 ## 📷 Screenshots
 
-(todo...)
+![Splash](https://github.com/user-attachments/assets/792e9004-a1d5-41bf-bbf2-967da12d2570)
+![Opcoes](https://github.com/user-attachments/assets/dfcbee95-9321-45a2-8696-d16f898d4cfd)
+![Colecoes](https://github.com/user-attachments/assets/32db104d-9c9d-45ed-aa2c-292cea31f685)
+![Colecoes_Novo](https://github.com/user-attachments/assets/1a197a80-081f-4f8e-883c-3b8b0a147cc9)
+![Colecoes_Edit](https://github.com/user-attachments/assets/dcbc9ed7-bbe2-4a47-9af5-496780c6105c)
+![Collection_Delete_Warning](https://github.com/user-attachments/assets/c3cc9a55-a0e2-4dc0-ab1b-56f631c53a1e)
+![Categorias](https://github.com/user-attachments/assets/8b58450e-3914-424d-ad39-1f7e2172c92c)
+![Paises](https://github.com/user-attachments/assets/efd5393c-6cbf-45d2-ab60-e70fa30e4793)
+![Stamps](https://github.com/user-attachments/assets/ec95d70a-5d12-446e-a7d1-61c087f36dd1)
+![StampNovo_1](https://github.com/user-attachments/assets/25cbfa60-8815-4d95-80a2-8f54d024674b)
+![StampNovo_2](https://github.com/user-attachments/assets/41b5eeaf-e707-4ff3-8171-5940341c5fe3)
+![StampEdit_1](https://github.com/user-attachments/assets/167c2995-a308-49cf-8864-42c08b901a39)
+![StampEdit_2](https://github.com/user-attachments/assets/b065b716-4326-48ff-91f3-1832d44e64c4)
+![Trocas](https://github.com/user-attachments/assets/425ec19d-6e45-434b-b8e3-72694213beea)
+
 
 ---
 
