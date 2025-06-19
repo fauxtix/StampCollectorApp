@@ -24,7 +24,8 @@ public static class MauiProgram
             });
 
         builder.ConfigureSyncfusionCore();
-        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzkxMjE3N0AzMjM5MmUzMDJlMzAzYjMyMzkzYlhTeVd0b0xmc2tHeWxhT21Db3lXK2NrZzc4bjFjSm9RWE0rMGVOTnluNms9");
+        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(GetSyncfusionLicenseKey());
+        //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzkxMjE3N0AzMjM5MmUzMDJlMzAzYjMyMzkzYlhTeVd0b0xmc2tHeWxhT21Db3lXK2NrZzc4bjFjSm9RWE0rMGVOTnluNms9");
 
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resources/Languages");
         var savedCulture = Preferences.Get("AppLanguage", null);
@@ -83,5 +84,40 @@ public static class MauiProgram
         builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
         var app = builder.Build();
         return app;
+    }
+
+    private static string GetSyncfusionLicenseKey()
+    {
+        try
+        {
+            // 1. Tenta ler como ficheiro ao lado do executável (Windows funciona, Android/iOS NÃO)
+            var exeDir = AppContext.BaseDirectory;
+            var secretsPath = Path.Combine(exeDir, "syncfusion.lic");
+            if (File.Exists(secretsPath))
+                return File.ReadAllText(secretsPath).Trim();
+
+            // 2. Tenta obter da variável de ambiente (CI/CD)
+            var envKey = Environment.GetEnvironmentVariable("SYNCFUSION_KEY");
+            if (!string.IsNullOrEmpty(envKey))
+                return envKey.Trim();
+
+            // 3. Tenta ler como Embedded Resource (funciona EM TODAS AS PLATAFORMAS)
+            var assembly = typeof(MauiProgram).Assembly;
+            // Confirme se o namespace está correto! Ajuste se o ficheiro estiver noutra pasta.
+            var resourceName = "StampCollectorApp.syncfusion.lic";
+            using (var stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream != null)
+                    using (var reader = new StreamReader(stream))
+                        return reader.ReadToEnd().Trim();
+            }
+
+            // 4. Falha: mensagem de erro
+            return "Configuração errada. Contacte administrador";
+        }
+        catch
+        {
+            return "Configuração errada. Contacte administrador";
+        }
     }
 }

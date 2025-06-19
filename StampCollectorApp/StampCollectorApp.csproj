@@ -58,6 +58,13 @@
 
 	<ItemGroup>
 		<None Remove="Resources\Splash\stamp_collection.png" />
+		<None Remove="syncfusion.lic" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="syncfusion.lic">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
