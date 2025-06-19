@@ -28,7 +28,7 @@
 The app allows you to register stamp exchanges with other collectors easily:
 
 1. **Select a stamp marked as available for exchange.**
-2. **Enter the collector's information** (name and contact) and add notes about the exchange if you wish.
+2. **Enter the collector's information** (name, contact and transaction date) and add notes about the exchange if you wish.
 3. **Register the exchange:** The stamp will be removed from your collection, and the exchange will be added to your history.
 4. **Exchange history:** Review all exchanges in a dedicated section of the app, with details such as date, collector name, contact, and notes.
 5. **Tip:** After registering an exchange, if you have not yet added the stamp received from the other collector, please do so to keep your collection up to date.
