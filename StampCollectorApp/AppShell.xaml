@@ -28,17 +28,23 @@
         </LinearGradientBrush>
     </Shell.FlyoutBackground>
 
+    <ShellContent
+            Title="Dashboard"
+            Icon="dashboard.png" 
+            ContentTemplate="{DataTemplate views:DashboardPage}"
+            Route="DashboardPage" />
+
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
-        Title="{resx:Localize Key=TituloSelos}"
-        Icon="stamp.png"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage"/>
+            Title="{resx:Localize Key=TituloSelos}"
+            Icon="stamp.png"
+            ContentTemplate="{DataTemplate views:MainPage}"
+            Route="MainPage"/>
         <ShellContent
-        Title="{resx:Localize Key=TituloColecoes}"
-        Icon="collection.png"
-        ContentTemplate="{DataTemplate views:CollectionsPage}"
-        Route="CollectionsPage" />
+            Title="{resx:Localize Key=TituloColecoes}"
+            Icon="collection.png"
+            ContentTemplate="{DataTemplate views:CollectionsPage}"
+            Route="CollectionsPage" />
         <ShellContent
             Title="{resx:Localize Key=TituloCategorias}"
             Icon="categories.png" 
@@ -49,10 +55,10 @@
             Icon="globe.png" 
             ContentTemplate="{DataTemplate views:CountriesPage}"
             Route="CountriesPage" />
-        <ShellContent
+    </FlyoutItem>
+    <ShellContent
             Title="{resx:Localize Key=TituloTrocas}"
             Icon="exchange.png" 
             ContentTemplate="{DataTemplate views:ExchangePage}"
             Route="ExchangePage" />
-    </FlyoutItem>
 </Shell>

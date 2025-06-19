@@ -3,6 +3,7 @@ using SQLite;
 using StampCollectorApp.Services;
 using StampCollectorApp.ViewModels;
 using StampCollectorApp.Views;
+using Syncfusion.Maui.Core.Hosting;
 
 
 namespace StampCollectorApp;
@@ -21,6 +22,9 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+        builder.ConfigureSyncfusionCore();
+        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzkxMjE3N0AzMjM5MmUzMDJlMzAzYjMyMzkzYlhTeVd0b0xmc2tHeWxhT21Db3lXK2NrZzc4bjFjSm9RWE0rMGVOTnluNms9");
 
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resources/Languages");
         var savedCulture = Preferences.Get("AppLanguage", null);
@@ -72,6 +76,9 @@ public static class MauiProgram
 
         builder.Services.AddTransient<ExchangePage>();
         builder.Services.AddTransient<ExchangeViewModel>();
+
+        builder.Services.AddTransient<DashboardViewModel>();
+        builder.Services.AddTransient<DashboardPage>();
 
         builder.Services.AddSingleton<IDatabaseInitializerService, DatabaseInitializerService>();
         var app = builder.Build();
