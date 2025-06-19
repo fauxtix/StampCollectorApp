@@ -20,6 +20,7 @@
 - **Modo Troca:** Marque selos como disponíveis para troca.
 - **Registro de Trocas:** Registe facilmente a troca de um selo com outro colecionador. Após selecionar o selo para troca, preencha o nome e contacto do colecionador, e adicione notas se desejar. Um histórico de todas as trocas realizadas fica disponível na aplicação para consulta posterior.
 - **Notas e Detalhes:** Registe informações detalhadas sobre cada selo e coleção.
+- - **Dashboard interativo:** Visualize estatísticas e resumos através de gráficos e indicadores, com filtros avançados por Categoria, Coleção e País. Permite uma análise personalizada dos seus dados de coleção.
 
 ---
 
