@@ -20,9 +20,27 @@
 - **Exchange Mode:** Mark stamps as available for exchange.
 - **Registering Exchanges:** Easily record a stamp exchange with another collector. After selecting a stamp for exchange, fill in the collector's name and contact information, and add notes if desired. The app keeps a full history of all exchanges for future reference.
 - **Notes and Details:** Record detailed information about each stamp and collection.
+- **Interactive dashboard:** View statistics and summaries through charts and indicators, with advanced filters by Category, Collection, and Country. Allows for personalized analysis of your collection data.
 
 ---
+## 📊 Dashboard
 
+The dashboard page provides an overview of your stamp collection, displaying metrics such as:
+
+- Total number of stamps, collections, categories, and exchanges;
+- Pie charts for stamps by category, by collection, and by country;
+- Exchange activity over the last 12 months.
+
+**Filtering options:**  
+Use the filters at the top of the dashboard to display data according to:
+
+- **Category**: Shows only stamps from the selected category.
+- **Collection**: Filters statistics for a specific collection.
+- **Country**: Allows viewing only stamps from a particular country.
+
+After choosing your desired filters, tap **"Apply filters"** to update the charts and indicators. To return to the global view, simply use the **"Clear filters"** option.
+
+---
 ## 🔄 About Registering Exchanges
 
 The app allows you to register stamp exchanges with other collectors easily:
