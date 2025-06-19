@@ -2,6 +2,8 @@
 
 [🇬🇧 Versão em Inglês](./README.en.md)
 
+![AppImage](https://github.com/user-attachments/assets/950f0edf-a3f5-4aae-9b06-989cbeffea34)
+
 ![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-8.0-blueviolet)
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -20,9 +22,28 @@
 - **Modo Troca:** Marque selos como disponíveis para troca.
 - **Registro de Trocas:** Registe facilmente a troca de um selo com outro colecionador. Após selecionar o selo para troca, preencha o nome e contacto do colecionador, e adicione notas se desejar. Um histórico de todas as trocas realizadas fica disponível na aplicação para consulta posterior.
 - **Notas e Detalhes:** Registe informações detalhadas sobre cada selo e coleção.
+- **Dashboard interativo:** Visualize estatísticas e resumos através de gráficos e indicadores, com filtros avançados por Categoria, Coleção e País. Permite uma análise personalizada dos seus dados de coleção.
 
 ---
 
+## 📊 Dashboard
+
+A página de dashboard oferece uma visão geral da sua coleção, com métricas como:
+
+- Quantidade total de selos, coleções, categorias e trocas;
+- Gráfico de selos por categoria, por coleção e por país;
+- Evolução das trocas nos últimos 12 meses.
+
+**Opções de filtragem:**  
+Use os filtros no topo do dashboard para visualizar os dados de acordo com:
+
+- **Categoria**: Mostra apenas selos de uma categoria selecionada.
+- **Coleção**: Filtra estatísticas para uma coleção específica.
+- **País**: Permite ver apenas selos de determinado país.
+
+Após escolher os filtros desejados, clique em **"Aplicar filtros"** para atualizar os gráficos e indicadores. Para voltar à visualização global, basta usar a opção **"Limpar filtros"**.
+
+---
 ## 🔄 Sobre o Registo de Trocas
 
 A aplicação permite registar trocas de selos com outros colecionadores de forma prática:
@@ -113,7 +134,9 @@ Este projeto está licenciado sob a licença MIT.
 ## 📷 Screenshots
 
 ![Splash](https://github.com/user-attachments/assets/792e9004-a1d5-41bf-bbf2-967da12d2570)
-![Opcoes](https://github.com/user-attachments/assets/dfcbee95-9321-45a2-8696-d16f898d4cfd)
+![Opcoes](https://github.com/user-attachments/assets/35373060-f11e-455e-83be-e9ffea3b0157)
+![Dashboard_1](https://github.com/user-attachments/assets/ae624f08-24f7-48a3-b6a2-7381b200b207)
+![Dashboard_2](https://github.com/user-attachments/assets/80423a0b-2dd8-4aeb-9596-b7b32604aabd)
 ![Colecoes](https://github.com/user-attachments/assets/32db104d-9c9d-45ed-aa2c-292cea31f685)
 ![Colecoes_Novo](https://github.com/user-attachments/assets/1a197a80-081f-4f8e-883c-3b8b0a147cc9)
 ![Colecoes_Edit](https://github.com/user-attachments/assets/dcbc9ed7-bbe2-4a47-9af5-496780c6105c)

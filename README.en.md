@@ -2,6 +2,8 @@
 
 [🇵🇹 Portuguese version](./README.md)
 
+![AppImage](https://github.com/user-attachments/assets/b48b15ec-1b3e-49c1-9226-800059dd1074)
+
 ![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-8.0-blueviolet)
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -20,9 +22,27 @@
 - **Exchange Mode:** Mark stamps as available for exchange.
 - **Registering Exchanges:** Easily record a stamp exchange with another collector. After selecting a stamp for exchange, fill in the collector's name and contact information, and add notes if desired. The app keeps a full history of all exchanges for future reference.
 - **Notes and Details:** Record detailed information about each stamp and collection.
+- **Interactive dashboard:** View statistics and summaries through charts and indicators, with advanced filters by Category, Collection, and Country. Allows for personalized analysis of your collection data.
 
 ---
+## 📊 Dashboard
 
+The dashboard page provides an overview of your stamp collection, displaying metrics such as:
+
+- Total number of stamps, collections, categories, and exchanges;
+- Pie charts for stamps by category, by collection, and by country;
+- Exchange activity over the last 12 months.
+
+**Filtering options:**  
+Use the filters at the top of the dashboard to display data according to:
+
+- **Category**: Shows only stamps from the selected category.
+- **Collection**: Filters statistics for a specific collection.
+- **Country**: Allows viewing only stamps from a particular country.
+
+After choosing your desired filters, tap **"Apply filters"** to update the charts and indicators. To return to the global view, simply use the **"Clear filters"** option.
+
+---
 ## 🔄 About Registering Exchanges
 
 The app allows you to register stamp exchanges with other collectors easily:
@@ -111,7 +131,9 @@ This project is licensed under the MIT license.
 ## 📷 Screenshots
 
 ![Splash](https://github.com/user-attachments/assets/5f570aac-f09c-4b8b-977b-e4afd1fdf22f)
-![Opcoes_en](https://github.com/user-attachments/assets/6dc9ad17-ba63-411a-bf72-380015142255)
+![Opcoes_en](https://github.com/user-attachments/assets/ce1f179e-7b07-4c63-bbef-a55743db704a)
+![Dashboard_1](https://github.com/user-attachments/assets/6a3b5f4a-c050-429c-9192-c858e31011d0)
+![Dashboard_2](https://github.com/user-attachments/assets/85545b01-3931-429f-b913-cc49e7f133b6)
 ![Colecoes_en](https://github.com/user-attachments/assets/e6788cde-96ed-44e1-bb38-351cbb16dabc)
 ![Colecoes_Novo_en](https://github.com/user-attachments/assets/9d3b02ad-9c95-43c7-b793-58dbfb4d52eb)
 ![Collection_Delete_Warning_en](https://github.com/user-attachments/assets/77ac317a-6050-44e2-a36d-029b37c99f8f)
