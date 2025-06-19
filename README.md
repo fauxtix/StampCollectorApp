@@ -132,7 +132,7 @@ Este projeto está licenciado sob a licença MIT.
 ## 📷 Screenshots
 
 ![Splash](https://github.com/user-attachments/assets/792e9004-a1d5-41bf-bbf2-967da12d2570)
-![Opcoes](https://github.com/user-attachments/assets/dfcbee95-9321-45a2-8696-d16f898d4cfd)
+![Opcoes](https://github.com/user-attachments/assets/35373060-f11e-455e-83be-e9ffea3b0157)
 ![Colecoes](https://github.com/user-attachments/assets/32db104d-9c9d-45ed-aa2c-292cea31f685)
 ![Colecoes_Novo](https://github.com/user-attachments/assets/1a197a80-081f-4f8e-883c-3b8b0a147cc9)
 ![Colecoes_Edit](https://github.com/user-attachments/assets/dcbc9ed7-bbe2-4a47-9af5-496780c6105c)
