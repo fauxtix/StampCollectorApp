@@ -25,7 +25,6 @@ public static class MauiProgram
 
         builder.ConfigureSyncfusionCore();
         Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(GetSyncfusionLicenseKey());
-        //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzkxMjE3N0AzMjM5MmUzMDJlMzAzYjMyMzkzYlhTeVd0b0xmc2tHeWxhT21Db3lXK2NrZzc4bjFjSm9RWE0rMGVOTnluNms9");
 
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resources/Languages");
         var savedCulture = Preferences.Get("AppLanguage", null);
