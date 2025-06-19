@@ -58,7 +58,7 @@ A aplicação permite registar trocas de selos com outros colecionadores de form
 
 ## 🌐 Localização
 
-Esta aplicação suporta os idiomas Português e Inglês. Ppode alterar o idioma no ecrã inicial. A escolha é persistida no armazenamento local.
+Esta aplicação suporta os idiomas Português e Inglês. Pode selecionar o idioma no ecrã inicial (Selos). A escolha é persistida no armazenamento local.
 
 - **Português**: Interface totalmente traduzida para português.
 - **Inglês**: Interface totalmente traduzida para inglês.
@@ -128,8 +128,6 @@ Este projeto está licenciado sob a licença MIT.
 ![StampEdit_1](https://github.com/user-attachments/assets/cdf87ec8-7ea2-498d-bfa8-dde24992b48e)
 ![StampEdit_2](https://github.com/user-attachments/assets/7ae1cb65-6abf-4464-9b87-910d3fa7885a)
 ![Trocas](https://github.com/user-attachments/assets/425ec19d-6e45-434b-b8e3-72694213beea)
-
-
 
 
 ---
