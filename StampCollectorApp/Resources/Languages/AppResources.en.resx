@@ -342,4 +342,16 @@
   <data name="TituloAlerta" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="TituloValidacaoDataTroca" xml:space="preserve">
+    <value>The exchange date cannot be in the future</value>
+  </data>
+  <data name="TituloValidacaoNomeColecionador" xml:space="preserve">
+    <value>You must fill in Collector's name</value>
+  </data>
+  <data name="TituloValidacaoContactoColecionador" xml:space="preserve">
+    <value>You must fill in Collector's contact</value>
+  </data>
+  <data name="TituloDataTroca" xml:space="preserve">
+    <value>Exchange date</value>
+  </data>
 </root>

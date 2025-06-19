@@ -342,4 +342,16 @@
   <data name="TituloAlerta" xml:space="preserve">
     <value>Aviso</value>
   </data>
+  <data name="TituloValidacaoDataTroca" xml:space="preserve">
+    <value>A data do movimento não pode ser no futuro</value>
+  </data>
+  <data name="TituloValidacaoNomeColecionador" xml:space="preserve">
+    <value>Deve preencher Nome do Colecionador</value>
+  </data>
+  <data name="TituloValidacaoContactoColecionador" xml:space="preserve">
+    <value>Deve preencher Contacto do Colecionador</value>
+  </data>
+  <data name="TituloDataTroca" xml:space="preserve">
+    <value>Data do movimento</value>
+  </data>
 </root>

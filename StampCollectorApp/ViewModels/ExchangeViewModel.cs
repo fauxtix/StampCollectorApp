@@ -24,6 +24,8 @@ public partial class ExchangeViewModel : ObservableObject
     [ObservableProperty] string collectorContact = string.Empty;
     [NotifyCanExecuteChangedFor(nameof(RegisterExchangeCommand))]
 
+    [ObservableProperty] DateTime exchangeDate = DateTime.UtcNow;
+
     [ObservableProperty] string notes = string.Empty;
 
 
@@ -51,7 +53,25 @@ public partial class ExchangeViewModel : ObservableObject
     [RelayCommand(CanExecute = nameof(CanRegisterExchange))]
     public async Task RegisterExchangeAsync()
     {
+        string validationTitle = AppResources.TituloValidacao;
+
         if (SelectedStamp == null) return;
+        if (ExchangeDate.Date > DateTime.Now.Date)
+        {
+            await Shell.Current.DisplayAlert(validationTitle, AppResources.TituloValidacaoDataTroca, "OK");
+            return;
+        }
+
+        //if (string.IsNullOrEmpty(CollectorName))
+        //{
+        //    await Shell.Current.DisplayAlert(validationTitle, AppResources.TituloValidacaoNomeColecionador, "OK");
+        //    return;
+        //}
+        //if (string.IsNullOrEmpty(CollectorContact))
+        //{
+        //    await Shell.Current.DisplayAlert(validationTitle, AppResources.TituloValidacaoContactoColecionador, "OK");
+        //    return;
+        //}
 
         var desc = $"{SelectedStamp.Name} ({SelectedStamp.Year}) - País: {SelectedStamp.CountryId}";
 

@@ -304,6 +304,15 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data do movimento.
+        /// </summary>
+        internal static string TituloDataTroca {
+            get {
+                return ResourceManager.GetString("TituloDataTroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Descrição.
         /// </summary>
         internal static string TituloDescricao {
@@ -682,11 +691,38 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deve preencher Contacto do Colecionador.
+        /// </summary>
+        internal static string TituloValidacaoContactoColecionador {
+            get {
+                return ResourceManager.GetString("TituloValidacaoContactoColecionador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A data do movimento não pode ser no futuro.
+        /// </summary>
+        internal static string TituloValidacaoDataTroca {
+            get {
+                return ResourceManager.GetString("TituloValidacaoDataTroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selecione uma imagem para o selo.
         /// </summary>
         internal static string TituloValidacaoImagemSelo {
             get {
                 return ResourceManager.GetString("TituloValidacaoImagemSelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deve preencher Nome do Colecionador.
+        /// </summary>
+        internal static string TituloValidacaoNomeColecionador {
+            get {
+                return ResourceManager.GetString("TituloValidacaoNomeColecionador", resourceCulture);
             }
         }
         
