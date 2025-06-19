@@ -89,20 +89,16 @@ public static class MauiProgram
     {
         try
         {
-            // 1. Tenta ler como ficheiro ao lado do executável (Windows funciona, Android/iOS NÃO)
             var exeDir = AppContext.BaseDirectory;
             var secretsPath = Path.Combine(exeDir, "syncfusion.lic");
             if (File.Exists(secretsPath))
                 return File.ReadAllText(secretsPath).Trim();
 
-            // 2. Tenta obter da variável de ambiente (CI/CD)
             var envKey = Environment.GetEnvironmentVariable("SYNCFUSION_KEY");
             if (!string.IsNullOrEmpty(envKey))
                 return envKey.Trim();
 
-            // 3. Tenta ler como Embedded Resource (funciona EM TODAS AS PLATAFORMAS)
             var assembly = typeof(MauiProgram).Assembly;
-            // Confirme se o namespace está correto! Ajuste se o ficheiro estiver noutra pasta.
             var resourceName = "StampCollectorApp.syncfusion.lic";
             using (var stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -111,7 +107,6 @@ public static class MauiProgram
                         return reader.ReadToEnd().Trim();
             }
 
-            // 4. Falha: mensagem de erro
             return "Configuração errada. Contacte administrador";
         }
         catch
