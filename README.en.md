@@ -2,6 +2,8 @@
 
 [🇵🇹 Portuguese version](./README.md)
 
+![AppImage](https://github.com/user-attachments/assets/b48b15ec-1b3e-49c1-9226-800059dd1074)
+
 ![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-8.0-blueviolet)
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
