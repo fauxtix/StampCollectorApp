@@ -2,7 +2,7 @@
 
 [🇬🇧 Versão em Inglês](./README.en.md)
 
-![AppImage](https://github.com/user-attachments/assets/950f0edf-a3f5-4aae-9b06-989cbeffea34)
+![AppImage_pt](https://github.com/user-attachments/assets/2fae9301-ed6c-4361-9337-77d30bef0cab)
 
 ![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-8.0-blueviolet)
 ![Platform](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Windows%20%7C%20Mac-informational)
