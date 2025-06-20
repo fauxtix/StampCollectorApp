@@ -354,4 +354,25 @@
   <data name="TituloDataTroca" xml:space="preserve">
     <value>Exchange date</value>
   </data>
+  <data name="TituloFiltros" xml:space="preserve">
+    <value>Filters</value>
+  </data>
+  <data name="TituloAplicarFiltros" xml:space="preserve">
+    <value>Apply filters</value>
+  </data>
+  <data name="TituloLimparFiltros" xml:space="preserve">
+    <value>Clear filters</value>
+  </data>
+  <data name="TituloSelosPorCategoria" xml:space="preserve">
+    <value>Stamps by Category</value>
+  </data>
+  <data name="TituloSelosPorColecao" xml:space="preserve">
+    <value>Stamps by Collection</value>
+  </data>
+  <data name="TituloSelosPorPais" xml:space="preserve">
+    <value>Stamps by Country</value>
+  </data>
+  <data name="TituloTrocasPorMes" xml:space="preserve">
+    <value>Exchanges per month (last 12 months)</value>
+  </data>
 </root>

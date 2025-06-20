@@ -67,12 +67,10 @@ public partial class DashboardViewModel : ObservableObject
         Countries.Clear();
         foreach (var c in await _countryService.GetCountriesAsync()) Countries.Add(c);
 
-        // Estatísticas globais
         var stamps = await _stampService.GetStampsAsync();
         TotalStamps = stamps.Count;
         StampsForExchange = stamps.Count(x => x.ForExchange);
 
-        // Gráfico por categoria
         StampsByCategory.Clear();
         var catGroups = stamps.GroupBy(s => s.CategoryId)
             .Select(g => new ChartData
@@ -83,7 +81,6 @@ public partial class DashboardViewModel : ObservableObject
             .OrderByDescending(x => x.Value);
         foreach (var item in catGroups) StampsByCategory.Add(item);
 
-        // Gráfico por coleção
         StampsByCollection.Clear();
         var colGroups = stamps.GroupBy(s => s.CollectionId)
             .Select(g => new ChartData
@@ -94,7 +91,6 @@ public partial class DashboardViewModel : ObservableObject
             .OrderByDescending(x => x.Value);
         foreach (var item in colGroups) StampsByCollection.Add(item);
 
-        // Gráfico por país
         StampsByCountry.Clear();
         var countryGroups = stamps.GroupBy(s => s.CountryId)
             .Select(g => new ChartData
@@ -105,7 +101,6 @@ public partial class DashboardViewModel : ObservableObject
             .OrderByDescending(x => x.Value);
         foreach (var item in countryGroups) StampsByCountry.Add(item);
 
-        // Trocas por mês (últimos 12 meses)
         var exchs = await _exchangeService.GetAllAsync();
         TotalExchanges = exchs.Count;
 
@@ -132,7 +127,6 @@ public partial class DashboardViewModel : ObservableObject
     {
         var stamps = await _stampService.GetStampsAsync();
 
-        // Apenas um filtro por vez
         if (SelectedCategory != null)
             stamps = stamps.Where(s => s.CategoryId == SelectedCategory.Id).ToList();
         else if (SelectedCollection != null)
@@ -142,7 +136,6 @@ public partial class DashboardViewModel : ObservableObject
         else if (!string.IsNullOrWhiteSpace(SearchText))
             stamps = stamps.Where(s => s.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).ToList();
 
-        // Atualiza gráficos filtrados
         StampsByCategory.Clear();
         var catGroups = stamps.GroupBy(s => s.CategoryId)
             .Select(g => new ChartData
@@ -174,7 +167,6 @@ public partial class DashboardViewModel : ObservableObject
         foreach (var item in countryGroups) StampsByCountry.Add(item);
     }
 
-    // Atualização dos IsEnabled dos filtros
     partial void OnSelectedCategoryChanged(Category value)
     {
         OnPropertyChanged(nameof(IsCollectionPickerEnabled));

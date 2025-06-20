@@ -354,4 +354,25 @@
   <data name="TituloDataTroca" xml:space="preserve">
     <value>Data do movimento</value>
   </data>
+  <data name="TituloFiltros" xml:space="preserve">
+    <value>Filtros</value>
+  </data>
+  <data name="TituloAplicarFiltros" xml:space="preserve">
+    <value>Aplicar filtros</value>
+  </data>
+  <data name="TituloLimparFiltros" xml:space="preserve">
+    <value>Limpar filtros</value>
+  </data>
+  <data name="TituloSelosPorCategoria" xml:space="preserve">
+    <value>Selos por Categoria</value>
+  </data>
+  <data name="TituloSelosPorColecao" xml:space="preserve">
+    <value>Selos por Coleção</value>
+  </data>
+  <data name="TituloSelosPorPais" xml:space="preserve">
+    <value>Selos por País</value>
+  </data>
+  <data name="TituloTrocasPorMes" xml:space="preserve">
+    <value>Trocas por mês (últimos 12 meses)</value>
+  </data>
 </root>
