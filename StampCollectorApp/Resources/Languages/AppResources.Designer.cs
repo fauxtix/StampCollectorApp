@@ -79,6 +79,60 @@ namespace StampCollectorApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Com charneira.
+        /// </summary>
+        internal static string StampCondition_Com_Charneira {
+            get {
+                return ResourceManager.GetString("StampCondition_Com_Charneira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Danificado.
+        /// </summary>
+        internal static string StampCondition_Danificado {
+            get {
+                return ResourceManager.GetString("StampCondition_Danificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Novo.
+        /// </summary>
+        internal static string StampCondition_Novo {
+            get {
+                return ResourceManager.GetString("StampCondition_Novo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sem charneira.
+        /// </summary>
+        internal static string StampCondition_Sem_Charneira {
+            get {
+                return ResourceManager.GetString("StampCondition_Sem_Charneira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sem situação.
+        /// </summary>
+        internal static string StampCondition_SemSituacao {
+            get {
+                return ResourceManager.GetString("StampCondition_SemSituacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usado.
+        /// </summary>
+        internal static string StampCondition_Usado {
+            get {
+                return ResourceManager.GetString("StampCondition_Usado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aviso.
         /// </summary>
         internal static string TituloAlerta {
@@ -678,6 +732,15 @@ namespace StampCollectorApp.Resources.Languages {
         internal static string TituloTotalEsperado {
             get {
                 return ResourceManager.GetString("TituloTotalEsperado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total gasto.
+        /// </summary>
+        internal static string TituloTotalGasto {
+            get {
+                return ResourceManager.GetString("TituloTotalGasto", resourceCulture);
             }
         }
         

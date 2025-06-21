@@ -39,4 +39,3 @@ public enum StampCondition
     Com_Charneira,
     Sem_Charneira
 }
-

@@ -16,9 +16,6 @@
             Text="{resx:Localize Key=TituloNovo}"
             IconImageSource="add.png" 
             Command="{Binding AddStampCommand}" />
-        <ToolbarItem 
-            IconImageSource="new_globe.svg" 
-            Clicked="OnToolbarLanguageClicked" />
     </ContentPage.ToolbarItems>
 
     <Grid RowDefinitions="Auto,Auto,Auto,*,Auto" Padding="12">

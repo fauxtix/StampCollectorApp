@@ -375,4 +375,25 @@
   <data name="TituloTrocasPorMes" xml:space="preserve">
     <value>Trocas por mês (últimos 12 meses)</value>
   </data>
+  <data name="TituloTotalGasto" xml:space="preserve">
+    <value>Total gasto</value>
+  </data>
+  <data name="StampCondition_Novo" xml:space="preserve">
+    <value>Novo</value>
+  </data>
+  <data name="StampCondition_Usado" xml:space="preserve">
+    <value>Usado</value>
+  </data>
+  <data name="StampCondition_Danificado" xml:space="preserve">
+    <value>Danificado</value>
+  </data>
+  <data name="StampCondition_Com_Charneira" xml:space="preserve">
+    <value>Com charneira</value>
+  </data>
+  <data name="StampCondition_SemSituacao" xml:space="preserve">
+    <value>Sem situação</value>
+  </data>
+  <data name="StampCondition_Sem_Charneira" xml:space="preserve">
+    <value>Sem charneira</value>
+  </data>
 </root>

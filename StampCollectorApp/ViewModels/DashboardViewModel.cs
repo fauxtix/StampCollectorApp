@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StampCollectorApp.Models;
+using StampCollectorApp.Resources.Languages;
 using StampCollectorApp.Services;
 using System.Collections.ObjectModel;
 
@@ -18,15 +19,48 @@ public partial class DashboardViewModel : ObservableObject
     [ObservableProperty] private int stampsForExchange;
     [ObservableProperty] private int totalExchanges;
 
-    // Filtros
     [ObservableProperty] private Category selectedCategory;
     [ObservableProperty] private Collection selectedCollection;
     [ObservableProperty] private Country selectedCountry;
     [ObservableProperty] private string searchText;
 
-    public bool IsCategoryPickerEnabled => SelectedCollection == null && SelectedCountry == null && string.IsNullOrWhiteSpace(SearchText);
-    public bool IsCollectionPickerEnabled => SelectedCategory == null && SelectedCountry == null && string.IsNullOrWhiteSpace(SearchText);
-    public bool IsCountryPickerEnabled => SelectedCategory == null && SelectedCollection == null && string.IsNullOrWhiteSpace(SearchText);
+    [ObservableProperty]
+    private StampCondition? selectedCondition;
+
+    [ObservableProperty]
+    private StampConditionDisplayOption selectedConditionOption;
+
+    [ObservableProperty]
+    private string _totalAmountPaidDisplay;
+
+    public List<StampConditionDisplayOption> Conditions { get; } =
+        LocalizationHelper.GetLocalizedConditions();
+    public ObservableCollection<ChartData> StampsByCondition { get; } = new();
+    public ObservableCollection<Stamp> Stamps { get; set; }
+    public bool IsCategoryPickerEnabled =>
+        SelectedCollection == null &&
+        SelectedCountry == null &&
+        string.IsNullOrWhiteSpace(SearchText) &&
+        SelectedConditionOption == null;
+
+    public bool IsCollectionPickerEnabled =>
+        SelectedCategory == null &&
+        SelectedCountry == null &&
+        string.IsNullOrWhiteSpace(SearchText) &&
+        SelectedConditionOption == null;
+
+    public bool IsCountryPickerEnabled =>
+        SelectedCategory == null &&
+        SelectedCollection == null &&
+        string.IsNullOrWhiteSpace(SearchText) &&
+        SelectedConditionOption == null;
+
+    public bool IsConditionPickerEnabled =>
+        SelectedCategory == null &&
+        SelectedCollection == null &&
+        SelectedCountry == null &&
+        string.IsNullOrWhiteSpace(SearchText);
+
     public bool IsSearchBarEnabled => SelectedCategory == null && SelectedCollection == null && SelectedCountry == null;
 
     // Gráficos
@@ -57,7 +91,6 @@ public partial class DashboardViewModel : ObservableObject
     [RelayCommand]
     public async Task LoadDashboardAsync()
     {
-        // Carrega filtros
         Categories.Clear();
         foreach (var cat in await _categoryService.GetCategoriesAsync()) Categories.Add(cat);
 
@@ -101,8 +134,22 @@ public partial class DashboardViewModel : ObservableObject
             .OrderByDescending(x => x.Value);
         foreach (var item in countryGroups) StampsByCountry.Add(item);
 
+        StampsByCondition.Clear();
+        var condGroups = stamps.GroupBy(s => s.Condition)
+            .Select(g => new ChartData
+            {
+                Label = GetConditionLabel(g.Key),
+                Value = g.Count()
+            })
+            .OrderByDescending(x => x.Value);
+        foreach (var item in condGroups) StampsByCondition.Add(item);
+
         var exchs = await _exchangeService.GetAllAsync();
         TotalExchanges = exchs.Count;
+
+        var _stamps = await _stampService.GetStampsAsync();
+        var totalAmountPaid = (double)_stamps.Sum(s => s.PricePaid);
+        TotalAmountPaidDisplay = $"{totalAmountPaid:C2}";
 
         ExchangesPerMonth.Clear();
         var now = DateTime.Now;
@@ -136,6 +183,9 @@ public partial class DashboardViewModel : ObservableObject
         else if (!string.IsNullOrWhiteSpace(SearchText))
             stamps = stamps.Where(s => s.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).ToList();
 
+        if (SelectedCondition != null)
+            stamps = stamps.Where(s => s.Condition == SelectedCondition).ToList();
+
         StampsByCategory.Clear();
         var catGroups = stamps.GroupBy(s => s.CategoryId)
             .Select(g => new ChartData
@@ -165,31 +215,70 @@ public partial class DashboardViewModel : ObservableObject
             })
             .OrderByDescending(x => x.Value);
         foreach (var item in countryGroups) StampsByCountry.Add(item);
+
+
+        var debug = stamps.Select(s => s.Condition).Distinct().ToList();
+
+        StampsByCondition.Clear();
+        var condGroups = stamps.GroupBy(s => s.Condition)
+            .Select(g => new ChartData
+            {
+                Label = g.Key != null ? g.Key.ToString() : "Sem Situação",
+                Value = g.Count()
+            })
+            .OrderByDescending(x => x.Value);
+        foreach (var item in condGroups) StampsByCondition.Add(item);
     }
 
-    partial void OnSelectedCategoryChanged(Category value)
+    async partial void OnSelectedConditionOptionChanged(StampConditionDisplayOption value)
     {
-        OnPropertyChanged(nameof(IsCollectionPickerEnabled));
-        OnPropertyChanged(nameof(IsCountryPickerEnabled));
-        OnPropertyChanged(nameof(IsSearchBarEnabled));
-    }
-    partial void OnSelectedCollectionChanged(Collection value)
-    {
-        OnPropertyChanged(nameof(IsCategoryPickerEnabled));
-        OnPropertyChanged(nameof(IsCountryPickerEnabled));
-        OnPropertyChanged(nameof(IsSearchBarEnabled));
-    }
-    partial void OnSelectedCountryChanged(Country value)
-    {
-        OnPropertyChanged(nameof(IsCategoryPickerEnabled));
-        OnPropertyChanged(nameof(IsCollectionPickerEnabled));
-        OnPropertyChanged(nameof(IsSearchBarEnabled));
-    }
-    partial void OnSearchTextChanged(string value)
-    {
+        SelectedCondition = value?.Value;
+
         OnPropertyChanged(nameof(IsCategoryPickerEnabled));
         OnPropertyChanged(nameof(IsCollectionPickerEnabled));
         OnPropertyChanged(nameof(IsCountryPickerEnabled));
+        OnPropertyChanged(nameof(IsConditionPickerEnabled));
+        OnPropertyChanged(nameof(IsSearchBarEnabled));
+        await ApplyFiltersAsync();
+    }
+    async partial void OnSelectedCategoryChanged(Category value)
+    {
+        OnPropertyChanged(nameof(IsCollectionPickerEnabled));
+        OnPropertyChanged(nameof(IsConditionPickerEnabled));
+        OnPropertyChanged(nameof(IsCountryPickerEnabled));
+        OnPropertyChanged(nameof(IsSearchBarEnabled));
+
+        await ApplyFiltersAsync();
+
+    }
+    async partial void OnSelectedCollectionChanged(Collection value)
+    {
+        OnPropertyChanged(nameof(IsCategoryPickerEnabled));
+        OnPropertyChanged(nameof(IsConditionPickerEnabled));
+        OnPropertyChanged(nameof(IsCountryPickerEnabled));
+        OnPropertyChanged(nameof(IsSearchBarEnabled));
+
+        await ApplyFiltersAsync();
+    }
+    async partial void OnSelectedCountryChanged(Country value)
+    {
+        OnPropertyChanged(nameof(IsCategoryPickerEnabled));
+        OnPropertyChanged(nameof(IsCollectionPickerEnabled));
+        OnPropertyChanged(nameof(IsConditionPickerEnabled));
+        OnPropertyChanged(nameof(IsSearchBarEnabled));
+
+        await ApplyFiltersAsync();
+
+    }
+    async partial void OnSearchTextChanged(string value)
+    {
+        OnPropertyChanged(nameof(IsCategoryPickerEnabled));
+        OnPropertyChanged(nameof(IsCollectionPickerEnabled));
+        OnPropertyChanged(nameof(IsCountryPickerEnabled));
+        OnPropertyChanged(nameof(IsConditionPickerEnabled));
+
+        await ApplyFiltersAsync();
+
     }
 
     [RelayCommand]
@@ -199,5 +288,13 @@ public partial class DashboardViewModel : ObservableObject
         SelectedCollection = null;
         SelectedCountry = null;
         SearchText = string.Empty;
+        SelectedConditionOption = null;
+    }
+
+    private string GetConditionLabel(StampCondition? cond)
+    {
+        return cond.HasValue
+            ? LocalizationHelper.GetEnumDisplayName(cond.Value)
+            : AppResources.StampCondition_SemSituacao;
     }
 }

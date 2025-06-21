@@ -71,7 +71,7 @@
                     <Entry Placeholder="{resx:Localize Key=TituloValorFacial}"  BackgroundColor="White" Text="{Binding FaceValue, Mode=TwoWay}" HorizontalTextAlignment="Center" FontSize="14" />
                 </Frame>
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Entry Placeholder="{resx:Localize Key=TitulovalorPago}" Background="White" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" HorizontalTextAlignment="Center" />
+                    <Entry Placeholder="{resx:Localize Key=TituloValorPago}"  Background="White" Text="{Binding PricePaid, Mode=TwoWay}" Keyboard="Numeric" FontSize="14" HorizontalTextAlignment="Center" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto">
