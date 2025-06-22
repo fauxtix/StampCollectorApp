@@ -81,7 +81,7 @@ This application supports both Portuguese and English languages. You can switch 
 - **Portuguese**: Fully translated user interface.
 - **English**: Fully translated user interface.
 
-### If you'd like to contribute translations or suggest improvements, feel free to open an issue or pull request!
+##### If you'd like to contribute translations or suggest improvements, feel free to open an issue or pull request!
 
 ---
 
