@@ -61,9 +61,6 @@ namespace StampCollectorApp.ViewModels
         private int? year;
 
         [ObservableProperty]
-        private StampCondition condition;
-
-        [ObservableProperty]
         private string imagePath;
 
         [ObservableProperty]
@@ -153,7 +150,8 @@ namespace StampCollectorApp.ViewModels
             {
                 Name = value.Name ?? string.Empty;
                 Year = value.Year;
-                Condition = value.Condition;
+                SelectedCondition = value.Condition;
+                SelectedConditionOption = Conditions?.FirstOrDefault(opt => opt.Value == value.Condition) ?? new();
                 ImagePath = value.ImagePath ?? string.Empty;
                 CategoryId = value.CategoryId;
                 CollectionId = value.CollectionId;
@@ -168,12 +166,14 @@ namespace StampCollectorApp.ViewModels
                 SelectedCategory = Categories?.FirstOrDefault(c => c.Id == value.CategoryId) ?? new Category();
                 SelectedCollection = Collections?.FirstOrDefault(c => c.Id == value.CollectionId) ?? new Collection();
                 SelectedCountry = Countries?.FirstOrDefault(c => c.Id == value.CountryId) ?? new Country();
+                SelectedConditionOption = Conditions?.FirstOrDefault(opt => opt.Value == value.Condition) ?? new();
             }
             else
             {
                 Name = string.Empty;
                 Year = DateTime.Now.Year;
-                Condition = StampCondition.Novo;
+                SelectedCondition = StampCondition.Novo;
+                SelectedConditionOption = Conditions?.FirstOrDefault(opt => opt.Value == StampCondition.Novo) ?? new();
                 ImagePath = string.Empty;
                 CategoryId = 0;
                 CollectionId = 0;
@@ -187,6 +187,7 @@ namespace StampCollectorApp.ViewModels
                 TagId = 0;
                 SelectedCategory = null;
                 SelectedCollection = null;
+                SelectedConditionOption = Conditions?.FirstOrDefault(opt => opt.Value == StampCondition.Novo) ?? new();
             }
         }
 
@@ -288,7 +289,7 @@ namespace StampCollectorApp.ViewModels
             {
                 Name = Name,
                 Year = Year.Value,
-                Condition = Condition,
+                Condition = SelectedCondition ?? StampCondition.Novo,
                 ImagePath = ImagePath,
                 CategoryId = CategoryId,
                 CollectionId = CollectionId,

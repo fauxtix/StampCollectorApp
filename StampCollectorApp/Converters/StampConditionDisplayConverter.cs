@@ -8,9 +8,8 @@ namespace StampCollectorApp.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
-                return "Todas as condições"; // ou o texto que preferir para o filtro nulo
+                return "Todas as condições";
 
-            // Mostra o nome do enum, pode customizar se quiser exibir mais bonito
             return ((StampCondition)value).ToString();
         }
 
