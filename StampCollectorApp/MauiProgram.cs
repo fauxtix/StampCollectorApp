@@ -51,6 +51,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ICountryService, CountryService>();
         builder.Services.AddSingleton<IExchangeService, ExchangeService>();
 
+        builder.Services.AddSingleton<LocalizationOptionsService>();
 
         builder.Services.AddTransient<MainViewModel>();
         builder.Services.AddTransient<MainPage>();
