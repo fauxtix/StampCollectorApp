@@ -132,8 +132,10 @@ This project is licensed under the MIT license.
 
 ![Splash](https://github.com/user-attachments/assets/5f570aac-f09c-4b8b-977b-e4afd1fdf22f)
 ![Opcoes_en](https://github.com/user-attachments/assets/ce1f179e-7b07-4c63-bbef-a55743db704a)
-![Dashboard_1_en](https://github.com/user-attachments/assets/ccd5fc9a-28fd-4641-bfe8-c46009903de3)
-![Dashboard_2_en](https://github.com/user-attachments/assets/9cecdda2-3b18-444b-a947-b2458c75967b)
+![Dashboard_1_en](https://github.com/user-attachments/assets/9d02de92-f2af-4f25-aa32-5fbe0e4e36dc)
+![Dashboard_2_en](https://github.com/user-attachments/assets/a1e25775-bf7f-4e5b-bb12-b9b91753a890)
+![Dashboard_3_en](https://github.com/user-attachments/assets/ba17b505-3160-4252-ae77-b139caa7896f)
+
 ![Colecoes_en](https://github.com/user-attachments/assets/e6788cde-96ed-44e1-bb38-351cbb16dabc)
 ![Colecoes_Novo_en](https://github.com/user-attachments/assets/9d3b02ad-9c95-43c7-b793-58dbfb4d52eb)
 ![Collection_Delete_Warning_en](https://github.com/user-attachments/assets/77ac317a-6050-44e2-a36d-029b37c99f8f)
