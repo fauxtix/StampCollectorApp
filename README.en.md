@@ -132,17 +132,20 @@ This project is licensed under the MIT license.
 
 ![Splash](https://github.com/user-attachments/assets/5f570aac-f09c-4b8b-977b-e4afd1fdf22f)
 ![Opcoes_en](https://github.com/user-attachments/assets/ce1f179e-7b07-4c63-bbef-a55743db704a)
-![Dashboard_1_en](https://github.com/user-attachments/assets/ccd5fc9a-28fd-4641-bfe8-c46009903de3)
-![Dashboard_2_en](https://github.com/user-attachments/assets/9cecdda2-3b18-444b-a947-b2458c75967b)
+![Dashboard_1_en](https://github.com/user-attachments/assets/9d02de92-f2af-4f25-aa32-5fbe0e4e36dc)
+![Dashboard_2_en](https://github.com/user-attachments/assets/a1e25775-bf7f-4e5b-bb12-b9b91753a890)
+![Dashboard_3_en](https://github.com/user-attachments/assets/ba17b505-3160-4252-ae77-b139caa7896f)
+
 ![Colecoes_en](https://github.com/user-attachments/assets/e6788cde-96ed-44e1-bb38-351cbb16dabc)
 ![Colecoes_Novo_en](https://github.com/user-attachments/assets/9d3b02ad-9c95-43c7-b793-58dbfb4d52eb)
 ![Collection_Delete_Warning_en](https://github.com/user-attachments/assets/77ac317a-6050-44e2-a36d-029b37c99f8f)
 
-![Stamps_en](https://github.com/user-attachments/assets/ef1abcf9-9d52-451b-9fac-631f40661a62)
-![StampNovo_1_en](https://github.com/user-attachments/assets/c2f33719-8369-4c31-8ace-8c859c445de2)
-![StampNovo_2_en](https://github.com/user-attachments/assets/19ecc078-d285-4bc8-808e-feffc8a74470)
-![StampEdit_1_en](https://github.com/user-attachments/assets/c827c0b7-d4ce-4e0a-b67c-1d2da6ff748b)
-![StampEdit_2_en](https://github.com/user-attachments/assets/efc4a4b2-0687-4dc3-8111-bc55b1edbadb)
+![Stamps_en](https://github.com/user-attachments/assets/55843f09-df1d-464e-8780-78b29cf446a1)
+![StampNovo_1_en](https://github.com/user-attachments/assets/3a99b983-23b9-40c2-93ce-5fe7546907a0)
+![StampNovo_2_en](https://github.com/user-attachments/assets/d482e546-721d-45d5-80b1-a9afe4c23850)
+![StampEdit_1_en](https://github.com/user-attachments/assets/4aa758cf-602c-425c-b52f-a1593b23b955)
+![StampEdit_2_en](https://github.com/user-attachments/assets/c6f51b71-1968-4e93-bcb2-65aecc01b21c)
+
 
 ![Trocas_en](https://github.com/user-attachments/assets/b90eb0e3-22d7-41e8-a08b-c38d8a348292)
 
