@@ -77,7 +77,11 @@
             <Grid RowDefinitions="Auto, Auto">
                 <Label Grid.Row="0"  HorizontalTextAlignment="Start" Padding="5, 0, 0, 3" Text="{resx:Localize Key=TituloCondicao}"/>
                 <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="10" Padding="3" HasShadow="False">
-                    <Picker Title="{resx:Localize Key=TituloCondicao}" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />
+                    <!--<Picker Title="{resx:Localize Key=TituloCondicao}" ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition, Mode=TwoWay}" />-->
+                    <Picker Title="{resx:Localize Key=TituloCondicao}"
+                        ItemsSource="{Binding Conditions}"
+                        ItemDisplayBinding="{Binding Display}"
+                        SelectedItem="{Binding SelectedConditionOption, Mode=TwoWay}" />
                 </Frame>
             </Grid>
             <Grid RowDefinitions="Auto, Auto">

@@ -18,7 +18,7 @@ namespace StampCollectorApp.ViewModels
         private readonly ICollectionService _collectionService;
 
         private int _currentPage = 1;
-        public List<StampCondition> Conditions { get; } = Enum.GetValues(typeof(StampCondition)).Cast<StampCondition>().ToList();
+        //public List<StampCondition> Conditions { get; } = Enum.GetValues(typeof(StampCondition)).Cast<StampCondition>().ToList();
         public bool CanFetchImageFromApi =>
             Year.HasValue && Year > 1865;
 
@@ -81,6 +81,15 @@ namespace StampCollectorApp.ViewModels
         [ObservableProperty] private bool forExchange;
         [ObservableProperty] private string notes;
         [ObservableProperty] private int tagId;
+
+        public List<StampConditionDisplayOption> Conditions { get; } =
+    LocalizationHelper.GetLocalizedConditions();
+
+        [ObservableProperty]
+        private StampConditionDisplayOption selectedConditionOption;
+
+        [ObservableProperty]
+        private StampCondition? selectedCondition;
 
         public AddStampViewModel(IStampService stampService, ICollectionService collectionService)
         {
@@ -179,6 +188,14 @@ namespace StampCollectorApp.ViewModels
                 SelectedCategory = null;
                 SelectedCollection = null;
             }
+        }
+
+        partial void OnSelectedConditionOptionChanged(StampConditionDisplayOption value)
+        {
+            if (value != null)
+                SelectedCondition = value.Value;
+            else
+                SelectedCondition = null;
         }
 
         [RelayCommand]
