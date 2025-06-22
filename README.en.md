@@ -76,7 +76,7 @@ The app allows you to register stamp exchanges with other collectors easily:
 
 ## 🌐 Localization
 
-This application supports both Portuguese and English languages. You can switch the language in the app settings or according to your system preferences.
+This application supports both Portuguese and English languages. You can switch the language in the Dashboard page or according to your system preferences.
 
 - **Portuguese**: Fully translated user interface.
 - **English**: Fully translated user interface.
