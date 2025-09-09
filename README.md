@@ -22,7 +22,7 @@ se# StampCollectorApp
 - **Modo Troca:** Marque selos como disponíveis para troca.
 - **Registo de Trocas:** Registe facilmente a troca de um selo com outro colecionador. Após selecionar o selo para troca, preencha o nome e contacto do colecionador, e adicione notas se desejar. Um histórico de todas as trocas realizadas fica disponível na aplicação para consulta posterior.
 - **Notas e Detalhes:** Registe informações detalhadas sobre cada selo e coleção.
-- **Dashboard interativo:** Visualize estatísticas e resumos através de gráficos e indicadores, com filtros avançados por Categoria, Coleção e País. Permite uma análise personalizada dos seus dados de coleção.
+- **Dashboard interativo:** Visualize estatísticas e resumos através de gráficos e indicadores, com filtros avançados por Categoria, Coleção, País e Condição do selo. Permite uma análise personalizada dos seus dados de coleção.
 
 ---
 
@@ -40,6 +40,7 @@ Use os filtros no topo do dashboard para visualizar os dados de acordo com:
 - **Categoria**: Mostra apenas selos de uma categoria selecionada.
 - **Coleção**: Filtra estatísticas para uma coleção específica.
 - **País**: Permite ver apenas selos de determinado país.
+- **Condição**: Permite ver apenas selos com uma determinada Coleção.
 
 Após escolher os filtros desejados, clique em **"Aplicar filtros"** para atualizar os gráficos e indicadores. Para voltar à visualização global, basta usar a opção **"Limpar filtros"**.
 
